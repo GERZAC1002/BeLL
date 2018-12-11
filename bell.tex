@@ -1,0 +1,60 @@
+\documentclass[a4paper, twoside, 12pt]{scrreprt}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{soul}
+\usepackage{natbib}
+\title{Bell}
+\author{Gernot Zacharias}
+\subtitle{Thema: Webanwendung zum Finden eines optimalen Standortes in Abhängigkeit vom Weg mithilfe der Google Maps API}
+\begin{document}
+\maketitle
+\cleardoublepage
+\chapter {Inhaltsverzeichnis}
+
+\setcounter{page}{1}
+\chapter {Einleitung}
+
+\section {Problemstellung}
+
+\section{Grundlagen}
+\subsection{World Wide Web}
+Das World Wide Web~\citep{www}
+\subsection{HTML}
+\subsection{JavaScript}
+\subsection{Google Maps}
+\subsection{Koordinatenberechnung}
+Koordinaten Längengrad und Breitengrad:\\ wgs84 ? \\
+https://www.linz.govt.nz/data/geodetic-system/datums-projections-and-heights/geodetic-datums/world-geodetic-system-1984-wgs84 \\
+https://www.kompf.de/gps/distcalc.html
+\chapter{Existierende Lösungen}
+was gibt es für Quellen oder ähnliche Implementierungen
+\chapter{Zielstellung}
+Gesucht ist eine Anwendung, die diesen kürzesten Gesamtweg (oder diese Zeit) minimiert.
+Wenn JavaScript: Interface mit Google Maps, keine Installation nötig, Webanwendungen auf dem Vormarsch…
+Wenn andere Programmiersprache, auch da kurz schreiben warum. (z.B. in Schule beigebracht)
+\chapter{Algorithmus}
+für jedes Ziel weg pro Woche (oder pro Tag…) ausrechnen;
+oder Zeit minimieren, es können ja unterschiedliche Fortbewegungsarten sein
+erstmal aber Weg minimieren, wenn Zeit ist dann Optionen wie Spritverbrauch, Zeit, eigene Priorität;
+erstmal Luftlinie baseline;
+optional: kürzester Weg;
+Punkte finden, an dem sich das Summe minimiert;
+ist das gleich dem Mittelpunkt, wenn man die Strecken entsprechend dem durchschnittlichen Weg verlängert oder kürzt;
+für Leipzig oder überall? bei Leipzig könnte man konstanten Umrechnungsfaktor zwischen Längen/Breitengradunterschieden und Metern/Kilometern wählen (kurz sagen wie groß der Fehler ist), ansonsten braucht man Formel;
+wenn global, problematisch, wenn Wohnort nicht zugänglich ist;
+\chapter{Implementierung}
+z.B. Google Maps view-source:http://wohnen-am-ryck.de/karte.php;
+Hier werden dann die technischen Details der Implementierung und gegebenenfalls der Algorithmen beschrieben. Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
+Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
+\chapter{Schlussfolgerung}
+\section{Auswertung}
+wieviel bringt das wirklich
+\section{Ausblick}
+Zeit, statt Distanz; nicht Luftlinie, sondern kürzesten Weg (über Google Maps API);global, statt Leipzig; Maximallänge für Wege
+\bibliography{bell}{}
+\bibliographystyle{natdin}
+\end{document}
