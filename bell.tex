@@ -17,22 +17,37 @@
 
 \setcounter{page}{1}
 \chapter {Einleitung}
-In Zeiten des Internets verlieren lokal installierte Anwendungen zunehmende an Bedeutung und die Webanwendungen werden immer beliebter, weshalb ich mich im Rahmen meiner Besonderen Lernleistung eine Webanwendung erstellt habe. Die Anwendung soll aus gegebenen Standorten und der Häufigkeit des ansteuerns dieser Orte eine optimale Position für den eigenen Standort liefern, um den Fahrtweg zu optimieren. Die Anwendung baut auf Online Kartendienste wie Google Maps und Open Street Map zurück. Dies kann vor allem für Online Apotheken oder generell für den Online Handel sinnvoll sein, um einen guten Standort für Warenlager zu ermitteln. Auch Personen die eine(n) Wohnung/Wohnstandort suchen kann die Anwendung helfen einen geeigneten Standort zu finden, indem man seinen Arbeitsstandort, seine Arztpraxis oder andere wichtige Institutionen einträgt.
+In Zeiten des Internets verlieren lokal installierte Anwendungen zunehmende an Bedeutung und die Webanwendungen werden immer beliebter,
+weshalb ich mich im Rahmen meiner Besonderen Lernleistung eine Webanwendung erstellt habe.
+Die Anwendung soll aus gegebenen Standorten
+und der Häufigkeit des ansteuerns dieser Orte eine optimale Position für den eigenen Standort liefern, um den Fahrtweg zu optimieren.
+Die Anwendung baut auf Online Kartendienste wie Google Maps und Open Street Map zurück.
+Dies kann vor allem für Online Apotheken oder
+generell für den Online Handel sinnvoll sein, um einen guten Standort für Warenlager zu ermitteln.
+Auch Personen die eine(n) Wohnung/Wohnstandort suchen kann die Anwendung helfen einen geeigneten Standort zu finden, indem man seinen Arbeitsstandort, seine Arztpraxis oder andere wichtige Institutionen einträgt.
 \section {Problemstellung}
 
 \section{Grundlagen}
 \subsection{World Wide Web}
 (Geschichte WWW)
-In der heutigen Zeit gewinnt das World Wide Web (WWW) immer mehr an Bedeutung und ist fast schon nicht mehr wegzudenken. Das World Wide Web ist der Teil des Internets, in dem die Daten mithilfe des HTTP/HTTPS -Protkolls ausgetauscht werden, wobei ein Computer, der Server mit der entsprechenden Webseite, die Daten auf Anfrage des Clients zu diesem schickt. Das WWW umfasst also fast alle öffentlich zugänglichen Webseiten.
+In der heutigen Zeit gewinnt das World Wide Web (WWW) immer mehr an Bedeutung und ist fast schon nicht mehr wegzudenken.
+Das World Wide Web ist der Teil des Internets, in dem die Daten mithilfe des HTTP/HTTPS -Protkolls ausgetauscht werden, wobei ein Computer, der Server mit der entsprechenden Webseite, die Daten auf Anfrage des Clients zu diesem schickt.
+Das WWW umfasst also fast alle öffentlich zugänglichen Webseiten.
 Das World Wide Web~\citep{www}
 \subsection{HTML}
-Die Hyper Text Markup Language (HTML) ist die benutzte Sprache im WWW und beschreibt eine Textdatei, in welcher mit einer bestimmten Syntax geschrieben werden muss. Diese Textdatei wird dann von einem Browser analysiert und zeigt dem Endnutzer den Text mit entsprechender Formatierung. Reine HTML Webseiten besitzten keine dynamischen Elemente und bieten dem Nutzer wenig Interaktionsmöglichkeiten.
+Die Hyper Text Markup Language (HTML) ist die benutzte Sprache im WWW und beschreibt eine Textdatei, in welcher mit einer bestimmten Syntax geschrieben werden muss.
+Diese Textdatei wird dann von einem Browser analysiert und zeigt dem Endnutzer den Text mit entsprechender Formatierung.
+Reine HTML Webseiten besitzten keine dynamischen Elemente und bieten dem Nutzer wenig Interaktionsmöglichkeiten.
 \subsection{JavaScript}
-JavaScript ist eine Scriptsprache welche direkt in eine HTML Datei implementiert werden kann und auch vom Browser entsprechend verarbeitet wird und dynamische Webseiten erlaubt. JavaScript wird über den <script>...</script> -tag in die HTML Datei eingebunden.
+JavaScript ist eine Scriptsprache welche direkt in eine HTML Datei implementiert werden kann und auch vom Browser entsprechend verarbeitet wird und dynamische Webseiten erlaubt.
+JavaScript wird über den <script>...</script> -tag in die HTML Datei eingebunden.
 \subsection{Google Maps}
-Google Maps ist der bekannste Online Kartendienst und bietet viele Möglickeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite. Allerdings benötigt man zur Nutzung der Google Maps API einen benutzerbezogenen Key, welchen man allerdings nur gegen Angabe von Kreditkarten Informationen erstellen kann.
+Google Maps ist der bekannste Online Kartendienst und bietet viele Möglickeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
+Allerdings benötigt man zur Nutzung der Google Maps API einen benutzerbezogenen Key, welchen man allerdings nur gegen Angabe von Kreditkarten Informationen erstellen kann.
 \subsection{Open Street Map}
-Open Street Map spielt im Vergleich mit Google Maps eine untergeordnete Rolle. Dafür bietet Open Street Map freies Kartenmaterial an und es steht eine große Menge an freien API's zu Verfügung. In meinem Prototypen setze ich auf Leavelet, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Map als .png zur Verfügung stellt.
+Open Street Map spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
+Dafür bietet Open Street Map freies Kartenmaterial an und es steht eine große Menge an freien API's zu Verfügung.
+In meinem Prototypen setze ich auf Leavelet, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Map als .png zur Verfügung stellt.
 \subsection{Koordinatenberechnung}
 Koordinaten Längengrad und Breitengrad:\\ wgs84 ? \\
 https://www.linz.govt.nz/data/geodetic-system/datums-projections-and-heights/geodetic-datums/world-geodetic-system-1984-wgs84 \\
@@ -42,7 +57,8 @@ was gibt es für Quellen oder ähnliche Implementierungen
 \chapter{Zielstellung}
 Gesucht ist eine Anwendung, die diesen kürzesten Gesamtweg (oder diese Zeit) minimiert.
 Wenn JavaScript: Interface mit Google Maps, keine Installation nötig, Webanwendungen auf dem Vormarsch…
-Wenn andere Programmiersprache, auch da kurz schreiben warum. (z.B. in Schule beigebracht)
+Wenn andere Programmiersprache, auch da kurz schreiben warum.
+(z.B. in Schule beigebracht)
 \chapter{Algorithmus}
 für jedes Ziel weg pro Woche (oder pro Tag…) ausrechnen;
 oder Zeit minimieren, es können ja unterschiedliche Fortbewegungsarten sein
@@ -55,7 +71,8 @@ für Leipzig oder überall? bei Leipzig könnte man konstanten Umrechnungsfaktor
 wenn global, problematisch, wenn Wohnort nicht zugänglich ist;
 \chapter{Implementierung}
 z.B. Google Maps/Open Street Map view-source:http://wohnen-am-ryck.de/karte.php;
-Hier werden dann die technischen Details der Implementierung und gegebenenfalls der Algorithmen beschrieben. Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
+Hier werden dann die technischen Details der Implementierung und gegebenenfalls der Algorithmen beschrieben.
+Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
 Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
 \chapter{Schlussfolgerung}
 \section{Auswertung}
