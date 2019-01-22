@@ -7,23 +7,33 @@
 \usepackage{graphicx}
 \usepackage{soul}
 \usepackage{natbib}
+\usepackage{todonotes}% Für Anmerkungen
+\presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
+\usepackage{csquotes}% Einfachere Anführungszeichen. Die Anführungszeichen scheinen aber noch die falsche Richtung zu haben. Mit \enquote{Mein Zitat} müsste es aber klappen.
+\MakeOuterQuote{"}% Erlaube das englische generelle Anführungszeichen " sowohl zum Öffnen als auch zum Schließen und auch für deutsche Zitierungen.
 \title{Bell}
 \author{Gernot Zacharias}
 \subtitle{Thema: Webanwendung zum Finden eines optimalen Standortes in Abhängigkeit vom Weg mithilfe der Google Maps API}
 \begin{document}
+\listoftodos
 \maketitle
 \cleardoublepage
 \chapter {Inhaltsverzeichnis}
 
 \setcounter{page}{1}
 \chapter {Einleitung}
-In Zeiten des Internets verlieren lokal installierte Anwendungen zunehmend an Bedeutung und die Webanwendungen werden immer beliebter.
+In Zeiten des Internets\todo{"Zeiten des Internets" finde ich zu allgemein. Das Internet gibt es ja nun schon ziemlich lange} verlieren lokal installierte Anwendungen zunehmend an Bedeutung und Webanwendungen werden immer beliebter.\todo{Behauptungen immer belegen.}
 Deshalb habe ich im Rahmen meiner Besonderen Lernleistung eine Webanwendung erstellt.
-Diese Anwendung soll aus gegebenen Standorten und der Häufigkeit des Ansteuerns dieser Orte eine optimale Position für den eigenen Standort liefern, um den Fahrtweg zu reduzieren.
-Die Anwendung greift auf Online Kartendienste wie Google Maps oder Open Street Map zurück.
-Dies kann vor allem für Online Apotheken oder generell für den Online Handel sinnvoll sein, um einen guten Standort für Warenlager zu ermitteln.
+\todo{"Webanwendungen werden immer beliebter" -> "deshalb habe ich auch eine erstellt" ist für mich kein gutes Argument. Besser:
+1. Was ist das Problem? (Fahrtwege, Mieten)
+2. Wie soll das Problem gelöst werden? (Anwendung)
+3. Details (Webanwendungen werden beliebter wegen folgenden Vorteilen (Quelle), diese vorteile treffen hier auch zu
+}
+Diese Anwendung soll\todo{hier ist die Anwendung noch nicht da} aus gegebenen Standorten und der Häufigkeit des Ansteuerns dieser Orte eine optimale Position für den eigenen Standort liefern, um den Fahrtweg zu reduzieren.
+Die Anwendung greift\todo{im nächsten Satz wird die Anwendung adressiert, als wäre sie schon vorhanden, auf Konsistenz achten. Ich schlage vor, immer wie hier von der Anwendung zu sprechen, als wäre sie schon da.} auf Online Kartendienste wie Google Maps oder Open Street Map zurück.
+Dies kann vor allem für Online Apotheken oder generell für den Online Handel sinnvoll sein, um einen guten Standort für Warenlager zu ermitteln.\todo{Problem an den Anfang stellen}
 Auch Personen die eine(n) Wohnung/Wohnstandort suchen kann die Anwendung helfen einen geeigneten Standort zu finden, indem man seinen Arbeitsstandort, seine Arztpraxis oder andere wichtige Institutionen einträgt.
-Durch die Optimierung kann man Zeit und Geld sparen, da man für kürzere Strecken weniger Treibstoff benötigt und man für diesen bekanntlich Geld bezahlen muss.
+Durch die Optimierung kann man Zeit und Geld sparen, da man für kürzere Strecken weniger Treibstoff benötigt und man für diesen bekanntlich Geld bezahlen muss.\todo{Den letzten Halbsatz würde ich umformulieren, "bekanntlich Geld bezahlen muss" klingt etwas informell. Vielleicht "weniger Treibstoff benötigt und damit Geld spart" oder etwas ähnliches.}
 \cleardoublepage
 \section {Problemstellung}
 Der Online Versandhandel ist ein zurzeit stark wachsender Sektor der Wirtschaft.
