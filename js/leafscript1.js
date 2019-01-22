@@ -8,8 +8,28 @@ var mymap = L.map('map2').setView([51.33918, 12.38105], 12);
 	     }).addTo(mymap);
 var popup = L.popup();
 
+var mymarker = [];
+var mymarkerlae = [];
+var mymarkerbre = [];
+var mymarkerprio = [];
+var marker;
+var laengengrad;
+var breitengrad;
+var i=0;
+
 function onMapClick(e) {
-  var marker = L.marker(e.latlng).addTo(mymap);
-  document.getElementById('ausgabe') = L.toString(L.getLatLng(marker));
+  var latilong = e.latlng;
+  marker = new L.marker(latilong, {draggable:true});
+  marker.bindPopup("<b>Marker "+i+"</b><br>Die "+(i+1)+". gesetzte Position.").openPopup();
+  mymap.addLayer(marker);
+  laengengrad = marker.getLatLng().lng;
+  breitengrad = marker.getLatLng().lat;
+  mymarker[i] = i;
+  mymarkerlae[i] = laengengrad;
+  mymarkerbre[i] = breitengrad;
+  mymarkerprio[i] = 1;
+  document.getElementById("ausgabe").value = document.getElementById("ausgabe").value+'================================='+'\nMarker:'+i+ '\nLängengrad:'+laengengrad+'\nBreitengrad:'+breitengrad+'\nPriorität:'+mymarkerprio[1]+'\n';
+  document.getElementById("ausgabe").rows = document.getElementById("ausgabe").rows + 5;
+  i=i+1;
 }
 mymap.on('click', onMapClick);
