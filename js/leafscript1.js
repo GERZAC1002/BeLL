@@ -19,8 +19,9 @@ var i=0;
 
 function onMapClick(e) {
   var latilong = e.latlng;
-  marker = new L.marker(latilong, {draggable:true});
-  marker.bindPopup("<b>Marker "+i+"</b><br>Die "+(i+1)+". gesetzte Position.").openPopup();
+  marker = new L.marker(latilong, {draggable:false});
+  marker.bindPopup("<b>Marker "+i+"</b><br>Die "
+    +(i+1)+". gesetzte Position.").openPopup();
   mymap.addLayer(marker);
   laengengrad = marker.getLatLng().lng;
   breitengrad = marker.getLatLng().lat;
@@ -28,8 +29,13 @@ function onMapClick(e) {
   mymarkerlae[i] = laengengrad;
   mymarkerbre[i] = breitengrad;
   mymarkerprio[i] = 1;
-  document.getElementById("ausgabe").value = document.getElementById("ausgabe").value+'================================='+'\nMarker:'+i+ '\nLängengrad:'+laengengrad+'\nBreitengrad:'+breitengrad+'\nPriorität:'+mymarkerprio[1]+'\n';
-  document.getElementById("ausgabe").rows = document.getElementById("ausgabe").rows + 5;
+  document.getElementById("ausgabe").value =
+    document.getElementById("ausgabe").value
+    +'================================='+'\nMarker:'
+    +i+ '\nLängengrad:'+laengengrad+'\nBreitengrad:'
+    +breitengrad+'\nPriorität:'+mymarkerprio[1]+'\n';
+  document.getElementById("ausgabe").rows =
+    document.getElementById("ausgabe").rows + 5;
   i=i+1;
 }
 mymap.on('click', onMapClick);
