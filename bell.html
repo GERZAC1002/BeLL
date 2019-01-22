@@ -50,7 +50,7 @@
     <script async defer
     	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ4B2LrXq0EGYGijsoBS0cBqMP76tm0zE&callback=initMap">
     </script>
-    <article>OSM API:</article>
+    <article>Leaflet JS:</article>
 
     <div style="margin-left: 50%;">
 
@@ -61,7 +61,7 @@
       <div style="margin-left: 50%;">
         <p>Zu ändernder Marker:
         <input id="eingabe_marker_number" type="number" placeholder="z.B. 0 für Marker0" min="0" max="1000"></p>
-        <p>Wie oft wird dieser Ort pro Woche aufgesucht:<input id="eingabe_marker_prio" type="number" placeholder="z.B. 0 für Marker0" min="0" max="1000"></p>
+        <p>Wie oft wird dieser Ort pro Woche aufgesucht:<input id="eingabe_marker_prio" type="number" placeholder="z.B. 1 bei 1mal pro Woche" min="0" max="1000"></p>
         <p><button onclick="marker_aktualisieren" >Änderung bestätigen</button></p>
         <textarea id="ausgabe" readonly cols="50" draggable="false"></textarea>
       </div>
