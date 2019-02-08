@@ -4,23 +4,9 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {
 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(mymap);
 
-const mymarker = [];
-const mymarkerlae = [];
-const mymarkerbre = [];
-const mymarkerprio = [];
 let marker;
-let laengengrad;
-let breitengrad;
 let i=0;
 let markers = [];
-
-function marker_aktualisieren(marker){
-	marker._prio = document.getElementById("eingabe_marker_prio").value;
-	document.getElementById("ausgabe").value = document.getElementById("ausgabe").value
-    +'================================='+'\nMarker:'
-    +selected_marker+ '\nLängengrad:'+mymarkerlae[selected_marker]+'\nBreitengrad:'
-    +mymarkerbre[selected_marker]+'\nPriorität:'+mymarkerprio[selected_marker]+'\n';
-}
 
 const markergruppe = L.layerGroup().addTo(mymap);
 
@@ -34,31 +20,38 @@ function onMapClick(e)
 	const latilong = e.latlng;
 	marker = new L.marker(latilong, {draggable:false}).addTo(markergruppe); //Neuer Marker an der angeklickten position
 	marker._id = id;
-	marker._prio = Math.floor((Math.random()*100)+1);
-	marker.bindPopup('<b>Marker '+ marker._id +'</b><br>Die '
-    +(i+1)+'. gesetzte Position.'
-		+ '<br><input type="number" value="' + marker._prio + '" oninput="()=>{marker._prio = this.value;console.log('+marker._prio +')}" placeholder="Priorität" min="0" max="1000" />'
+	marker._prio = 5;
+	marker.bindPopup('<b>Marker '+ marker._id +'</b><br>'
+    + 'Häufigkeit pro Woche'
+		+ '<br><input type="number" value="' + marker._prio + '" oninput="change_marker(' + marker._id +', this.value)" placeholder="Priorität" min="0" max="1000" />'
 		+ '<br>==========================<br>'
 		+ '<input type="button" value="Entferne Marker" onclick="clear_marker(' + marker._id + ')" />'
 	);
 	mymap.addLayer(marker);
 	markers.push(marker);
-	laengengrad = marker.getLatLng().lng; //Einlesen des Längengrades
-	breitengrad = marker.getLatLng().lat; //Einlesen des Breitengrades
-	document.getElementById("ausgabe").value +=
-    '================================='+'\nMarker:'
-    +i+ '\nLängengrad:'+laengengrad+'\nBreitengrad:'
-    +breitengrad+'\nPriorität:'+mymarkerprio[i]+'\n';
-	i=i+1;
 }
 
+let kreis;
+let kreis2;
+
 function center(){
+	if(kreis){
+		mymap.removeLayer(kreis);
+	}
 	const add = (a,b)=>a+b;
 	const prioSum = markers.map(m => m._prio).reduce(add,0);
 	const lat = markers.map(m => m._latlng.lat * m._prio).reduce(add,0)/prioSum;
 	const lng = markers.map(m => m._latlng.lng * m._prio).reduce(add,0)/prioSum;
-	marker = new L.marker([lat, lng],{draggable:false}).addTo(markergruppe);
-	mymap.addLayer(marker);
+	console.log(lat + ' ' + lng);
+	//marker = new L.marker([lat, lng],{draggable:false}).addTo(markergruppe);
+	//mymap.addLayer(marker);
+	kreis = L.circle([lat, lng], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 100
+	}).addTo(mymap);
+	kreis._kreis=true;
 }
 
 /////////////////////////Stackoverflow: https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
@@ -73,5 +66,24 @@ function clear_marker(id)
 	markers = new_markers;
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function change_marker(id, prio){
+	console.log(prio);
+	const new_markers = [];
+	markers.forEach(function(marker){
+		if(marker._id === id){
+			marker._prio = parseInt(prio);
+			marker._popup.setContent('<b>Marker '+ marker._id +'</b><br>'
+				+ 'Häufgkeit pro Woche:'
+				+ '<br><input type="number" value="' + marker._prio + '" oninput="change_marker(' + marker._id +', this.value)" placeholder="Priorität" min="0" max="1000" />'
+				+ '<br>==========================<br>'
+				+ '<input type="button" value="Entferne Marker" onclick="clear_marker(' + marker._id + ')" />'
+			);
+		}
+		new_markers.push(marker);
+	});
+	markers = new_markers;
+	center();
+}
 
 mymap.on('click', onMapClick);
