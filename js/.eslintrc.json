@@ -1,0 +1,54 @@
+{
+	"root": true,
+	"parserOptions":
+	{
+		"ecmaVersion":2018,
+		"ecmaFeatures":
+		{
+			"impliedStrict": true
+		}
+	},
+	"env":
+	{
+		"browser": true,
+		"es6": true
+	},
+	"globals":
+	{
+	},
+	"extends":
+	[
+		"eslint:recommended"
+	],
+	"rules":
+	{
+		"indent": ["error","tab"],
+		"semi": ["error","always"],
+		"no-use-before-define": ["error"],
+		"no-shadow": ["warn"],
+		"no-console": ["warn"],
+		"no-duplicate-imports": ["error"],
+		"dot-notation": ["error"],
+		"eqeqeq": ["error"],
+		"eol-last": ["error"],
+		"max-len": ["warn",220],
+		"padded-blocks": ["error","never"],
+		"space-in-parens": ["error"],
+		"brace-style": ["error","allman",{"allowSingleLine":true}],
+		"array-bracket-spacing": ["error"],
+		"no-unneeded-ternary": ["error"],
+		"no-unexpected-multiline": ["off"],
+		"no-undef": ["error"],
+		"no-var": ["error"],
+		"no-control-regex": ["off"],
+		"curly": ["error"],
+		"camelcase": ["warn"],
+		"no-unused-vars": ["warn"],
+		"prefer-const": ["warn"],
+		"eol-last": ["error"],
+		"padded-blocks": ["error","never"],
+		"comma-dangle": ["error","always-multiline"],
+		"semi": ["error"],
+		"comma-style": ["error","last"]
+		}
+}
