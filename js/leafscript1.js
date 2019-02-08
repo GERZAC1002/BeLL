@@ -5,7 +5,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {
 }).addTo(mymap);
 
 let marker;
-let i=0;
+const i=0;
 let markers = [];
 
 const markergruppe = L.layerGroup().addTo(mymap);
@@ -34,8 +34,10 @@ function onMapClick(e)
 let kreis;
 let kreis2;
 
-function center(){
-	if(kreis){
+function center()
+{
+	if(kreis)
+	{
 		mymap.removeLayer(kreis);
 	}
 	const add = (a,b)=>a+b;
@@ -46,12 +48,48 @@ function center(){
 	//marker = new L.marker([lat, lng],{draggable:false}).addTo(markergruppe);
 	//mymap.addLayer(marker);
 	kreis = L.circle([lat, lng], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,
-    radius: 100
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5,
+		radius: 100,
 	}).addTo(mymap);
 	kreis._kreis=true;
+}
+
+function weightedDistance(p)
+{
+	let wdist = 0;
+	for(const m of markers)
+	{
+		const dlat = p.lat-m._latlng.lat;
+		const dlng = p.lng-m._latlng.lng;
+		wdist += Math.sqrt(dlat*dlat+dlng*dlng) * m._prio;
+	}
+	const add = (a,b)=>a+b;
+	const prioSum = markers.map(m => m._prio).reduce(add,0);
+	wdist/=prioSum;
+	//console.log(wdist);
+
+	return wdist*90;
+}
+
+let heat = null;
+
+function heatmap()
+{
+	if(heat)
+	{
+		mymap.removeLayer(heat);
+	}
+	const data = [];
+	for(let lat = 51.24;lat<51.44;lat+=0.001)
+	{
+		for(let lng = 12.2;lng<12.6;lng+=0.001)
+		{
+			data.push([lat,lng,weightedDistance({"lat":lat,"lng":lng})]);
+		}
+	}
+	heat = L.heatLayer(data, {radius: 10}).addTo(mymap);
 }
 
 /////////////////////////Stackoverflow: https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
@@ -67,11 +105,14 @@ function clear_marker(id)
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function change_marker(id, prio){
+function change_marker(id, prio)
+{
 	console.log(prio);
 	const new_markers = [];
-	markers.forEach(function(marker){
-		if(marker._id === id){
+	markers.forEach(function(marker)
+	{
+		if(marker._id === id)
+		{
 			marker._prio = parseInt(prio);
 			marker._popup.setContent('<b>Marker '+ marker._id +'</b><br>'
 				+ 'Häufgkeit pro Woche:'
@@ -84,6 +125,7 @@ function change_marker(id, prio){
 	});
 	markers = new_markers;
 	center();
+	heatmap();
 }
 
 mymap.on('click', onMapClick);
