@@ -15,6 +15,7 @@
 	},
 	"globals":
 	{
+		"L":true
 	},
 	"extends":
 	[
@@ -42,7 +43,7 @@
 		"no-var": ["error"],
 		"no-control-regex": ["off"],
 		"curly": ["error"],
-		"camelcase": ["warn"],
+		"camelcase": ["off"],
 		"no-unused-vars": ["warn"],
 		"prefer-const": ["warn"],
 		"eol-last": ["error"],
