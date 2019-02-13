@@ -7,10 +7,28 @@
 \usepackage{graphicx}
 \usepackage{soul}
 \usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{listings}
 \usepackage{todonotes}% Für Anmerkungen
 \presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
 \usepackage{csquotes}% Einfachere Anführungszeichen. Die Anführungszeichen scheinen aber noch die falsche Richtung zu haben. Mit \enquote{Mein Zitat} müsste es aber klappen.
 \MakeOuterQuote{"}% Erlaube das englische generelle Anführungszeichen " sowohl zum Öffnen als auch zum Schließen und auch für deutsche Zitierungen.
+\lstset{frame=tb,
+  language=HTML,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{red},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+}
 \title{Bell}
 \author{Gernot Zacharias}
 \subtitle{Thema: Webanwendung zum Finden eines optimalen Standortes in Abhängigkeit vom Weg mithilfe von Online-Kartendiensten}
@@ -19,7 +37,6 @@
 \maketitle
 \cleardoublepage
 \chapter {Inhaltsverzeichnis}
-
 \setcounter{page}{1}
 \chapter {Einleitung}
 Durch den aufstrebenden Online-Versand-Handel, wie zum Beispiel durch Onlineversandapotheken, entstehen neue Probleme.
@@ -47,7 +64,7 @@ Dazu kann man zum Beispiel die Warenlager dort plazieren, wo die Nachfrage am gr
 \subsection{World Wide Web}
 (Geschichte WWW)
 In der heutigen Zeit gewinnt das World Wide Web (WWW) immer mehr an Bedeutung und ist fast schon nicht mehr wegzudenken.
-Das World Wide Web ist der Teil des Internets, in dem die Daten mithilfe des HTTP/HTTPS -Protkolls ausgetauscht werden, wobei ein Computer, der Server mit der entsprechenden Webseite, die Daten auf Anfrage des Clients zu diesem schickt.
+Das World Wide Web ist der Teil des Internets, in dem die Daten mithilfe des HTTP/HTTPS -Protokolls ausgetauscht werden, wobei ein Computer, der Server mit der entsprechenden Webseite, die Daten auf Anfrage des Clients zu diesem schickt.
 Das WWW umfasst also fast alle öffentlich zugänglichen Webseiten.
 Das World Wide Web~\citep{www}
 \subsection{HTML}
@@ -78,7 +95,12 @@ Wenn JavaScript: Interface mit Google Maps, keine Installation nötig, Webanwend
 Wenn andere Programmiersprache, auch da kurz schreiben warum.
 (z.B. in Schule beigebracht)
 \chapter{Algorithmus}
-Die Anwendung berechnet den Mittelpunkt anhand der Häufigkeit, wie oft man den Ort pro Woche ansteuert.
+Die Anwendung berechnet den Mittelpunkt anhand der Häufigkeit, wie oft man den Ort pro Woche ansteuert. Der Benutzer setz dazu Marker, welche am Anfang die Häufigkeit von 5x/Woche aufweisen, auf die Karte.
+Wärend des Setzens der Marker wird bereits ein Mittelpunkt berechnet.
+Durch einen Klick auf den Marker erscheint ein Popup in welchem man die Häufigkeit ändern kann. 
+Danach wird die Position des Mittelpunktes erneut berechnet.
+Der Mittelpunkt wird durch drei Kreise dargestellt, einen inneren roten, einen mittleren gelben und durch einen grünen äußeren Kreis.
+\\\\
 für jedes Ziel weg pro Woche (oder pro Tag…) ausrechnen;
 oder Zeit minimieren, es können ja unterschiedliche Fortbewegungsarten sein
 erstmal aber Weg minimieren, wenn Zeit ist dann Optionen wie Spritverbrauch, Zeit, eigene Priorität;
@@ -89,8 +111,15 @@ ist das gleich dem Mittelpunkt, wenn man die Strecken entsprechend dem durchschn
 für Leipzig oder überall? bei Leipzig könnte man konstanten Umrechnungsfaktor zwischen Längen/Breitengradunterschieden und Metern/Kilometern wählen (kurz sagen wie groß der Fehler ist), ansonsten braucht man Formel;
 wenn global, problematisch, wenn Wohnort nicht zugänglich ist;
 \chapter{Implementierung}
-Für die Kartendarstellung nutze ich leaflet, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen. Eine Quelle, die auch ich benutzt habe, ist OpenStreetmMap. 
-z.B. Google Maps/Open Street Map view-source:http://wohnen-am-ryck.de/karte.php;
+Für die Kartendarstellung nutze ich Leaflet~\citep{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen. Eine Kartendatenquelle, die auch ich benutzt habe, ist OpenStreetMap\footnote{\url{https://www.openstreetmap.org}}.
+Für die Webanwendung ist nur ein halbwegs aktueller Webrowser notwendig.
+Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer Javascript Datei sowie der Leaflet Bibliothek.
+\begin{lstlisting}
+	...
+	<div id="map"></div> //
+	<script src="js/leafscript1.js" type = "text/javascript"></script>
+	...
+\end{lstlisting}
 Hier werden dann die technischen Details der Implementierung und gegebenenfalls der Algorithmen beschrieben.
 Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
 Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
@@ -98,7 +127,22 @@ Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
 \section{Auswertung}
 wieviel bringt das wirklich
 \section{Ausblick}
+Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse außer Acht.
+Auch basiert die Berechnung bisher nur auf Linien in der Ebene, aber die Erde ist ein drei dimensionales Objekt und der Abstand zwischen zwei Punkten müsste durch einen Kreisbogen beschrieben werden.
+Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, z.B. Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung, ... .
 Zeit, statt Distanz; nicht Luftlinie, sondern kürzesten Weg (über Google Maps API);global, statt Leipzig; Maximallänge für Wege
+\section{Abkürzungsverzeichnis}
+\begin{tabular}{ll}
+	API		&Application programming Interface\\
+	HTML	&Hypertext Markup Language\\
+	HTTP	&Hypertext Transfer Protocol\\
+	HTTPS	&Hypertext Transfer Protocol Secure\\
+	JS		&JavaScript\\
+	PNG		&Portable Network Graphic\\
+	WGS84	&52\\
+	WWW		&World Wide Web\\
+\end{tabular}
+
 \bibliography{bell}{}
 \bibliographystyle{natdin}
 \end{document}

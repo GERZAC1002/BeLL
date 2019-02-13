@@ -1,4 +1,4 @@
-const mymap = L.map('map2').setView([51.33918, 12.38105], 12);
+const mymap = L.map('map').setView([51.33918, 12.38105], 12);
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {
 	maxZoom: 18,
 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
