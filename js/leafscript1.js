@@ -17,7 +17,7 @@ function onMapClick(e){
 	else {id = markers[markers.length - 1]._id + 1;}
 	////////////////////////////////
 	const latilong = e.latlng;
-	marker = new L.marker(latilong, {draggable:true}).addTo(markergruppe); //Neuer Marker an der angeklickten position
+	marker = new L.marker(latilong, {draggable:false}).addTo(markergruppe); //Neuer Marker an der angeklickten position
 	marker._id = id;
 	marker._prio = 5;
 	marker.bindPopup('<b>Marker '+ marker._id +'</b><br>'
