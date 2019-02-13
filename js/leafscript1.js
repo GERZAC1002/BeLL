@@ -97,7 +97,7 @@ function heatmap()
 		mymap.removeLayer(heat);
 	}
 	const data = [];
-	for(let lat = 51.24;lat<51.44;lat+=0.01)
+	for(let lat = 51.24;lat<51.44;lat+=0.0005)
 	{
 		for(let lng = 12.2;lng<12.6;lng+=0.01)
 		{
