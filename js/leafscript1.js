@@ -10,8 +10,7 @@ let markers = [];
 
 const markergruppe = L.layerGroup().addTo(mymap);
 
-function onMapClick(e)
-{
+function onMapClick(e){
 	//////////////////Stackoverflow: https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
 	let id;
 	if (markers.length < 1) {id = 0;}
@@ -36,10 +35,8 @@ let kreis1;
 let kreis2;
 let kreis3;
 
-function center()
-{
-	if(kreis1&&kreis2&&kreis3)
-	{
+function center(){
+	if(kreis1&&kreis2&&kreis3){
 		mymap.removeLayer(kreis1);
 		mymap.removeLayer(kreis2);
 		mymap.removeLayer(kreis3);
@@ -71,11 +68,9 @@ function center()
 	}).addTo(mymap);
 }
 
-function weightedDistance(p)
-{
+function weightedDistance(p){
 	let wdist = 0;
-	for(const m of markers)
-	{
+	for(const m of markers){
 		const dlat = p.lat-m._latlng.lat;
 		const dlng = p.lng-m._latlng.lng;
 		wdist += Math.sqrt(dlat*dlat+dlng*dlng) * m._prio;
@@ -90,17 +85,13 @@ function weightedDistance(p)
 
 let heat = null;
 
-function heatmap()
-{
-	if(heat)
-	{
+function heatmap(){
+	if(heat){
 		mymap.removeLayer(heat);
 	}
 	const data = [];
-	for(let lat = 51.24;lat<51.44;lat+=0.0005)
-	{
-		for(let lng = 12.2;lng<12.6;lng+=0.01)
-		{
+	for(let lat = 51.24;lat<51.44;lat+=0.0005){
+		for(let lng = 12.2;lng<12.6;lng+=0.01){
 			data.push([lat,lng,weightedDistance({"lat":lat,"lng":lng})]);
 		}
 	}
@@ -108,11 +99,9 @@ function heatmap()
 }
 
 /////////////////////////Stackoverflow: https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
-function clear_marker(id)
-{
+function clear_marker(id){
 	const new_markers = [];
-	markers.forEach(function(marker)
-	{
+	markers.forEach(function(marker){
 		if (marker._id === id) {mymap.removeLayer(marker);}
 		else {new_markers.push(marker);}
 	});
@@ -121,14 +110,11 @@ function clear_marker(id)
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function change_marker(id, prio)
-{
+function change_marker(id, prio){
 	console.log(prio);
 	const new_markers = [];
-	markers.forEach(function(marker)
-	{
-		if(marker._id === id)
-		{
+	markers.forEach(function(marker){
+		if(marker._id === id){
 			marker._prio = parseInt(prio);
 			marker._popup.setContent('<b>Marker '+ marker._id +'</b><br>'
 				+ 'Häufgkeit pro Woche:'
