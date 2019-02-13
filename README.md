@@ -1,3 +1,3 @@
-This repository contains files of my special learning achievement including *.tex, *.bib and *.html files
+This repository contains files of my special learning achievement including *.tex, *.bib, *.js and *.html files
 
-Don't steal the google maps api keys or the mapbox access token.
+Don't steal the google maps api keys,
