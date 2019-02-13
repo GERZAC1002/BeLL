@@ -41,7 +41,7 @@
 \chapter {Einleitung}
 Durch den aufstrebenden Online-Versand-Handel, wie zum Beispiel durch Onlineversandapotheken, entstehen neue Probleme.
 Die Versandhändler benötigen Lagerhäuser für ihre Waren und die Fahrtwege vom Lager zum Kunden sollten möglichst minimal gehalten werden,
-um Zeit und Geld zu sparen. Auch für Privatanwender kann es interressant sein die Fahrtwege zu minimieren, um z.B. den Weg auf Arbeit kurz zu halten, oder
+um Zeit und Geld zu sparen. Auch für Privatanwender kann es interressant sein die Fahrtwege zu minimieren, um zum Beispiel den Weg auf Arbeit kurz zu halten, oder
 um einen Wohnort mit niedrigen Mieten zu wählen. Somit lässt sich auch der Treibstoff Verbrauch reduzieren, was dem Geldbeutel und der Umwelt zu Gute kommt.
 Dieses Problem lässt sich durch eine Anwendung lösen, die aus der Häufigkeit der angesteuerten Orte eine optimale Position bestimmt mit möglichst 
 kurzen Fahrwegen. Diese Anwendung kann zum Beispiel auf Basis  der Kartendienste von Google Maps und Open Street Map realisiert werden.
@@ -93,7 +93,7 @@ Mein Ziel ist es eine Anwendung zu kreiren, welche aus der Häufigkeit des Anste
 Gesucht ist eine Anwendung, die diesen kürzesten Gesamtweg (oder diese Zeit) minimiert.
 Wenn JavaScript: Interface mit Google Maps, keine Installation nötig, Webanwendungen auf dem Vormarsch…
 Wenn andere Programmiersprache, auch da kurz schreiben warum.
-(z.B. in Schule beigebracht)
+(zum Beispiel in Schule beigebracht)
 \chapter{Algorithmus}
 Die Anwendung berechnet den Mittelpunkt anhand der Häufigkeit, wie oft man den Ort pro Woche ansteuert. Der Benutzer setz dazu Marker, welche am Anfang die Häufigkeit von 5x/Woche aufweisen, auf die Karte.
 Wärend des Setzens der Marker wird bereits ein Mittelpunkt berechnet.
@@ -116,8 +116,14 @@ Für die Webanwendung ist nur ein halbwegs aktueller Webrowser notwendig.
 Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer Javascript Datei sowie der Leaflet Bibliothek.
 \begin{lstlisting}
 	...
-	<div id="map"></div> //
+	<link rel="stylesheet" href="leaflet/leaflet.css" crossorigin=""/>
+	//Einbetten der CSS Datei von Leaflet
+	<script src="leaflet/leaflet.js"></script>
+	//Einbettung der Leaflet Bibliothek
+	...
+	<div id="map"></div> //Kartencontainer
 	<script src="js/leafscript1.js" type = "text/javascript"></script>
+	//Einbettung des selbstgeschriebenen Scripts
 	...
 \end{lstlisting}
 Hier werden dann die technischen Details der Implementierung und gegebenenfalls der Algorithmen beschrieben.
@@ -129,11 +135,12 @@ wieviel bringt das wirklich
 \section{Ausblick}
 Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse außer Acht.
 Auch basiert die Berechnung bisher nur auf Linien in der Ebene, aber die Erde ist ein drei dimensionales Objekt und der Abstand zwischen zwei Punkten müsste durch einen Kreisbogen beschrieben werden.
-Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, z.B. Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung, ... .
+Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung, ... .
 Zeit, statt Distanz; nicht Luftlinie, sondern kürzesten Weg (über Google Maps API);global, statt Leipzig; Maximallänge für Wege
 \section{Abkürzungsverzeichnis}
 \begin{tabular}{ll}
 	API		&Application programming Interface\\
+	CSS		&Cascading Style Sheets\\
 	HTML	&Hypertext Markup Language\\
 	HTTP	&Hypertext Transfer Protocol\\
 	HTTPS	&Hypertext Transfer Protocol Secure\\

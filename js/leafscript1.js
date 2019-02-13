@@ -52,13 +52,13 @@ function center(){
 		color: 'green',
 		fillColor: '#00ff00',
 		fillOpacity: 0.2,
-		radius: 500,
+		radius: 1000,
 	}).addTo(mymap);
 	kreis2 = L.circle([lat, lng], {
 		color: 'yellow',
 		fillColor: '#ffff00',
 		fillOpacity: 0.3,
-		radius: 300,
+		radius: 500,
 	}).addTo(mymap);
 	kreis3 = L.circle([lat, lng], {
 		color: 'red',
