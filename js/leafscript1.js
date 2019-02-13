@@ -18,7 +18,7 @@ function onMapClick(e)
 	else {id = markers[markers.length - 1]._id + 1;}
 	////////////////////////////////
 	const latilong = e.latlng;
-	marker = new L.marker(latilong, {draggable:false}).addTo(markergruppe); //Neuer Marker an der angeklickten position
+	marker = new L.marker(latilong, {draggable:true}).addTo(markergruppe); //Neuer Marker an der angeklickten position
 	marker._id = id;
 	marker._prio = 5;
 	marker.bindPopup('<b>Marker '+ marker._id +'</b><br>'
@@ -29,16 +29,20 @@ function onMapClick(e)
 	);
 	mymap.addLayer(marker);
 	markers.push(marker);
+	center();
 }
 
-let kreis;
+let kreis1;
 let kreis2;
+let kreis3;
 
 function center()
 {
-	if(kreis)
+	if(kreis1&&kreis2&&kreis3)
 	{
-		mymap.removeLayer(kreis);
+		mymap.removeLayer(kreis1);
+		mymap.removeLayer(kreis2);
+		mymap.removeLayer(kreis3);
 	}
 	const add = (a,b)=>a+b;
 	const prioSum = markers.map(m => m._prio).reduce(add,0);
@@ -47,13 +51,24 @@ function center()
 	console.log(lat + ' ' + lng);
 	//marker = new L.marker([lat, lng],{draggable:false}).addTo(markergruppe);
 	//mymap.addLayer(marker);
-	kreis = L.circle([lat, lng], {
+	kreis1 = L.circle([lat, lng], {
+		color: 'green',
+		fillColor: '#00ff00',
+		fillOpacity: 0.2,
+		radius: 500,
+	}).addTo(mymap);
+	kreis2 = L.circle([lat, lng], {
+		color: 'yellow',
+		fillColor: '#ffff00',
+		fillOpacity: 0.3,
+		radius: 300,
+	}).addTo(mymap);
+	kreis3 = L.circle([lat, lng], {
 		color: 'red',
 		fillColor: '#f03',
 		fillOpacity: 0.5,
 		radius: 100,
 	}).addTo(mymap);
-	kreis._kreis=true;
 }
 
 function weightedDistance(p)
@@ -82,9 +97,9 @@ function heatmap()
 		mymap.removeLayer(heat);
 	}
 	const data = [];
-	for(let lat = 51.24;lat<51.44;lat+=0.001)
+	for(let lat = 51.24;lat<51.44;lat+=0.01)
 	{
-		for(let lng = 12.2;lng<12.6;lng+=0.001)
+		for(let lng = 12.2;lng<12.6;lng+=0.01)
 		{
 			data.push([lat,lng,weightedDistance({"lat":lat,"lng":lng})]);
 		}
@@ -102,6 +117,7 @@ function clear_marker(id)
 		else {new_markers.push(marker);}
 	});
 	markers = new_markers;
+	center();
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -125,7 +141,7 @@ function change_marker(id, prio)
 	});
 	markers = new_markers;
 	center();
-	heatmap();
+	//heatmap();
 }
 
 mymap.on('click', onMapClick);
