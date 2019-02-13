@@ -8,8 +8,8 @@
       width: 100%;  /* Breite der Karte ist 100% */
      }
     #map2 {
-      height: 90%;
-      width: 50%
+      height: 100%;
+      width: 100%
     }
     textarea {
       resize: none;
@@ -22,10 +22,11 @@
    <script src="leaflet/leaflet-heat.js"></script>
 
 </head>
-<body>
+<body style="background-color: black;">
+  <!--
   <h1>Bell Projekt</h1>
   <p>Projekt zur Standort Optimierung aufgrund von gegebenen Daten über gegebene Orte, welche
-  mit einer bestimmten Häufigkeit besucht/angefahren werden, und der gegebenen Weglänge.</p>
+  mit einer bestimmten Häufigkeit besucht/angefahren werden, und der gegebenen Weglänge.</p>-->
   <!--
   <article>GMops API</article>
   <div id="map"></div>
@@ -47,9 +48,9 @@
     </script>
     <script async defer
     	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ4B2LrXq0EGYGijsoBS0cBqMP76tm0zE&callback=initMap">
-    </script>-->
-    <article>Leaflet JS:</article>
-    <div style="width: 100%; float: left;" id="map2" ></div>
+    </script>
+    <article>Leaflet JS:</article>-->
+    <div id="map2"></div>
     <script src="js/leafscript1.js" type = "text/javascript"></script>
 </body>
 </html>
