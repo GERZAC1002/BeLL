@@ -1,5 +1,7 @@
 #
 *.aux
+*.out
+*.tdo
 *.bbl
 *.blg
 *.log
