@@ -1,6 +1,6 @@
 const mymap = L.map('map').setView([51.33918, 12.38105], 12);
 //Karte erstellen mit Mittelpunkt 51.33918N und 12.38105O und Zoomstufe 12
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {//Festlegen des Anbieters des Kartenmaterials
+L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {//Festlegen des Anbieters des Kartenmaterials
 	maxZoom: 20,//maximaler zoom nach unten
 	minZoom: 5,//maximaler zoom nach oben
 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',//Anzeigen des Copyrights von OpenStreetMap
@@ -13,20 +13,28 @@ let markers = [];//Neues Feld markers wird erstellt
 function onMapClick(e){
 	//////////////////Stackoverflow: https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
 	let id;//Variable id wird initialisiert
-	if (markers.length < 1) {//
-		id = 0;
-	}else {
-		id = markers[markers.length - 1]._id + 1;
+	if (markers.length < 1) {//Wenn markers feldlänge < 1 ist
+		id = 0; //ID bekommt den Wert 0
+	}else {//Wenn markers feldlänge nict <1 ist
+		id = markers[markers.length - 1]._id + 1; //ID = die ID vom voherigen markers Eintrag +1
 	}
 	////////////////////////////////
 	marker = new L.marker(e.latlng, {draggable:false}).addTo(mymap); //Neuer Marker an der angeklickten position
 	marker._id = id;//Marker wird eine ID zugewiesen
 	marker._prio = 5;//Marker wird eine Priorität zugewiesen
-	marker.bindPopup('<b>Marker '+ marker._id +'</b><br>'
+	marker.bindPopup('<b>Marker '
+		+ marker._id
+		+'</b><br>'
     + 'Priorität:'
-		+ '<br><input type="number" value="' + marker._prio + '" oninput="change_marker(' + marker._id +', this.value)" placeholder="Priorität" min="0" max="1000" />'
+		+ '<br><input type="number" value="'
+		+ marker._prio
+		+ '" oninput="change_marker('
+		+ marker._id
+		+', this.value)" placeholder="Priorität" min="0" max="1000" />'
 		+ '<br>==========================<br>'
-		+ '<input type="button" value="Entferne Marker" onclick="clear_marker(' + marker._id + ')" />'
+		+ '<input type="button" value="Entferne Marker" onclick="clear_marker('
+		+ marker._id
+		+ ')" />'
 	);//Marker bekommt ein Popup zugewiesen
 	mymap.addLayer(marker);//Marker wird Karte hizugefügt
 	markers.push(marker);//Marker wird ins Feld Markers hinzugefügt
@@ -67,36 +75,48 @@ function center(){//Beginn der Funktion center()
 	}).addTo(mymap);//Zur Karte hizufügen
 }
 
-/////////////////////////Stackoverflow: https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
-function clear_marker(id){
-	const new_markers = [];
-	markers.forEach(function(marker){
-		if (marker._id === id) {mymap.removeLayer(marker);}
-		else {new_markers.push(marker);}
-	});
-	markers = new_markers;
-	center();
-}
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function change_marker(id, prio){
-	console.log(prio);
-	const new_markers = [];
-	markers.forEach(function(marker){
-		if(marker._id === id){
-			marker._prio = parseInt(prio);
-			marker._popup.setContent('<b>Marker '+ marker._id +'</b><br>'
-				+ 'Priorität:'
-				+ '<br><input type="number" value="' + marker._prio + '" oninput="change_marker(' + marker._id +', this.value)" placeholder="Priorität" min="0" max="1000" />'
-				+ '<br>==========================<br>'
-				+ '<input type="button" value="Entferne Marker" onclick="clear_marker(' + marker._id + ')" />'
-			);
+////////////////////////////////////////////////////////////////////////////////
+//https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
+//Kommentarevon mir selber
+function clear_marker(id){//Funktion ckear_marker() mit Übergabewert id
+	const new_markers = [];//neues Markerfeld
+	markers.forEach(function(marker){//Mache für jeden Marker
+		if (marker._id === id) {//Mache wenn marker._id gleich ID ist
+			mymap.removeLayer(marker);//Entferne Marker
+		}else {//Wenn Marker._id != ID ist
+			new_markers.push(marker);//Füge Marker in neues Feld ein
 		}
-		new_markers.push(marker);
 	});
-	markers = new_markers;
-	center();
+	markers = new_markers;//Markers Feld übernimmt Werte aus new_markers feld
+	center();//Führe Funktion center() aus
+}
+//ENDE Stackoverflow
+////////////////////////////////////////////////////////////////////////////////
+
+function change_marker(id, prio){//Funktion change_marker() mit Übergabewerten ID, prio
+	const new_markers = [];//neues Markerfeld
+	markers.forEach(function(marker){//Mache für jeden Marker
+		if(marker._id === id){//Mache wenn marker._id gleich ID ist
+			marker._prio = parseInt(prio);//weise marker._prio übergebenen prio wert zu
+			marker._popup.setContent('<b>Marker '
+				+ marker._id +'</b><br>'
+				+ 'Priorität:'
+				+ '<br><input type="number" value="'
+				+ marker._prio
+				+ '" oninput="change_marker('
+				+ marker._id
+				+', this.value)" placeholder="Priorität" min="0" max="1000" />'
+				+ '<br>==========================<br>'
+				+ '<input type="button" value="Entferne Marker" onclick="clear_marker('
+				+ marker._id
+				+')" />'
+			);//Popup für Marker, enthält Knopf mit funktion clear_marker()
+		}
+		new_markers.push(marker);//packe marker in new_markers feld
+	});
+	markers = new_markers;//Feld markers übernimmt Werte aus new_markers
+	center();//Führe Funktion center() aus
 	//heatmap();
 }
 
-mymap.on('click', onMapClick);
+mymap.on('click', onMapClick);//Funktion für den Klick auf die Karte
