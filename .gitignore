@@ -1,5 +1,6 @@
 #
 *.aux
+*.swp
 *.out
 *.tdo
 *.bbl
