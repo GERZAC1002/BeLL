@@ -118,38 +118,53 @@ Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer
 \begin{lstlisting}
 	...
 	<link rel="stylesheet" href="leaflet/leaflet.css" crossorigin=""/>
-	//Einbetten der CSS Datei von Leaflet
 	<script src="leaflet/leaflet.js"></script>
-	//Einbettung der Leaflet Bibliothek
 	...
 	<div id="map"></div> //Kartenkontainer
 	<script src="js/leafscript1.js" type = "text/javascript"></script>
-	//Einbettung des selbstgeschriebenen Scripts
 	...
 \end{lstlisting}
 Mein Script \textit{leaflet1.js} erstellt eine neue Variable \textit{mymap}, die dann als Objekt für die Kartendaten dient.
-Die Karte wird dabei erstellt und hat als Mittlepunkt die Stadt Leipzig(Längengrad: 51.339\textdegree Nord, Breitengrad: 12.381\textdegree Ost).
+Die Karte wird dabei erstellt und hat als Mittlepunkt die Stadt Leipzig(Längengrad: 51.339\textdegree Nord, Breitengrad: 12.381\textdegree Ost, ). Die Ansicht ist standartmäßig auf eine Zoomstufe von 12 eingestellt, da man so die gesamte Stadt und das Umland sehen kann.
 Als nächstes wird dann zur Karte eine neue Ebene hinzugefügt, welche die Bildinformationen von einem OpenStreetMap Server abfragt und darstellt.
 Außerdem wird festgelegt wie weit man in die Karte rein- und rauszoomen kann.
 \lstset{language=Java}
 \begin{lstlisting}
 const mymap = L.map('map').setView([51.33918, 12.38105], 12);
-//Karte erstellen mit Mittelpunkt 51.33918N und 12.38105O und Zoomstufe 12
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {
-//Festlegen des Anbieters des Kartenmaterials
-	maxZoom: 20, //maximaler zoom nach unten
-	minZoom: 5, //maximaler zoom nach oben
+	maxZoom: 20,
+	minZoom: 5,
 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-	//Anzeigen des Copyrights von OpenStreetMap
-}).addTo(mymap);//Layer wird Karte 'mymap' hinzugefuegt
+}).addTo(mymap);
 \end{lstlisting}
-Als nächstes wird eine Varible für einen Marker initialisiert, sowie eine Konstante i und ein Feld für mehrere Marker.
+Als nächstes wird eine Varible für einen Marker initialisiert, sowie eine Konstante i und ein Feld für die gesetzten Marker. Auch werden Variablen für die Kreise, die den Mittelpunkt anzeigen, definiert.
 \begin{lstlisting}
-let marker;//neue Variable wird hinzugefuegt
-const i=0;//Konstante i mit Wert 0 wird hinzugefuegt
-let markers = [];//Neues Feld markers wird erstellt
+let marker;
+const i=0;
+let markers = [];
+let kreis1;
+let kreis2;
+let kreis3;
 \end{lstlisting}
-d
+Damit der Nutzer Marker auf die Karte setzen kann wird einen neue Funktion definiert, die an der angeklickten Position, auf der Karte, einen Marker setzt.
+Jeder Marker bekommt eine ID zugewiesen, damit man ihn später wieder entfernen kann.
+Auch wird dem Marker standardmäßig eine Priorität mit dem Wert 5 zugewiesen.
+Die ID wird aus der Länge des \textit{markers} Feld definiert.
+\begin{lstlisting}
+function onMapClick(e){
+	let id;
+	if (markers.length < 1) {
+		id = 0;
+	}else {
+		id = markers[markers.length - 1]._id + 1;
+	}
+	marker = new L.marker(e.latlng, {draggable:false}).addTo(mymap);
+	marker._id = id;
+	marker._prio = 5;
+	...
+}
+\end{lstlisting}
+s
 \\\\Hier werden dann die technischen Details der Implementierung und gegebenenfalls der Algorithmen beschrieben.
 Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
 Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;

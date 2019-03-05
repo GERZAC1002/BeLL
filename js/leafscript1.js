@@ -9,7 +9,12 @@ L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {//Festlegen des
 let marker;//neue Variable wird hinzugefügt
 const i=0;//Konstante i mit Wert 0 wird hinzugefügt
 let markers = [];//Neues Feld markers wird erstellt
+let kreis1;//Variable für Kreis 1
+let kreis2;//Variable für Kreis 2
+let kreis3;//Variable für Kreis 3
 
+//Funktion die beim Klick auf die Karte ausgeführt wird
+//setzt Marker an angeklickte Position
 function onMapClick(e){
 	//////////////////Stackoverflow: https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
 	let id;//Variable id wird initialisiert
@@ -40,10 +45,6 @@ function onMapClick(e){
 	markers.push(marker);//Marker wird ins Feld Markers hinzugefügt
 	center();//Funktion center() wird ausgeführt
 }
-
-let kreis1;//Variable für Kreis 1
-let kreis2;//Variable für Kreis 2
-let kreis3;//Variable für Kreis 3
 
 function center(){//Beginn der Funktion center()
 	if(kreis1&&kreis2&&kreis3){//Mach das nachfolgende wenn Kreise 1-3 vorhanden sind
