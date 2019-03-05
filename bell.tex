@@ -29,6 +29,13 @@
   breaklines=true,
   breakatwhitespace=true,
   tabsize=3,
+  texcl=true,
+}
+
+\lstset{
+  literate={ö}{{\"o}}1
+           {ä}{{\"a}}1
+           {ü}{{\"u}}1
 }
 \title{Bell}
 \author{Gernot Zacharias}
@@ -146,10 +153,17 @@ let kreis1;
 let kreis2;
 let kreis3;
 \end{lstlisting}
-Damit der Nutzer Marker auf die Karte setzen kann wird einen neue Funktion definiert, die an der angeklickten Position, auf der Karte, einen Marker setzt.
+Damit der Nutzer Marker auf die Karte setzen kann wird einen neue Funktion \textit{onMapClick(e)} definiert, die, an der angeklickten Position, auf der Karte, einen Marker setzt.
 Jeder Marker bekommt eine ID zugewiesen, damit man ihn später wieder entfernen kann.
 Auch wird dem Marker standardmäßig eine Priorität mit dem Wert 5 zugewiesen.
 Die ID wird aus der Länge des \textit{markers} Feld definiert.
+Dem Marker wird auch ein Popup zugewiesen.
+Dieses Popup zeigt die Marker ID, Priorität und einene Button zum entfernen des Markers.
+Das Popup enthält auch ein Eingabefeld zum ändern der Priorität.
+Beim Ändern der Priorität wird die Funktion \textit{change}\_\textit{marker()} aufgerufen und übergibt die ID des Markers und die Priorität.
+Der Button ruft bei einem Klick die Funktion \textit{clear}\_\textit{marker()} auf.
+Danach wird zur Karte ein neuer Layer hinzugefügt und die Marker die im Array \textit{Markers} enthalten sind, werden dem Layer hinzugefügt.
+Als letztes wird noch die Funktion \textit{center()} aufgerufen.
 \begin{lstlisting}
 function onMapClick(e){
 	let id;
@@ -161,10 +175,26 @@ function onMapClick(e){
 	marker = new L.marker(e.latlng, {draggable:false}).addTo(mymap);
 	marker._id = id;
 	marker._prio = 5;
-	...
+	marker.bindPopup('<b>Marker '
+		+ marker._id
+		+'</b><br>'
+    	+ 'Priorität:'
+		+ '<br><input type="number" value="'
+		+ marker._prio
+		+ '" oninput="change_marker('
+		+ marker._id
+		+', this.value)" placeholder="Priorität" min="0" max="1000" />'
+		+ '<br>==========================<br>'
+		+ '<input type="button" value="Entferne Marker" onclick="clear_marker('
+		+ marker._id
+		+ ')" />'
+	);
+	mymap.addLayer(marker);
+	markers.push(marker);
+	center();
 }
 \end{lstlisting}
-s
+Die nächste wichtige Funktion ist \textit{center()}, da diese für die Berechnung des Mittlepunktes zuständig ist.
 \\\\Hier werden dann die technischen Details der Implementierung und gegebenenfalls der Algorithmen beschrieben.
 Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
 Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
@@ -172,7 +202,7 @@ Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
 \section{Auswertung}
 wieviel bringt das wirklich
 \section{Ausblick}
-Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse außer Acht.
+Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse, wie zum Beispiel Gewässer und Wälder, außer Acht.
 Auch basiert die Berechnung bisher nur auf Linien in der Ebene, aber die Erde ist ein drei dimensionales Objekt und der Abstand zwischen zwei Punkten müsste durch einen Kreisbogen beschrieben werden.
 Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung, ... .
 Zeit, statt Distanz; nicht Luftlinie, sondern kürzesten Weg (über Google Maps API);global, statt Leipzig; Maximallänge für Wege
