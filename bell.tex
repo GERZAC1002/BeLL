@@ -10,6 +10,10 @@
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{textcomp}
+\usepackage{microtype}
+\usepackage[locale=DE]{siunitx}
+%\sisetup{output-decimal-marker = {,}}
+\sisetup{decimalsymbol=comma}
 \usepackage{todonotes}% Für Anmerkungen
 \presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
 \usepackage{csquotes}% Einfachere Anführungszeichen. Die Anführungszeichen scheinen aber noch die falsche Richtung zu haben. Mit \enquote{Mein Zitat} müsste es aber klappen.
@@ -33,13 +37,13 @@
 }
 
 \lstset{
-  literate={ö}{{\"o}}1
-           {ä}{{\"a}}1
-           {ü}{{\"u}}1
+  literate={ö}{{ö}}1
+           {ä}{{ä}}1
+           {ü}{{ü}}1
 }
 \title{Bell}
 \author{Gernot Zacharias}
-\subtitle{Thema: Webanwendung zum Finden eines optimalen Standortes in Abhängigkeit vom Weg mithilfe von Online-Kartendiensten}
+\subtitle{Webanwendung zum Finden eines optimalen Standortes durch Distanzminimierung mithilfe von Online-Kartendiensten}
 \begin{document}
 \listoftodos
 \maketitle
@@ -48,29 +52,29 @@
 \setcounter{page}{1}
 \chapter {Einleitung}
 Durch den aufstrebenden Online-Versand-Handel, wie zum Beispiel durch
-Onlineversand-apotheken, entstehen neue Probleme. Die Versandh\"andler
-ben\"otigen Lagerh\"auser f\"ur ihre Waren und die Fahrtwege vom Lager zum
-Kunden sollten m\"oglichst minimal gehalten werden, um Zeit und Geld zu
-sparen. Durch die Verk\"urzung der Fahrwege wird auch die Gesundheit
-und die Natur weniger belastet. Auch f\"ur Privatanwender kann es
+Onlineversand-apotheken, entstehen neue Probleme. Die Versandhändler
+benötigen Lagerhäuser für ihre Waren und die Fahrtwege vom Lager zum
+Kunden sollten möglichst minimal gehalten werden, um Zeit und Geld zu
+sparen. Durch die Verkürzung der Fahrwege wird auch die Gesundheit
+und die Natur weniger belastet. Auch für Privatanwender kann es
 interessant sein, die Fahrtwege zu minimieren, um z.B. den Weg auf
 Arbeit kurz zu halten, oder um einen Wohnort mit niedrigen Mieten zu
-w\"ahlen. Somit l\"asst sich auch der Treibstoff verbrauch reduzieren, was
-dem Geldbeutel und der Umwelt zu Gute kommt. Dieses Problem l\"asst
-sich durch eine Anwendung l\"osen, die aus der H\"aufigkeit der
-angesteuerten Orte eine optimale Position bestimmt mit m\"oglichst kurzen
+wählen. Somit lässt sich auch der Treibstoff verbrauch reduzieren, was
+dem Geldbeutel und der Umwelt zu Gute kommt. Dieses Problem lässt
+sich durch eine Anwendung lösen, die aus der Häufigkeit der
+angesteuerten Orte eine optimale Position bestimmt mit möglichst kurzen
 Fahrwegen. Diese Anwendung kann zum Beispiel auf Basis der
-Kartendienste von 'Google Maps' und 'Open Street Map' realisiert
-werden. Ich habe mich letztendlich f\"ur eine Webanwendung entschieden,
-da Webanwendungen meistens plattformunabh\"angig sind. Somit ist keine
-Installation von zus\"atzlicher Software, au\ss er einem aktuellen Webbrowser,
-n\"otig ist. Des weiteren habe ich mich f\"ur den freien Kartendienst von
-,,Open Street Map" entschieden, da dieser die meiste Freiheit bietet. Auch
-gibt es f\"ur ,,Open Street Maps" eine gr\"o\ss ere Auswahl an
+Kartendienste von Google Maps und Open Street Map realisiert
+werden. Ich habe mich letztendlich für eine Webanwendung entschieden,
+da Webanwendungen meistens plattformunabhängig sind. Somit ist keine
+Installation von zusätzlicher Software, außer einem aktuellen Webbrowser,
+nötig ist. Des weiteren habe ich mich für den freien Kartendienst von
+Open Street Map entschieden, da dieser die meiste Freiheit bietet. Auch
+gibt es für Open Street Maps eine größere Auswahl an
 Nutzerschnittstellen. Die Anwendung funktioniert sehr gut. Es gab auch
 positives Feedback von anderen Personen, die das Programm getestet
-haben. Allerdings bietet die Anwendung auch noch viel Spielraum f\"ur
-individuelle Erweiterungen, Verbesserungen und \"Anderungen.
+haben. Allerdings bietet die Anwendung auch noch viel Spielraum für
+individuelle Erweiterungen, Verbesserungen und änderungen.
 
 \todo{"Webanwendungen werden immer beliebter" -> "deshalb habe ich auch eine erstellt" ist für mich kein gutes Argument. Besser:
 1. Was ist das Problem? (Fahrtwege, Mieten)
@@ -83,7 +87,7 @@ Der Online Versandhandel ist ein zurzeit stark wachsender Sektor der Wirtschaft.
 Deshalb verwundert es auch nicht das es heutzutage auch schon Online-Versand-Apotheken gibt, welche einem direkt die Medikamente an die Tür liefern.
 Dies ist vor allem für bewegungseingeschränkte Personen interessant, da diese sich nun nicht mehr zu nächsten Apotheke bewegen müssen.
 Auch ermöglicht es Personen die nicht in der Nähe einer Apotheke wohnen, sich die benötigten Medikamente zu besorgen.
-Für die Anbieter dieser Versandapotheken ist es nun interressant herauszufinden, wie man Zeit und Geld beim Versand einsparen kann.
+Für die Anbieter dieser Versandapotheken ist es nun interessant herauszufinden, wie man Zeit und Geld beim Versand einsparen kann.
 Dazu kann man zum Beispiel die Warenlager dort plazieren, wo die Nachfrage am größten ist.
 \section{Grundlagen}
 \subsection{World Wide Web}
@@ -98,24 +102,24 @@ Diese Textdatei wird dann von einem Browser analysiert und zeigt dem Endnutzer d
 Reine HTML Webseiten besitzten keine dynamischen Elemente und bieten dem Nutzer wenig Interaktionsmöglichkeiten.
 \subsection{JavaScript}
 JavaScript ist eine Scriptsprache welche direkt in eine HTML Datei implementiert werden kann und auch vom Browser entsprechend verarbeitet wird und dynamische Webseiten erlaubt.
-JavaScript wird über den <script>...</script> -tag in die HTML Datei eingebunden.
+JavaScript wird über das \verb+<script>...</script>+ -tag in die HTML Datei eingebunden.
 \subsection{Google Maps}
 Google Maps ist der bekannste Online Kartendienst und bietet viele Möglickeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
 Allerdings benötigt man zur Nutzung der Google Maps API einen benutzerbezogenen Key, welchen man allerdings nur gegen Angabe von Kreditkarten Informationen erstellen kann.
 \subsection{Open Street Map}
 Open Street Map spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
-Dafür bietet Open Street Map freies Kartenmaterial an und es steht eine große Menge an freien API's zu Verfügung.
+Dafür bietet Open Street Map freies Kartenmaterial an und es steht eine große Menge an freien APIs zu Verfügung.
 In meinem Prototypen setze ich auf Leavelet, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Map als .png zur Verfügung stellt.
 \subsection{Koordinatenberechnung}
 Koordinaten Längengrad und Breitengrad:\\ wgs84 ? \\
 https://www.linz.govt.nz/data/geodetic-system/datums-projections-and-heights/geodetic-datums/world-geodetic-system-1984-wgs84 \\
 https://www.kompf.de/gps/distcalc.html
 \chapter{Existierende Lösungen}
-Die WIGeoGIS\footnote{\url{https://www.wigeogis.com}[02.04.2019 10:58:22]} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
+Die WIGeoGIS\footnote{\url{https://www.wigeogis.com} [02.04.2019 10:58]} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
 Auch bieten sie eine kostenpflichtige Erweiterung des OpenSource Programms QGIS an, um Kunden Daten zur Marktlage oder Bevölkerung zur Verfügung zu stellen.
-Das als Opensource verfügbare Programm QGIS ist für Laien recht unübersichtlich und überfordert durch zu gorßen Funktionsumfang. Bei der Anwendung handelt es sich auch nicht um eine Webanwendung, wodurch der Nutzer zusätzlich Software herunterladen muss.
+Das als Opensource verfügbare Programm QGIS ist für Laien recht unübersichtlich und überfordert durch zu großen Funktionsumfang. Bei der Anwendung handelt es sich auch nicht um eine Webanwendung, wodurch der Nutzer zusätzlich Software herunterladen muss.
 \chapter{Zielstellung}
-Mein Ziel ist es eine Anwendung zu kreiren, welche aus der Häufigkeit des Ansteuerns von bestimmten Orten, einen Ort bestimmt, von welchem aus die Gesamtdistanz,in Abhängigkeit von der Häufigkei, zu den gegebenen Orten möglichst klein ist.
+Das Ziel ist es eine Anwendung zu kreieren, welche aus der Häufigkeit des Ansteuerns von bestimmten Orten, einen Ort bestimmt, von welchem aus die Gesamtdistanz,in Abhängigkeit von der Häufigkeit, zu den gegebenen Orten möglichst klein ist.
 
 Gesucht ist eine Anwendung, die diesen kürzesten Gesamtweg (oder die Zeit) minimiert.
 Wenn JavaScript: Interface mit Google Maps, keine Installation nötig, Webanwendungen auf dem Vormarsch…
@@ -125,7 +129,7 @@ Wenn andere Programmiersprache, auch da kurz schreiben warum.
 \begin{eqnarray}
 \displaystyle
 \lambda = \left(\sum_{i=1}^{n}\lambda_i \cdot w_i \right) \cdot \left(\sum_{i=1}^{n} w_i \right)^{-1}\\
-\varphi = \left(\sum_{i=1}^{n}\varphi_i \cdot w_i \right) \cdot \left(\sum_{i=1}^{n} w_i \right)^{-1}\\
+\varphi = \left(\sum_{i=1}^{n}\varphi_i \cdot w_i \right) \cdot \left(\sum_{i=1}^{n} w_i \right)^{-1}
 \end{eqnarray}
 Die Anwendung berechnet einen gewichteten Mittelpunkt anhand der vom Nutzer angegebenen Priorität.
 Wärend des Setzens der Marker wird bereits ein Mittelpunkt berechnet.
@@ -134,7 +138,7 @@ Danach wird die Position des Mittelpunktes erneut berechnet.
 Der Mittelpunkt wird durch drei Kreise dargestellt, einen inneren roten, einen mittleren gelben und durch einen grünen äußeren Kreis.
 \chapter{Implementierung}
 Für die Kartendarstellung wird Leaflet~\citep{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen, genutzt. Eine Kartendatenquelle, die diese Anwendung benutzt, ist OpenStreetMap\footnote{\url{https://www.openstreetmap.org}}.
-Für die Webanwendung ist nur ein halbwegs aktueller Webrowser notwendig.
+Für die Webanwendung ist nur ein halbwegs aktueller Webbrowser notwendig.
 Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer Javascript Datei sowie der Leaflet Bibliothek.
 \begin{lstlisting}
 	...
@@ -146,9 +150,9 @@ Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer
 	...
 \end{lstlisting}
 Das Script \textit{leaflet1.js} erstellt eine neue Variable \textit{mymap}, die dann als Objekt für die Kartendaten dient.
-Die Karte wird dabei erstellt und hat als Mittlepunkt die Stadt Leipzig(Längengrad: 51.339\textdegree  Nord, Breitengrad: 12.381\textdegree  Ost, ). Die Ansicht ist standardmäßig auf eine Zoomstufe von 12 eingestellt, da man so die gesamte Stadt und das Umland sehen kann.
+Die Karte wird dabei erstellt und hat als Mittelpunkt die Stadt Leipzig (Längengrad: \si{51{,}339}{\textdegree}  Nord, Breitengrad: \si{12{,}381}{\textdegree}  Ost). Die Ansicht ist standardmäßig auf eine Zoomstufe von 12 eingestellt, da man so die gesamte Stadt und das Umland sehen kann.
 Als nächstes wird dann zur Karte eine neue Ebene hinzugefügt, welche die Bildinformationen von einem OpenStreetMap Server abfragt und darstellt.
-Außerdem wird festgelegt wie weit man in die Karte rein- und rauszoomen kann.
+Außerdem wird festgelegt wie weit man in die Karte hinein- und hinauszoomen kann.
 \lstset{language=Java}
 \begin{lstlisting}
 const mymap = L.map('map').setView([51.33918, 12.38105], 12);
@@ -192,12 +196,12 @@ function onMapClick(e){
 	marker.bindPopup('<b>Marker '
 		+ marker._id
 		+'</b><br>'
-    	+ 'Priorität:'
+    	+ 'Prioritaet:'
 		+ '<br><input type="number" value="'
 		+ marker._prio
 		+ '" oninput="change_marker('
 		+ marker._id
-		+', this.value)" placeholder="Priorität" min="0" max="1000" />'
+		+', this.value)" placeholder="Prioritaet" min="0" max="1000" />'
 		+ '<br>==========================<br>'
 		+ '<input type="button" value="Entferne Marker" onclick="clear_marker('
 		+ marker._id
@@ -209,7 +213,7 @@ function onMapClick(e){
 }
 \end{lstlisting}
 Die nächste wichtige Funktion ist \textit{center()}, da diese für die Berechnung des Mittelpunktes zuständig ist. Der Mittelpunkt wird somit immer bei einer Änderung eines Markers neu berechnet.
-Zuerst wird geprüft ob bereits die Kreise eins(Gr\"uner Kreis), zwei(Gelber Kreis) und drei(Roter Kreis) vorhanden sind und entfernt diese wenn sie bereits vorhanden sind.
+Zuerst wird geprüft ob bereits die Kreise eins (Grüner Kreis), zwei (Gelber Kreis) und drei (Roter Kreis) vorhanden sind und entfernt diese wenn sie bereits vorhanden sind.
 \begin{lstlisting}
 function center(){
 	if(kreis1&&kreis2&&kreis3){
@@ -268,7 +272,7 @@ Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt S
 Auch basiert die Berechnung bisher nur auf Linien in der Ebene, aber die Erde ist ein drei dimensionales Objekt und der Abstand zwischen zwei Punkten müsste durch einen Kreisbogen beschrieben werden.
 Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung, ... .
 Zeit, statt Distanz; nicht Luftlinie, sondern kürzesten Weg (z.B. über Google Maps API);global, statt Leipzig; Maximallänge für Wege
-- Erweiterung um Speicherung der gesetzten Punkte, Einlesen von vorgebebenen Daten(Cookies, LocalStorage, Get-Parameter, ...)
+- Erweiterung um Speicherung der gesetzten Punkte, Einlesen von vorgebebenen Daten(Cookies, LocalStorage, Get-Parameter, ...)\\
 
 Für ähnliche Anwendungsfälle
 Mehrere Kriterien für standortwahl
@@ -280,6 +284,7 @@ Mehrere Kriterien für standortwahl
 \begin{tabular}{ll}
 	API		&Application programming Interface\\
 	CSS		&Cascading Style Sheets\\
+	GIS		&Geograhphic Information System \\
 	HTML	&Hypertext Markup Language\\
 	HTTP	&Hypertext Transfer Protocol\\
 	HTTPS	&Hypertext Transfer Protocol Secure\\
