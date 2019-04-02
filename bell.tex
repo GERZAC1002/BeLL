@@ -137,7 +137,7 @@ Durch einen Klick auf den Marker erscheint ein Popup in welchem man die Priorit�
 Danach wird die Position des Mittelpunktes erneut berechnet.
 Der Mittelpunkt wird durch drei Kreise dargestellt, einen inneren roten, einen mittleren gelben und durch einen grünen äußeren Kreis.
 \chapter{Implementierung}
-Für die Kartendarstellung nutze ich Leaflet~\citep{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen. Eine Kartendatenquelle, die auch ich benutzt habe, ist OpenStreetMap\footnote{\url{https://www.openstreetmap.org}}.
+Für die Kartendarstellung wird Leaflet~\citep{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen, genutzt. Eine Kartendatenquelle, die diese Anwendung benutzt, ist OpenStreetMap\footnote{\url{https://www.openstreetmap.org}}.
 Für die Webanwendung ist nur ein halbwegs aktueller Webrowser notwendig.
 Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer Javascript Datei sowie der Leaflet Bibliothek.
 \begin{lstlisting}
@@ -145,11 +145,11 @@ Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer
 	<link rel="stylesheet" href="leaflet/leaflet.css" crossorigin=""/>
 	<script src="leaflet/leaflet.js"></script>
 	...
-	<div id="map"></div> //Kartenkontainer
+	<div id="map"></div>
 	<script src="js/leafscript1.js" type = "text/javascript"></script>
 	...
 \end{lstlisting}
-Mein Script \textit{leaflet1.js} erstellt eine neue Variable \textit{mymap}, die dann als Objekt für die Kartendaten dient.
+Das Script \textit{leaflet1.js} erstellt eine neue Variable \textit{mymap}, die dann als Objekt für die Kartendaten dient.
 Die Karte wird dabei erstellt und hat als Mittlepunkt die Stadt Leipzig(Längengrad: 51.339\textdegree Nord, Breitengrad: 12.381\textdegree Ost, ). Die Ansicht ist standartmäßig auf eine Zoomstufe von 12 eingestellt, da man so die gesamte Stadt und das Umland sehen kann.
 Als nächstes wird dann zur Karte eine neue Ebene hinzugefügt, welche die Bildinformationen von einem OpenStreetMap Server abfragt und darstellt.
 Außerdem wird festgelegt wie weit man in die Karte rein- und rauszoomen kann.
