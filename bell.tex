@@ -47,14 +47,31 @@
 \chapter {Inhaltsverzeichnis}
 \setcounter{page}{1}
 \chapter {Einleitung}
-Durch den aufstrebenden Online-Versand-Handel, wie zum Beispiel durch Onlineversandapotheken, entstehen neue Probleme.
-Die Versandhändler benötigen Lagerhäuser für ihre Waren und die Fahrtwege vom Lager zum Kunden sollten möglichst minimal gehalten werden,
-um Zeit und Geld zu sparen. Auch für Privatanwender kann es interressant sein die Fahrtwege zu minimieren, um zum Beispiel den Weg auf Arbeit kurz zu halten, oder
-um einen Wohnort mit niedrigen Mieten zu wählen. Somit lässt sich auch der Treibstoff Verbrauch reduzieren, was dem Geldbeutel und der Umwelt zu Gute kommt.
-Dieses Problem lässt sich durch eine Anwendung lösen, die aus der Häufigkeit der angesteuerten Orte eine optimale Position bestimmt mit möglichst 
-kurzen Fahrwegen. Diese Anwendung kann zum Beispiel auf Basis  der Kartendienste von Google Maps und Open Street Map realisiert werden.
-Ich habe mich für eine Webanwendung entschieden, da Webanwendungen platformunabhängig sind und keine Installation von zusätzlicher Software nötig ist, außer 
-einem aktuellen Webbrowser.
+Durch den aufstrebenden Online-Versand-Handel, wie zum Beispiel durch
+Onlineversand-apotheken, entstehen neue Probleme. Die Versandh\"andler
+ben\"otigen Lagerh\"auser f\"ur ihre Waren und die Fahrtwege vom Lager zum
+Kunden sollten m\"oglichst minimal gehalten werden, um Zeit und Geld zu
+sparen. Durch die Verk\"urzung der Fahrwege wird auch die Gesundheit
+und die Natur weniger belastet. Auch f\"ur Privatanwender kann es
+interessant sein, die Fahrtwege zu minimieren, um z.B. den Weg auf
+Arbeit kurz zu halten, oder um einen Wohnort mit niedrigen Mieten zu
+w\"ahlen. Somit l\"asst sich auch der Treibstoff verbrauch reduzieren, was
+dem Geldbeutel und der Umwelt zu Gute kommt. Dieses Problem l\"asst
+sich durch eine Anwendung l\"osen, die aus der H\"aufigkeit der
+angesteuerten Orte eine optimale Position bestimmt mit m\"oglichst kurzen
+Fahrwegen. Diese Anwendung kann zum Beispiel auf Basis der
+Kartendienste von 'Google Maps' und 'Open Street Map' realisiert
+werden. Ich habe mich letztendlich f\"ur eine Webanwendung entschieden,
+da Webanwendungen meistens plattformunabh\"angig sind. Somit ist keine
+Installation von zus\"atzlicher Software, au\ss er einem aktuellen Webbrowser,
+n\"otig ist. Des weiteren habe ich mich f\"ur den freien Kartendienst von
+,,Open Street Map" entschieden, da dieser die meiste Freiheit bietet. Auch
+gibt es f\"ur ,,Open Street Maps" eine gr\"o\ss ere Auswahl an
+Nutzerschnittstellen. Die Anwendung funktioniert sehr gut. Es gab auch
+positives Feedback von anderen Personen, die das Programm getestet
+haben. Allerdings bietet die Anwendung auch noch viel Spielraum f\"ur
+individuelle Erweiterungen, Verbesserungen und \"Anderungen.
+
 \todo{"Webanwendungen werden immer beliebter" -> "deshalb habe ich auch eine erstellt" ist für mich kein gutes Argument. Besser:
 1. Was ist das Problem? (Fahrtwege, Mieten)
 2. Wie soll das Problem gelöst werden? (Anwendung)
@@ -94,30 +111,26 @@ Koordinaten Längengrad und Breitengrad:\\ wgs84 ? \\
 https://www.linz.govt.nz/data/geodetic-system/datums-projections-and-heights/geodetic-datums/world-geodetic-system-1984-wgs84 \\
 https://www.kompf.de/gps/distcalc.html
 \chapter{Existierende Lösungen}
+WIGeoGIS\footnote{\url{https://www.wigeogis.com}[02.04.2019 10:58:22]}:
+- Webgis
+- WIGeoATP
+QGIS
+- zu umfangreich, für Laien undurchsichtig
+- keine Webanwendung
 was gibt es für Quellen oder ähnliche Implementierungen
 \chapter{Zielstellung}
 Mein Ziel ist es eine Anwendung zu kreiren, welche aus der Häufigkeit des Ansteuerns von bestimmten Orten, einen Ort bestimmt, von welchem aus die Gesamtdistanz,in Abhängigkeit von der Häufigkei, zu den gegebenen Orten möglichst klein ist.
 
-Gesucht ist eine Anwendung, die diesen kürzesten Gesamtweg (oder diese Zeit) minimiert.
+Gesucht ist eine Anwendung, die diesen kürzesten Gesamtweg (oder die Zeit) minimiert.
 Wenn JavaScript: Interface mit Google Maps, keine Installation nötig, Webanwendungen auf dem Vormarsch…
 Wenn andere Programmiersprache, auch da kurz schreiben warum.
 (zum Beispiel in Schule beigebracht)
 \chapter{Algorithmus}
-Die Anwendung berechnet den Mittelpunkt anhand der Häufigkeit, wie oft man den Ort pro Woche ansteuert. Der Benutzer setz dazu Marker, welche am Anfang die Häufigkeit von 5x/Woche aufweisen, auf die Karte.
+Die Anwendung berechnet einen gewichteten Mittelpunkt anhand der vom Nutzer angegebenen Priorität.
 Wärend des Setzens der Marker wird bereits ein Mittelpunkt berechnet.
-Durch einen Klick auf den Marker erscheint ein Popup in welchem man die Häufigkeit ändern kann. 
+Durch einen Klick auf den Marker erscheint ein Popup in welchem man die Priorität ändern kann. 
 Danach wird die Position des Mittelpunktes erneut berechnet.
 Der Mittelpunkt wird durch drei Kreise dargestellt, einen inneren roten, einen mittleren gelben und durch einen grünen äußeren Kreis.
-\\\\
-für jedes Ziel weg pro Woche (oder pro Tag…) ausrechnen;
-oder Zeit minimieren, es können ja unterschiedliche Fortbewegungsarten sein
-erstmal aber Weg minimieren, wenn Zeit ist dann Optionen wie Spritverbrauch, Zeit, eigene Priorität;
-erstmal Luftlinie baseline;
-optional: kürzester Weg;
-Punkte finden, an dem sich das Summe minimiert;
-ist das gleich dem Mittelpunkt, wenn man die Strecken entsprechend dem durchschnittlichen Weg verlängert oder kürzt;
-für Leipzig oder überall? bei Leipzig könnte man konstanten Umrechnungsfaktor zwischen Längen/Breitengradunterschieden und Metern/Kilometern wählen (kurz sagen wie groß der Fehler ist), ansonsten braucht man Formel;
-wenn global, problematisch, wenn Wohnort nicht zugänglich ist;
 \chapter{Implementierung}
 Für die Kartendarstellung nutze ich Leaflet~\citep{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen. Eine Kartendatenquelle, die auch ich benutzt habe, ist OpenStreetMap\footnote{\url{https://www.openstreetmap.org}}.
 Für die Webanwendung ist nur ein halbwegs aktueller Webrowser notwendig.
@@ -194,8 +207,56 @@ function onMapClick(e){
 	center();
 }
 \end{lstlisting}
-Die nächste wichtige Funktion ist \textit{center()}, da diese für die Berechnung des Mittlepunktes zuständig ist.
-\\\\Hier werden dann die technischen Details der Implementierung und gegebenenfalls der Algorithmen beschrieben.
+Die nächste wichtige Funktion ist \textit{center()}, da diese für die Berechnung des Mittlepunktes zuständig ist. Der Mittelpunkt wird somit immer bei einer Änderung eines Markers neu berechnet.
+Zuerst wird geprüft ob bereits die Kreise eins(Gr\"uner Kreis), zwei(Gelber Kreis) und drei(Roter Kreis) vorhanden sind und entfernt diese wenn sie bereits vorhanden sind.
+\begin{lstlisting}
+function center(){
+	if(kreis1&&kreis2&&kreis3){
+		mymap.removeLayer(kreis1);
+		mymap.removeLayer(kreis2);
+		mymap.removeLayer(kreis3);
+	}
+	...
+}
+\end{lstlisting}
+Darauffolgend wird eine Funktion \textit{add} definiert, welche zwei Werte addiert. Danach wird die Summe aus allen Prioritäten der Marker gebildet. Als nächstes wird die Summe der Längen- und Breitengrade addiert und jeweils durch die Summe der Prioritäten geteilt.
+\begin{lstlisting}
+	...
+	const add = (a,b)=>a+b;
+	const prioSum = markers.map(m => m._prio).reduce(add,0);
+	const lat = markers.map(m => m._latlng.lat * m._prio).reduce(add,0)/prioSum;
+	const lng = markers.map(m => m._latlng.lng * m._prio).reduce(add,0)/prioSum;
+	...
+\end{lstlisting}
+Der Mittelpunkt wird durch drei Kreise, mit jeweils anderen Farben, dargestellt.
+Der erste Kreis hat die Farbe grün und stellt den äußeren Kreis dar.
+Kreis zwei stellt den mittleren Bereich dar und hat die Farbe gelb und Kreis drei hat den kleinsten Radius und besitzt die Farbe rot.
+Die Kreise haben besitzen den gewichteten Mittelpunkt als Mittelpunkt.
+\begin{lstlisting}
+	...
+	kreis1 = L.circle([lat, lng], {
+		color: 'green',
+		fillColor: '#00ff00',
+		fillOpacity: 0.2,
+		radius: 1000,
+	}).addTo(mymap);
+	kreis2 = L.circle([lat, lng], {
+		color: 'yellow',
+		fillColor: '#ffff00',
+		fillOpacity: 0.3,
+		radius: 500,
+	}).addTo(mymap);
+	kreis3 = L.circle([lat, lng], {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5,
+		radius: 100,
+	}).addTo(mymap);
+	...
+\end{lstlisting}
+Wenn man nun Marker wieder entfernen möchte Braucht man eine neue Funktion \textit{clear\_marker}, welche die gesetzen Marker wieder entfernt.
+\\\\Hier werden dann die technischen
+ Details der Implementierung und gegebenenfalls der Algorithmen beschrieben.
 Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
 Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
 \chapter{Schlussfolgerung}
@@ -205,7 +266,15 @@ wieviel bringt das wirklich
 Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse, wie zum Beispiel Gewässer und Wälder, außer Acht.
 Auch basiert die Berechnung bisher nur auf Linien in der Ebene, aber die Erde ist ein drei dimensionales Objekt und der Abstand zwischen zwei Punkten müsste durch einen Kreisbogen beschrieben werden.
 Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung, ... .
-Zeit, statt Distanz; nicht Luftlinie, sondern kürzesten Weg (über Google Maps API);global, statt Leipzig; Maximallänge für Wege
+Zeit, statt Distanz; nicht Luftlinie, sondern kürzesten Weg (z.B. über Google Maps API);global, statt Leipzig; Maximallänge für Wege
+- Erweiterung um Speicherung der gesetzten Punkte, Einlesen von vorgebebenen Daten(Cookies, LocalStorage, Get-Parameter, ...)
+
+Für ähnliche Anwendungsfälle
+Mehrere Kriterien für standortwahl
+- Verfügbarkeit von Arbeitskräften
+- Standortkosten
+- Prozessfluss
+- 
 \section{Abkürzungsverzeichnis}
 \begin{tabular}{ll}
 	API		&Application programming Interface\\
