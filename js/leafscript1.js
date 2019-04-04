@@ -15,7 +15,7 @@ let kreis3;//Variable für Kreis 3
 
 //Funktion die beim Klick auf die Karte ausgeführt wird
 //setzt Marker an angeklickte Position
-function onMapClick(e){
+function on_Map_Click(e){
 	//////////////////Stackoverflow: https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
 	let id;//Variable id wird initialisiert
 	if (markers.length < 1) {//Wenn markers feldlänge < 1 ist
@@ -120,4 +120,4 @@ function change_marker(id, prio){//Funktion change_marker() mit Übergabewerten 
 	//heatmap();
 }
 
-mymap.on('click', onMapClick);//Funktion für den Klick auf die Karte
+mymap.on('click', on_Map_Click);//Funktion für den Klick auf die Karte
