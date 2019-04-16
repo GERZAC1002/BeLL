@@ -1,6 +1,9 @@
 \documentclass[a4paper, twoside, 12pt]{scrreprt}
+%\documentclass[headsepline,titlepage,twoside,12pt]{report}
 \usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage[a4paper,top=4cm,bottom=3cm,left=4cm,right=3cm]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{color}
@@ -11,6 +14,9 @@
 \usepackage{listings}
 \usepackage{textcomp}
 \usepackage{microtype}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{booktabs}
 \usepackage[locale=DE]{siunitx}
 %\sisetup{output-decimal-marker = {,}}
 \sisetup{decimalsymbol=comma}
@@ -41,15 +47,38 @@
            {ä}{{ä}}1
            {ü}{{ü}}1
 }
-\title{Bell}
+\title{Besondere Lernleistung}
 \author{Gernot Zacharias}
 \subtitle{Webanwendung zum Finden eines optimalen Standortes durch Distanzminimierung mithilfe von Online-Kartendiensten}
 \begin{document}
 \listoftodos
 \maketitle
 \cleardoublepage
-\chapter {Inhaltsverzeichnis}
+\tableofcontents
+%\chapter* {Inhaltsverzeichnis}
 \setcounter{page}{1}
+\chapter*{Zusammenfassung}
+\addcontentsline{toc}{chapter}{Zusammenfassung}
+\chapter*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textrm{Begriff}                &\textrm{Erklärung des Begriffs}\\
+\midrule
+API		&Application programming Interface\\
+CSS		&Cascading Style Sheets\\
+GIS		&Geograhphic Information System \\
+HTML	&Hypertext Markup Language\\
+HTTP	&Hypertext Transfer Protocol\\
+HTTPS	&Hypertext Transfer Protocol Secure\\
+JS		&JavaScript\\
+PNG		&Portable Network Graphic\\
+WGS84	&52\\
+WWW		&World Wide Web\\
+
+\bottomrule
+\end{tabularx}
+
 \chapter {Einleitung}
 Durch den aufstrebenden Online-Versand-Handel, wie zum Beispiel durch
 Onlineversand-apotheken, entstehen neue Probleme. Die Versandhändler
@@ -81,6 +110,24 @@ individuelle Erweiterungen, Verbesserungen und änderungen.
 2. Wie soll das Problem gelöst werden? (Anwendung)
 3. Details (Webanwendungen werden beliebter wegen folgenden Vorteilen (Quelle), diese vorteile treffen hier auch zu
 }
+\section{Gegenstand und Motivation}
+\subsection{Gegenstand}
+\subsection{Problematik}
+\section{Motivation}
+\section{Problemstellung}
+\section{Zielsetzung}
+Das Ziel ist es eine Anwendung zu kreieren, welche aus der Häufigkeit des Ansteuerns von bestimmten Orten, einen Ort bestimmt, von welchem aus die Gesamtdistanz,in Abhängigkeit von der Häufigkeit, zu den gegebenen Orten möglichst klein ist.
+
+Gesucht ist eine Anwendung, die diesen kürzesten Gesamtweg (oder die Zeit) minimiert.
+Wenn JavaScript: Interface mit Google Maps, keine Installation nötig, Webanwendungen auf dem Vormarsch…
+Wenn andere Programmiersprache, auch da kurz schreiben warum.
+(zum Beispiel in Schule beigebracht)
+\section{Aufgabenstellung}
+\section{Aufbau der Arbeit}
+\section{Existierende Lösungen}
+Die WIGeoGIS\footnote{\url{https://www.wigeogis.com} [02.04.2019 10:58]} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
+Auch bieten sie eine kostenpflichtige Erweiterung des OpenSource Programms QGIS an, um Kunden Daten zur Marktlage oder Bevölkerung zur Verfügung zu stellen.
+Das als Opensource verfügbare Programm QGIS ist für Laien recht unübersichtlich und überfordert durch zu großen Funktionsumfang. Bei der Anwendung handelt es sich auch nicht um eine Webanwendung, wodurch der Nutzer zusätzlich Software herunterladen muss.
 \cleardoublepage
 \section {Problemstellung}
 Der Online Versandhandel ist ein zurzeit stark wachsender Sektor der Wirtschaft.
@@ -89,42 +136,35 @@ Dies ist vor allem für bewegungseingeschränkte Personen interessant, da diese 
 Auch ermöglicht es Personen die nicht in der Nähe einer Apotheke wohnen, sich die benötigten Medikamente zu besorgen.
 Für die Anbieter dieser Versandapotheken ist es nun interessant herauszufinden, wie man Zeit und Geld beim Versand einsparen kann.
 Dazu kann man zum Beispiel die Warenlager dort plazieren, wo die Nachfrage am größten ist.
-\section{Grundlagen}
-\subsection{World Wide Web}
+\chapter{Grundlagen}
+\section{World Wide Web}
 (Geschichte WWW)
 In der heutigen Zeit gewinnt das World Wide Web (WWW) immer mehr an Bedeutung und ist fast schon nicht mehr wegzudenken.
 Das World Wide Web ist der Teil des Internets, in dem die Daten mithilfe des HTTP/HTTPS -Protokolls ausgetauscht werden, wobei ein Computer, der Server mit der entsprechenden Webseite, die Daten auf Anfrage des Clients zu diesem schickt.
 Das WWW umfasst also fast alle öffentlich zugänglichen Webseiten.
 Das World Wide Web~\citep{www}
-\subsection{HTML}
+\section{HTML}
 Die Hyper Text Markup Language (HTML) ist die benutzte Sprache im WWW und beschreibt eine Textdatei, in welcher mit einer bestimmten Syntax geschrieben werden muss.
 Diese Textdatei wird dann von einem Browser analysiert und zeigt dem Endnutzer den Text mit entsprechender Formatierung.
 Reine HTML Webseiten besitzten keine dynamischen Elemente und bieten dem Nutzer wenig Interaktionsmöglichkeiten.
-\subsection{JavaScript}
+\section{JavaScript}
 JavaScript ist eine Scriptsprache welche direkt in eine HTML Datei implementiert werden kann und auch vom Browser entsprechend verarbeitet wird und dynamische Webseiten erlaubt.
 JavaScript wird über das \verb+<script>...</script>+ -tag in die HTML Datei eingebunden.
-\subsection{Google Maps}
-Google Maps ist der bekannste Online Kartendienst und bietet viele Möglickeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
-Allerdings benötigt man zur Nutzung der Google Maps API einen benutzerbezogenen Key, welchen man allerdings nur gegen Angabe von Kreditkarten Informationen erstellen kann.
-\subsection{Open Street Map}
-Open Street Map spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
-Dafür bietet Open Street Map freies Kartenmaterial an und es steht eine große Menge an freien APIs zu Verfügung.
-In meinem Prototypen setze ich auf Leavelet, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Map als .png zur Verfügung stellt.
-\subsection{Koordinatenberechnung}
+\section{Geographische Koordinaten}
+\section{Kartenprojektion}
+Die Darstellung der Erde von OpenStreetmap 
+\section{Koordinatenberechnung}
 Koordinaten Längengrad und Breitengrad:\\ wgs84 ? \\
 https://www.linz.govt.nz/data/geodetic-system/datums-projections-and-heights/geodetic-datums/world-geodetic-system-1984-wgs84 \\
 https://www.kompf.de/gps/distcalc.html
-\chapter{Existierende Lösungen}
-Die WIGeoGIS\footnote{\url{https://www.wigeogis.com} [02.04.2019 10:58]} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
-Auch bieten sie eine kostenpflichtige Erweiterung des OpenSource Programms QGIS an, um Kunden Daten zur Marktlage oder Bevölkerung zur Verfügung zu stellen.
-Das als Opensource verfügbare Programm QGIS ist für Laien recht unübersichtlich und überfordert durch zu großen Funktionsumfang. Bei der Anwendung handelt es sich auch nicht um eine Webanwendung, wodurch der Nutzer zusätzlich Software herunterladen muss.
-\chapter{Zielstellung}
-Das Ziel ist es eine Anwendung zu kreieren, welche aus der Häufigkeit des Ansteuerns von bestimmten Orten, einen Ort bestimmt, von welchem aus die Gesamtdistanz,in Abhängigkeit von der Häufigkeit, zu den gegebenen Orten möglichst klein ist.
+\section{Google Maps}
+Google Maps ist der bekannste Online Kartendienst und bietet viele Möglickeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
+Allerdings benötigt man zur Nutzung der Google Maps API einen benutzerbezogenen Key, welchen man allerdings nur gegen Angabe von Kreditkarten Informationen erstellen kann.
+\section{Open Street Map}
+Open Street Map spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
+Dafür bietet Open Street Map freies Kartenmaterial an und es steht eine große Menge an freien APIs zu Verfügung.
+In meinem Prototypen setze ich auf Leavelet, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Map als .png zur Verfügung stellt.
 
-Gesucht ist eine Anwendung, die diesen kürzesten Gesamtweg (oder die Zeit) minimiert.
-Wenn JavaScript: Interface mit Google Maps, keine Installation nötig, Webanwendungen auf dem Vormarsch…
-Wenn andere Programmiersprache, auch da kurz schreiben warum.
-(zum Beispiel in Schule beigebracht)
 \chapter{Algorithmus}
 \begin{eqnarray}
 \displaystyle
@@ -264,7 +304,8 @@ Wenn man nun Marker wieder entfernen möchte Braucht man eine neue Funktion \tex
  Details der Implementierung und gegebenenfalls der Algorithmen beschrieben.
 Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
 Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
-\chapter{Schlussfolgerung}
+\chapter{Ergebniss}
+\chapter{Diskussion}
 \section{Auswertung}
 wieviel bringt das wirklich
 \section{Ausblick}
@@ -280,19 +321,6 @@ Mehrere Kriterien für standortwahl
 - Standortkosten
 - Prozessfluss
 - 
-\section{Abkürzungsverzeichnis}
-\begin{tabular}{ll}
-	API		&Application programming Interface\\
-	CSS		&Cascading Style Sheets\\
-	GIS		&Geograhphic Information System \\
-	HTML	&Hypertext Markup Language\\
-	HTTP	&Hypertext Transfer Protocol\\
-	HTTPS	&Hypertext Transfer Protocol Secure\\
-	JS		&JavaScript\\
-	PNG		&Portable Network Graphic\\
-	WGS84	&52\\
-	WWW		&World Wide Web\\
-\end{tabular}
 
 \bibliography{bell}{}
 \bibliographystyle{natdin}
