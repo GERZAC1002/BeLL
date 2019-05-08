@@ -22,8 +22,8 @@
 \sisetup{decimalsymbol=comma}
 \usepackage{todonotes}% Für Anmerkungen
 \presetkeys{todonotes}{inline,backgroundcolor=yellow}{}
-\usepackage{csquotes}% Einfachere Anführungszeichen. Die Anführungszeichen scheinen aber noch die falsche Richtung zu haben. Mit \enquote{Mein Zitat} müsste es aber klappen.
-\MakeOuterQuote{"}% Erlaube das englische generelle Anführungszeichen " sowohl zum Öffnen als auch zum Schließen und auch für deutsche Zitierungen.
+\usepackage{csquotes}
+\MakeOuterQuote{"}
 \lstset{frame=tb,
   language=HTML,
   aboveskip=3mm,
@@ -51,7 +51,7 @@
 \author{Gernot Zacharias}
 \subtitle{Webanwendung zum Finden eines optimalen Standortes durch Distanzminimierung mithilfe von Online-Kartendiensten}
 \begin{document}
-\listoftodos
+%\listoftodos
 \maketitle
 \cleardoublepage
 \tableofcontents
@@ -59,6 +59,7 @@
 \setcounter{page}{1}
 \chapter*{Zusammenfassung}
 \addcontentsline{toc}{chapter}{Zusammenfassung}
+Durch den aufstrebenden Online-Versand-Handel, wie zum Beispiel durch Onlineversandapotheken, entstehen neue Probleme. Die Versandhändler benötigen Lagerhäuser für ihre Waren und die Fahrtwege vom Lager zum Kunden sollten möglichst minimal gehalten werden, um Zeit und Geld zu sparen. Durch die Verkürzung der Fahrwege wird auch die Gesundheit und die Natur weniger belastet. Auch für Privatanwender kann es interessant sein, die Fahrtwege zu minimieren, um z.B. den Weg auf Arbeit kurz zu halten, oder um einen Wohnort mit niedrigen Mieten zu wählen. Somit lässt sich auch der Treibstoff verbrauch reduzieren, was dem Geldbeutel und der Umwelt zu Gute kommt. Dieses Problem lässt sich durch eine Anwendung lösen, die aus der Häufigkeit der angesteuerten Orte eine optimale Position mit möglichst kurzen Fahrwegen bestimmt. Diese Anwendung kann zum Beispiel auf Basis der Kartendienste von "Google Maps" und "Open Street Map" realisiert werden. Ich habe mich letztendlich für eine Webanwendung entschieden, da Webanwendungen meistens plattformunabhängig sind. Somit ist keine Installation von zusätzlicher Software, außer einem aktuellen Webbrowser, nötig ist. Des weiteren habe ich mich für den freien Kartendienst von "Open Street Map" entschieden, da dieser die meiste Freiheit bietet. Auch gibt es für "Open Street Maps" eine größere Auswahl an Nutzerschnittstellen. Die Anwendung funktioniert sehr gut. Es gab auch positives Feedback von anderen Personen, die das Programm getestet haben. Allerdings bietet die Anwendung auch noch viel Spielraum für individuelle Erweiterungen, Verbesserungen und Änderungen.
 \chapter*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
 \begin{tabularx}{\textwidth}{lX}
@@ -80,41 +81,29 @@ WWW		&World Wide Web\\
 \end{tabularx}
 
 \chapter {Einleitung}
-Durch den aufstrebenden Online-Versand-Handel, wie zum Beispiel durch
-Onlineversand-apotheken, entstehen neue Probleme. Die Versandhändler
-benötigen Lagerhäuser für ihre Waren und die Fahrtwege vom Lager zum
-Kunden sollten möglichst minimal gehalten werden, um Zeit und Geld zu
-sparen. Durch die Verkürzung der Fahrwege wird auch die Gesundheit
-und die Natur weniger belastet. Auch für Privatanwender kann es
-interessant sein, die Fahrtwege zu minimieren, um z.B. den Weg auf
-Arbeit kurz zu halten, oder um einen Wohnort mit niedrigen Mieten zu
-wählen. Somit lässt sich auch der Treibstoff verbrauch reduzieren, was
-dem Geldbeutel und der Umwelt zu Gute kommt. Dieses Problem lässt
-sich durch eine Anwendung lösen, die aus der Häufigkeit der
-angesteuerten Orte eine optimale Position bestimmt mit möglichst kurzen
-Fahrwegen. Diese Anwendung kann zum Beispiel auf Basis der
-Kartendienste von Google Maps und Open Street Map realisiert
-werden. Ich habe mich letztendlich für eine Webanwendung entschieden,
-da Webanwendungen meistens plattformunabhängig sind. Somit ist keine
-Installation von zusätzlicher Software, außer einem aktuellen Webbrowser,
-nötig ist. Des weiteren habe ich mich für den freien Kartendienst von
-Open Street Map entschieden, da dieser die meiste Freiheit bietet. Auch
-gibt es für Open Street Maps eine größere Auswahl an
-Nutzerschnittstellen. Die Anwendung funktioniert sehr gut. Es gab auch
-positives Feedback von anderen Personen, die das Programm getestet
-haben. Allerdings bietet die Anwendung auch noch viel Spielraum für
-individuelle Erweiterungen, Verbesserungen und änderungen.
-
-\todo{"Webanwendungen werden immer beliebter" -> "deshalb habe ich auch eine erstellt" ist für mich kein gutes Argument. Besser:
-1. Was ist das Problem? (Fahrtwege, Mieten)
-2. Wie soll das Problem gelöst werden? (Anwendung)
-3. Details (Webanwendungen werden beliebter wegen folgenden Vorteilen (Quelle), diese vorteile treffen hier auch zu
-}
 \section{Gegenstand und Motivation}
 \subsection{Gegenstand}
+\begin{itemize}
+\item Viele Versandhändler suchen sich einen möglichst kurzen Weg zum Kunden und/oder zur Produktionsstätte.
+\item Normalverbraucher wünschen sich einen möglichst kurzen Weg zu ihrer Arbeit, zum Kindergarten, Arzt, ...
+\end{itemize}
 \subsection{Problematik}
+\begin{itemize}
+\item Durch lange Fahrtwege erhöht sich die Dauer der Fahrt bis zum Ziel und somit der Energieverbrauch sowie die Schadstoffbelastung.
+\item Auch die Kosten erhöhen sich bei langen Fahrten, da der Fahrer und/oder der Treibstoff bezahlt werden muss.
+\end{itemize}
 \section{Motivation}
+\begin{itemize}
+\item Durch die Reduktion der Distanz zum Ziel wird der Energieverbrauch und die Zeit verringert.
+\item Aufgrund der Reduktion der Fahrtwege kann auch Geld gespart und die Umwelt geschont werden.
+\end{itemize}
 \section{Problemstellung}
+Der Online Versandhandel ist ein zurzeit stark wachsender Sektor der Wirtschaft.
+Deshalb verwundert es auch nicht das es heutzutage auch schon Online-Versand-Apotheken gibt, welche einem direkt die Medikamente an die Tür liefern.
+Dies ist vor allem für bewegungseingeschränkte Personen interessant, da diese sich nun nicht mehr zu nächsten Apotheke bewegen müssen.
+Auch ermöglicht es Personen die nicht in der Nähe einer Apotheke wohnen, sich die benötigten Medikamente zu besorgen.
+Für die Anbieter dieser Versandapotheken ist es nun interessant herauszufinden, wie man Zeit und Geld beim Versand einsparen kann.
+Dazu kann man zum Beispiel die Warenlager dort plazieren, wo die Nachfrage am größten ist.
 \section{Zielsetzung}
 Das Ziel ist es eine Anwendung zu kreieren, welche aus der Häufigkeit des Ansteuerns von bestimmten Orten, einen Ort bestimmt, von welchem aus die Gesamtdistanz,in Abhängigkeit von der Häufigkeit, zu den gegebenen Orten möglichst klein ist.
 
@@ -128,14 +117,7 @@ Wenn andere Programmiersprache, auch da kurz schreiben warum.
 Die WIGeoGIS\footnote{\url{https://www.wigeogis.com} [02.04.2019 10:58]} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
 Auch bieten sie eine kostenpflichtige Erweiterung des OpenSource Programms QGIS an, um Kunden Daten zur Marktlage oder Bevölkerung zur Verfügung zu stellen.
 Das als Opensource verfügbare Programm QGIS ist für Laien recht unübersichtlich und überfordert durch zu großen Funktionsumfang. Bei der Anwendung handelt es sich auch nicht um eine Webanwendung, wodurch der Nutzer zusätzlich Software herunterladen muss.
-\cleardoublepage
-\section {Problemstellung}
-Der Online Versandhandel ist ein zurzeit stark wachsender Sektor der Wirtschaft.
-Deshalb verwundert es auch nicht das es heutzutage auch schon Online-Versand-Apotheken gibt, welche einem direkt die Medikamente an die Tür liefern.
-Dies ist vor allem für bewegungseingeschränkte Personen interessant, da diese sich nun nicht mehr zu nächsten Apotheke bewegen müssen.
-Auch ermöglicht es Personen die nicht in der Nähe einer Apotheke wohnen, sich die benötigten Medikamente zu besorgen.
-Für die Anbieter dieser Versandapotheken ist es nun interessant herauszufinden, wie man Zeit und Geld beim Versand einsparen kann.
-Dazu kann man zum Beispiel die Warenlager dort plazieren, wo die Nachfrage am größten ist.
+
 \chapter{Grundlagen}
 \section{World Wide Web}
 (Geschichte WWW)
