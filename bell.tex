@@ -105,13 +105,14 @@ Auch ermöglicht es Personen die nicht in der Nähe einer Apotheke wohnen, sich 
 Für die Anbieter dieser Versandapotheken ist es nun interessant herauszufinden, wie man Zeit und Geld beim Versand einsparen kann.
 Dazu kann man zum Beispiel die Warenlager dort plazieren, wo die Nachfrage am größten ist.
 \section{Zielsetzung}
-Das Ziel ist es eine Anwendung zu kreieren, welche aus der Häufigkeit des Ansteuerns von bestimmten Orten, einen Ort bestimmt, von welchem aus die Gesamtdistanz,in Abhängigkeit von der Häufigkeit, zu den gegebenen Orten möglichst klein ist.
+Das Ziel ist es eine Anwendung zu kreieren, welche aus der Häufigkeit des Ansteuerns von bestimmten Orten, einen Ort bestimmt, von welchem aus die Gesamtdistanz,in Abhängigkeit von der Häufigkeit, zu den gegebenen Orten, möglichst klein ist.
 
 Gesucht ist eine Anwendung, die diesen kürzesten Gesamtweg (oder die Zeit) minimiert.
 Wenn JavaScript: Interface mit Google Maps, keine Installation nötig, Webanwendungen auf dem Vormarsch…
 Wenn andere Programmiersprache, auch da kurz schreiben warum.
 (zum Beispiel in Schule beigebracht)
 \section{Aufgabenstellung}
+Zur Lösung der oben genannten Probleme soll eine Webanwendung erstellt werden, welche eine Karte anzeigt, auf der der Nutzer/-in Standorte auswählt, die er mit einer bestimmten Häufigkeit, die er/sie/es selbst angibt, aufsucht.
 \section{Aufbau der Arbeit}
 \section{Existierende Lösungen}
 Die WIGeoGIS\footnote{\url{https://www.wigeogis.com} [02.04.2019 10:58]} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
@@ -286,7 +287,13 @@ Wenn man nun Marker wieder entfernen möchte Braucht man eine neue Funktion \tex
  Details der Implementierung und gegebenenfalls der Algorithmen beschrieben.
 Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
 Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
-\chapter{Ergebniss}
+\chapter{Ergebnis}
+Die Webanwendung zeigt, wie im nachfolgenden Bild zusehen ist, eine Karte mit den Bilddaten von OpenStreetMaps. \\
+\includegraphics[height=8cm, width=14cm]{bell1_1.png}\\
+Auf dieser Karte können nun Orte angeklickt werden, woraufhin ein Marker an der entsprechenden Position gesetzt wird. Auch wird direkt ein Mittelpunkt berechnet der sich aus den Standartwerten der Marker berechnen lässt.\\
+\includegraphics[height=8cm, width=14cm]{bell2_1.png}\\
+Um die Priorität eines Markers zu ändern muss man diesen anklicken und dort die Priorität im Eingabefeld ändern. Auch kann man in dem Popup einen Knopf zum Entfernen des Markers drücken, falls man ihn nicht mehr braucht.\\
+\includegraphics[height=8cm, width=14cm]{bell3_1.png}\\
 \chapter{Diskussion}
 \section{Auswertung}
 wieviel bringt das wirklich
@@ -294,6 +301,7 @@ wieviel bringt das wirklich
 Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse, wie zum Beispiel Gewässer und Wälder, außer Acht.
 Auch basiert die Berechnung bisher nur auf Linien in der Ebene, aber die Erde ist ein drei dimensionales Objekt und der Abstand zwischen zwei Punkten müsste durch einen Kreisbogen beschrieben werden.
 Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung, ... .
+Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. \\\\
 Zeit, statt Distanz; nicht Luftlinie, sondern kürzesten Weg (z.B. über Google Maps API);global, statt Leipzig; Maximallänge für Wege
 - Erweiterung um Speicherung der gesetzten Punkte, Einlesen von vorgebebenen Daten(Cookies, LocalStorage, Get-Parameter, ...)\\
 
