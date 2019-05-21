@@ -134,8 +134,9 @@ Reine HTML Webseiten besitzten keine dynamischen Elemente und bieten dem Nutzer 
 JavaScript ist eine Scriptsprache welche direkt in eine HTML Datei implementiert werden kann und auch vom Browser entsprechend verarbeitet wird und dynamische Webseiten erlaubt.
 JavaScript wird über das \verb+<script>...</script>+ -tag in die HTML Datei eingebunden.
 \section{Geographische Koordinaten}
+Geogrphische Koordinaten werden in Längen- und Breitengrad angegeben.
 \section{Kartenprojektion}
-Die Darstellung der Erde von OpenStreetmap 
+Die Karte von OpenStreetMap nutzt die Merkatorprojektion
 \section{Koordinatenberechnung}
 Koordinaten Längengrad und Breitengrad:\\ wgs84 ? \\
 https://www.linz.govt.nz/data/geodetic-system/datums-projections-and-heights/geodetic-datums/world-geodetic-system-1984-wgs84 \\
@@ -149,6 +150,7 @@ Dafür bietet Open Street Map freies Kartenmaterial an und es steht eine große 
 In meinem Prototypen setze ich auf Leavelet, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Map als .png zur Verfügung stellt.
 
 \chapter{Algorithmus}
+Um den Mittelpunkt der Längen- und Breitengrade zu berechnen nutzt man folgenende Gleichung:
 \begin{eqnarray}
 \displaystyle
 \lambda = \left(\sum_{i=1}^{n}\lambda_i \cdot w_i \right) \cdot \left(\sum_{i=1}^{n} w_i \right)^{-1}\\
@@ -288,7 +290,7 @@ Wenn man nun Marker wieder entfernen möchte Braucht man eine neue Funktion \tex
 Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
 Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
 \chapter{Ergebnis}
-Die Webanwendung zeigt, wie im nachfolgenden Bild zusehen ist, eine Karte mit den Bilddaten von OpenStreetMaps. \\
+Die Webanwendung zeigt, wie im nachfolgenden Bild zusehen ist, eine Karte mit den Bilddaten von OpenStreetMaps. Als Zentrum wurde die Stadt Leipzig ausgewählt.\\
 \includegraphics[height=8cm, width=14cm]{bell1_1.png}\\
 Auf dieser Karte können nun Orte angeklickt werden, woraufhin ein Marker an der entsprechenden Position gesetzt wird. Auch wird direkt ein Mittelpunkt berechnet der sich aus den Standartwerten der Marker berechnen lässt.\\
 \includegraphics[height=8cm, width=14cm]{bell2_1.png}\\
