@@ -163,7 +163,7 @@ Danach wird die Position des Mittelpunktes erneut berechnet.
 Der Mittelpunkt wird durch drei Kreise dargestellt, einen inneren roten, einen mittleren gelben und durch einen grünen äußeren Kreis.
 \chapter{Implementierung}
 Für die Kartendarstellung wird Leaflet~\citep{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen, genutzt. Eine Kartendatenquelle, die diese Anwendung benutzt, ist OpenStreetMap\footnote{\url{https://www.openstreetmap.org}}.
-Für die Webanwendung ist nur ein halbwegs aktueller Webbrowser notwendig.
+Für die Webanwendung ist nur ein halbwegs aktueller Webbrowser notwendig, welcher in der Lage ist, Javascript Anwendungen ausführen zu können.
 Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer Javascript Datei sowie der Leaflet Bibliothek.
 \begin{lstlisting}
 	...
@@ -298,12 +298,13 @@ Um die Priorität eines Markers zu ändern muss man diesen anklicken und dort di
 \includegraphics[height=8cm, width=14cm]{bell3_1.png}\\
 \chapter{Diskussion}
 \section{Auswertung}
-wieviel bringt das wirklich
+Die Anwendung ist vor allem für Personen/Diensleister geeignet, die keine besonderen Ansprüche an den Standort haben. Da die Anwendung Wohnvorstellungen, wie das Wohnen auf dem Land außer Acht lässt. Auch ist diese Anwendung nicht geeignet für Personen, die bloß zu einem Standort pendeln, da dieser dann als optimaler Standort angegeben wird und man für diese Erkenntnis nicht extra eine Anwendung braucht.
 \section{Ausblick}
 Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse, wie zum Beispiel Gewässer und Wälder, außer Acht.
 Auch basiert die Berechnung bisher nur auf Linien in der Ebene, aber die Erde ist ein drei dimensionales Objekt und der Abstand zwischen zwei Punkten müsste durch einen Kreisbogen beschrieben werden.
-Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung, ... .
-Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. \\\\
+Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung(z.B. über die gebrauchte Zeit), ... .
+Die Integration von Mietpreisen könnte auch bei der Entscheidung über den Standort helfen.
+Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. Oder man entwickelt eine Anwendung für Smartphones, die die Standortdaten über einen gewissen Zeitraum sammelt und diese Daten dann verarbeitet \\\\
 Zeit, statt Distanz; nicht Luftlinie, sondern kürzesten Weg (z.B. über Google Maps API);global, statt Leipzig; Maximallänge für Wege
 - Erweiterung um Speicherung der gesetzten Punkte, Einlesen von vorgebebenen Daten(Cookies, LocalStorage, Get-Parameter, ...)\\
 
