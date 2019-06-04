@@ -1,6 +1,6 @@
 \babel@toc {ngerman}{}
 \contentsline {chapter}{Zusammenfassung}{2}{chapter*.2}% 
-\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{3}{chapter*.3}% 
+\contentsline {chapter}{Abk\IeC {\"u}rzungsverzeichnis}{3}{chapter*.10}% 
 \contentsline {chapter}{\numberline {1}Einleitung}{4}{chapter.1}% 
 \contentsline {section}{\numberline {1.1}Gegenstand und Motivation}{4}{section.1.1}% 
 \contentsline {subsection}{\numberline {1.1.1}Gegenstand}{4}{subsection.1.1.1}% 
@@ -11,18 +11,18 @@
 \contentsline {section}{\numberline {1.5}Aufgabenstellung}{5}{section.1.5}% 
 \contentsline {section}{\numberline {1.6}Aufbau der Arbeit}{5}{section.1.6}% 
 \contentsline {section}{\numberline {1.7}Existierende L\IeC {\"o}sungen}{5}{section.1.7}% 
-\contentsline {chapter}{\numberline {2}Grundlagen}{6}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}World Wide Web}{6}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}HTML}{6}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}JavaScript}{6}{section.2.3}% 
-\contentsline {section}{\numberline {2.4}Geographische Koordinaten}{6}{section.2.4}% 
-\contentsline {section}{\numberline {2.5}Kartenprojektion}{6}{section.2.5}% 
-\contentsline {section}{\numberline {2.6}Koordinatenberechnung}{7}{section.2.6}% 
-\contentsline {section}{\numberline {2.7}Google Maps}{7}{section.2.7}% 
-\contentsline {section}{\numberline {2.8}Open Street Map}{7}{section.2.8}% 
-\contentsline {chapter}{\numberline {3}Algorithmus}{8}{chapter.3}% 
-\contentsline {chapter}{\numberline {4}Implementierung}{9}{chapter.4}% 
-\contentsline {chapter}{\numberline {5}Ergebnis}{13}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}Diskussion}{15}{chapter.6}% 
-\contentsline {section}{\numberline {6.1}Auswertung}{15}{section.6.1}% 
-\contentsline {section}{\numberline {6.2}Ausblick}{15}{section.6.2}% 
+\contentsline {chapter}{\numberline {2}Grundlagen}{7}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}World Wide Web}{7}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}HTML}{7}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}JavaScript}{7}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}Geographische Koordinaten}{7}{section.2.4}% 
+\contentsline {section}{\numberline {2.5}Kartenprojektion}{7}{section.2.5}% 
+\contentsline {section}{\numberline {2.6}Koordinatenberechnung}{8}{section.2.6}% 
+\contentsline {section}{\numberline {2.7}Google Maps}{8}{section.2.7}% 
+\contentsline {section}{\numberline {2.8}Open Street Map}{8}{section.2.8}% 
+\contentsline {chapter}{\numberline {3}Algorithmus}{9}{chapter.3}% 
+\contentsline {chapter}{\numberline {4}Implementierung}{10}{chapter.4}% 
+\contentsline {chapter}{\numberline {5}Ergebnis}{14}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Diskussion}{16}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Auswertung}{16}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Ausblick}{16}{section.6.2}% 
