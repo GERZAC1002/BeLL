@@ -1,3 +1,10 @@
+function check_es6(){
+	try{
+		const nul = 0;
+	}catch(e){
+		throw new Error('Fehler: Browser unterstützt kein ES6');
+	}
+}
 const mymap = L.map('map').setView([51.33918, 12.38105], 12);
 //Karte erstellen mit Mittelpunkt 51.33918N und 12.38105O und Zoomstufe 12
 L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {//Festlegen des Anbieters des Kartenmaterials
