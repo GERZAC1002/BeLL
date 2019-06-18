@@ -157,7 +157,7 @@ In meinem Prototypen setze ich auf Leafelet, welches die Kartendaten über eine 
 %\section{Gegenüberstellung von Google Maps und Open Street Maps}
 
 \chapter{Algorithmus}
-Um den Mittelpunkt der Längen- und Breitengrade zu berechnen nutzt man folgenende Gleichung:
+Um den Mittelpunkt der Längen- und Breitengrade zu berechnen nutzte ich folgenende Gleichung zur Berechnung von Längengrad und Breitengrad:
 \begin{eqnarray}
 \displaystyle
 \lambda = \left(\sum_{i=1}^{n}\lambda_i \cdot w_i \right) \cdot \left(\sum_{i=1}^{n} w_i \right)^{-1}\\
@@ -203,7 +203,7 @@ let kreis1;
 let kreis2;
 let kreis3;
 \end{lstlisting}
-Damit der Nutzer Marker auf die Karte setzen kann wird einen neue Funktion \textit{onMapClick(e)} definiert, die, an der angeklickten Position, auf der Karte, einen Marker setzt.
+Damit der Nutzer Marker auf die Karte setzen kann wird einen neue Funktion \textit{on\_Map\_Click(e)} definiert, die, an der angeklickten Position, auf der Karte, einen Marker setzt.
 Jeder Marker bekommt eine ID zugewiesen, damit man ihn später wieder entfernen kann.
 Auch wird dem Marker standardmäßig eine Priorität mit dem Wert 5 zugewiesen.
 Die ID wird aus der Länge des \textit{markers} Feld definiert.
@@ -215,7 +215,7 @@ Der Button ruft bei einem Klick die Funktion \textit{clear}\_\textit{marker()} a
 Danach wird zur Karte ein neuer Layer hinzugefügt und die Marker die im Array \textit{Markers} enthalten sind, werden dem Layer hinzugefügt.
 Als letztes wird noch die Funktion \textit{center()} aufgerufen.
 \begin{lstlisting}
-function onMapClick(e){
+function on_Map_Click(e){
 	let id;
 	if (markers.length < 1) {
 		id = 0;
