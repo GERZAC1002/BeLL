@@ -70,7 +70,7 @@ Dies lies sich am einfachsten durch eine Webanwendung lösen, da diese meistens 
 Somit ist keine Installation von zusätzlicher Software, außer einem aktuellen Webbrowser, nötig.
 Des weiteren habe ich mich für den freien Kartendienst von \emph{Open Street Map} entschieden, da dieser die meiste Freiheit bietet.
 Auch gibt es für Open Street Map eine größere Auswahl an Nutzerschnittstellen.
-Die Anwendung funktioniert sehr gut.\todo{Fragebogen}
+Die Anwendung funktioniert sehr gut.%\todo{Fragebogen}
 Somit lässt sich auch der Treibstoffverbrauch reduzieren, was dem Geldbeutel und der Umwelt zu Gute kommt.
 Es gab auch positives Feedback von anderen Personen, die das Programm getestet haben.
 Allerdings bietet die Anwendung auch noch viel Spielraum für individuelle Erweiterungen, Verbesserungen und Änderungen.
@@ -152,8 +152,8 @@ Google Maps\footnote{\url{https://www.google.com/maps/}[18.06.2019 11:18]} ist d
 Allerdings benötigt man zur Nutzung der Google Maps API einen benutzerbezogenen Key, welchen man allerdings nur gegen Angabe von Kreditkarten Informationen erstellen kann.
 \section{Open Street Maps}
 Open Street Maps\footnote{\url{https://www.openstreetmap.org/about} [02.04.2019 11:01]} spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
-Dafür bietet Open Street Maps freies Kartenmaterial an und es steht eine große Menge an freien APIs zu Verfügung.
-In meinem Prototypen setze ich auf Leafelet, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Maps als .png zur Verfügung stellt.
+Dafür bietet Open Street Maps freies Kartenmaterial an und es steht eine große Menge an freien APIs.
+In meinem Prototypen setze ich auf Leafelet\footnote{\url{https://leafletjs.com/}[18.06.2019 15:07]}, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Maps als .png zur Verfügung stellt.
 %\section{Gegenüberstellung von Google Maps und Open Street Maps}
 
 \chapter{Algorithmus}
@@ -296,7 +296,7 @@ Wenn man nun Marker wieder entfernen möchte Braucht man eine neue Funktion \tex
 Die Webanwendung zeigt, wie im nachfolgenden Bild zusehen ist, eine Karte mit den Bilddaten von OpenStreetMaps. Als Zentrum wurde die Stadt Leipzig ausgewählt.\\
 \includegraphics[height=6cm, width=10cm]{bell1_1.png}\\
 Auf dieser Karte können nun Orte angeklickt werden, woraufhin ein Marker an der entsprechenden Position gesetzt wird. Auch wird direkt ein Mittelpunkt berechnet der sich aus den Standartwerten der Marker berechnen lässt.\\
-\includegraphics[height=6cm, width=10cm]{bell2_1.png}\\
+\includegraphics[height=6cm, width=10cm]{bell2_1.png}\\\\\\\\
 Um die Priorität eines Markers zu ändern muss man diesen anklicken und dort die Priorität im Eingabefeld ändern. Auch kann man in dem Popup einen Knopf zum Entfernen des Markers drücken, falls man ihn nicht mehr braucht.\\
 \includegraphics[height=6cm, width=10cm]{bell3_1.png}\\
 \chapter{Diskussion}
@@ -305,7 +305,7 @@ Die Anwendung ist vor allem für Personen/Diensleister geeignet, die keine beson
 \section{Ausblick}
 Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse, wie zum Beispiel Gewässer und Wälder, außer Acht.
 Auch basiert die Berechnung bisher nur auf Linien in der Ebene, aber die Erde ist ein drei dimensionales Objekt und der Abstand zwischen zwei Punkten müsste durch einen Kreisbogen beschrieben werden.
-Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung(z.B. über die gebrauchte Zeit), ... .
+Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung(beispielsweise über die gebrauchte Zeit, ...) .
 Die Integration von Mietpreisen könnte auch bei der Entscheidung über den Standort helfen.
 Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. Oder man entwickelt eine Anwendung für Smartphones, die die Standortdaten über einen gewissen Zeitraum sammelt und diese Daten dann verarbeitet.
 \bibliographystyle{unsrt}
