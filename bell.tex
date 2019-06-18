@@ -148,12 +148,12 @@ JavaScript wird über das \verb+<script>...</script>+ -tag in die HTML Datei ein
 %\section{Kartenprojektion}
 %Die Karte von OpenStreetMap nutzt die Merkatorprojektion
 \section{Google Maps}
-Google Maps\footnote{\url{https://www.google.com/maps/}[18.06.2019 11:18]} ist der bekannste Online Kartendienst und bietet viele Möglickeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
-Allerdings benötigt man zur Nutzung der Google Maps API einen benutzerbezogenen Key, welchen man allerdings nur gegen Angabe von Kreditkarten Informationen erstellen kann.
+Google Maps\footnote{\url{https://www.google.com/maps/} [18.06.2019 11:18]} ist der bekannste Online Kartendienst und bietet viele Möglickeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
+Allerdings benötigt man zur Nutzung der Google Maps API\footnote{\url{https://cloud.google.com/maps-platform/} [18.06.2019 15:42} einen benutzerbezogenen Key, welchen man allerdings nur gegen Angabe von Kreditkarten Informationen erstellen kann.
 \section{Open Street Maps}
-Open Street Maps\footnote{\url{https://www.openstreetmap.org/about} [02.04.2019 11:01]} spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
+Open Street Maps\footnote{\url{https://www.openstreetmap.org/about}  [02.04.2019 11:01]} spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
 Dafür bietet Open Street Maps freies Kartenmaterial an und es steht eine große Menge an freien APIs.
-In meinem Prototypen setze ich auf Leafelet\footnote{\url{https://leafletjs.com/}[18.06.2019 15:07]}, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Maps als .png zur Verfügung stellt.
+In meinem Prototypen setze ich auf Leafelet\footnote{\url{https://leafletjs.com/} [18.06.2019 15:07]}, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Maps als .png zur Verfügung stellt.
 %\section{Gegenüberstellung von Google Maps und Open Street Maps}
 
 \chapter{Algorithmus}
@@ -169,7 +169,7 @@ Durch einen Klick auf den Marker erscheint ein Popup in welchem man die Priorit�
 Danach wird die Position des Mittelpunktes erneut berechnet.
 Der Mittelpunkt wird durch drei Kreise dargestellt, einen inneren roten, einen mittleren gelben und durch einen grünen äußeren Kreis.
 \chapter{Implementierung}
-Für die Kartendarstellung wird Leaflet\cite{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen, genutzt. Eine Kartendatenquelle, die diese Anwendung benutzt, ist OpenStreetMap\footnote{\url{https://www.openstreetmap.org}}.
+Für die Kartendarstellung wird Leaflet\cite{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen, genutzt. Eine Kartendatenquelle, die diese Anwendung benutzt, ist OpenStreetMaps.
 Für die Webanwendung ist nur ein halbwegs aktueller Webbrowser notwendig, welcher in der Lage ist, Javascript Anwendungen ausführen zu können.
 Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer Javascript Datei sowie der Leaflet Bibliothek.
 \begin{lstlisting}
