@@ -10,7 +10,7 @@
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{soul}
-\usepackage{natbib}
+%\usepackage{natbib}
 \usepackage{hyperref}
 \usepackage{listings}
 \usepackage{textcomp}
@@ -97,8 +97,8 @@ WWW		&World Wide Web\\
 \chapter{Einleitung}
 \section{Gegenstand und Motivation}
 \subsection{Gegenstand}
-\todo{Verdoppelung von "sich einen möglichst kurzen Weg". Stört mich nicht aber eventuell den Deutschlehrer.}
-\todo{Ich bin immer vorsichtig mit "viele X" und "immer mehr X" wenn man dazu keine Belege hat.}
+%\todo{Verdoppelung von "sich einen möglichst kurzen Weg". Stört mich nicht aber eventuell den Deutschlehrer.}
+%\todo{Ich bin immer vorsichtig mit "viele X" und "immer mehr X" wenn man dazu keine Belege hat.}
 \begin{itemize}
 \item Viele Versandhändler suchen sich einen möglichst kurzen Weg zum Kunden oder zur Produktionsstätte.
 \item Normalverbraucher wünschen sich einen möglichst kurzen Weg zu ihrer Arbeit, zum Kindergarten, Arzt, $\ldots{}$
@@ -114,7 +114,7 @@ WWW		&World Wide Web\\
 \item Aufgrund der Reduktion der Fahrtwege wird Geld gespart und die Umwelt geschont.
 \end{itemize}
 \section{Problemstellung}
-Der Online Versandhandel ist ein zurzeit stark wachsender Sektor der Wirtschaft.\todo{Quelle hinzufügen, mal https://globalresearchnetwork.us/index.php/AJEBM/article/view/60 angucken}
+Der Online Versandhandel ist ein zurzeit stark wachsender Sektor der Wirtschaft.\cite{Stepper2016}
 Deshalb verwundert es auch nicht das es heutzutage
 Es gibt auch Online-Versandapotheken, welche Medikamente an die Haustür liefern.
 Dies ist vor allem für bewegungseingeschränkte Personen interessant, da diese sich nun nicht mehr zu nächsten Apotheke bewegen müssen.
@@ -123,14 +123,9 @@ Für die Anbieter dieser Versandapotheken ist es nun interessant herauszufinden,
 Dazu kann man zum Beispiel die Warenlager dort plazieren, wo die Nachfrage am größten ist.
 \section{Zielsetzung}
 Das Ziel ist es eine Anwendung zu kreieren, welche aus der Häufigkeit des Ansteuerns von bestimmten Orten, einen Ort bestimmt, von welchem aus die Gesamtdistanz,in Abhängigkeit von der Häufigkeit, zu den gegebenen Orten, möglichst klein ist.
-
-Gesucht ist eine Anwendung, die diesen kürzesten Gesamtweg (oder die Zeit) minimiert.
-Wenn JavaScript: Interface mit Google Maps, keine Installation nötig, Webanwendungen auf dem Vormarsch…
-Wenn andere Programmiersprache, auch da kurz schreiben warum.
-(zum Beispiel in Schule beigebracht)
 \section{Aufgabenstellung}
 Zur Lösung der oben genannten Probleme soll eine Webanwendung erstellt werden, welche eine Karte anzeigt, auf der der Nutzer/-in Standorte auswählt, die er mit einer bestimmten Häufigkeit, die er/sie/es selbst angibt, aufsucht.
-\section{Aufbau der Arbeit}
+%\section{Aufbau der Arbeit}
 \section{Existierende Lösungen}
 Die WIGeoGIS\footnote{\url{https://www.wigeogis.com} [02.04.2019 10:58]} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
 Auch bieten sie eine kostenpflichtige Erweiterung des OpenSource Programms QGIS an, um Kunden Daten zur Marktlage oder Bevölkerung zur Verfügung zu stellen.
@@ -138,11 +133,9 @@ Das als Opensource verfügbare Programm QGIS ist für Laien recht unübersichtli
 
 \chapter{Grundlagen}
 \section{World Wide Web}
-(Geschichte WWW)
 In der heutigen Zeit gewinnt das World Wide Web (WWW) immer mehr an Bedeutung und ist fast schon nicht mehr wegzudenken.
 Das World Wide Web ist der Teil des Internets, in dem die Daten mithilfe des HTTP/HTTPS -Protokolls ausgetauscht werden, wobei ein Computer, der Server mit der entsprechenden Webseite, die Daten auf Anfrage des Clients zu diesem schickt.
 Das WWW umfasst also fast alle öffentlich zugänglichen Webseiten.
-Das World Wide Web~\citep{www}
 \section{HTML}
 Die Hyper Text Markup Language (HTML) ist die benutzte Sprache im WWW und beschreibt eine Textdatei, in welcher mit einer bestimmten Syntax geschrieben werden muss.
 Diese Textdatei wird dann von einem Browser analysiert und zeigt dem Endnutzer den Text mit entsprechender Formatierung.
@@ -150,21 +143,18 @@ Reine HTML Webseiten besitzten keine dynamischen Elemente und bieten dem Nutzer 
 \section{JavaScript}
 JavaScript ist eine Scriptsprache welche direkt in eine HTML Datei implementiert werden kann und auch vom Browser entsprechend verarbeitet wird und dynamische Webseiten erlaubt.
 JavaScript wird über das \verb+<script>...</script>+ -tag in die HTML Datei eingebunden.
-\section{Geographische Koordinaten}
-Geogrphische Koordinaten werden in Längen- und Breitengrad angegeben.
-\section{Kartenprojektion}
-Die Karte von OpenStreetMap nutzt die Merkatorprojektion
-\section{Koordinatenberechnung}
-Koordinaten Längengrad und Breitengrad:\\ wgs84 ? \\
-https://www.linz.govt.nz/data/geodetic-system/datums-projections-and-heights/geodetic-datums/world-geodetic-system-1984-wgs84 \\
-https://www.kompf.de/gps/distcalc.html
+%\section{Geographische Koordinaten}
+%Geographische Koordinaten werden in Längen- und Breitengrad angegeben. 
+%\section{Kartenprojektion}
+%Die Karte von OpenStreetMap nutzt die Merkatorprojektion
 \section{Google Maps}
-Google Maps ist der bekannste Online Kartendienst und bietet viele Möglickeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
+Google Maps\footnote{\url{https://www.google.com/maps/}[18.06.2019 11:18]} ist der bekannste Online Kartendienst und bietet viele Möglickeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
 Allerdings benötigt man zur Nutzung der Google Maps API einen benutzerbezogenen Key, welchen man allerdings nur gegen Angabe von Kreditkarten Informationen erstellen kann.
-\section{Open Street Map}
-Open Street Map spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
-Dafür bietet Open Street Map freies Kartenmaterial an und es steht eine große Menge an freien APIs zu Verfügung.
-In meinem Prototypen setze ich auf Leavelet, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Map als .png zur Verfügung stellt.
+\section{Open Street Maps}
+Open Street Maps\footnote{\url{https://www.openstreetmap.org/about} [02.04.2019 11:01]} spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
+Dafür bietet Open Street Maps freies Kartenmaterial an und es steht eine große Menge an freien APIs zu Verfügung.
+In meinem Prototypen setze ich auf Leafelet, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Maps als .png zur Verfügung stellt.
+%\section{Gegenüberstellung von Google Maps und Open Street Maps}
 
 \chapter{Algorithmus}
 Um den Mittelpunkt der Längen- und Breitengrade zu berechnen nutzt man folgenende Gleichung:
@@ -179,7 +169,7 @@ Durch einen Klick auf den Marker erscheint ein Popup in welchem man die Priorit�
 Danach wird die Position des Mittelpunktes erneut berechnet.
 Der Mittelpunkt wird durch drei Kreise dargestellt, einen inneren roten, einen mittleren gelben und durch einen grünen äußeren Kreis.
 \chapter{Implementierung}
-Für die Kartendarstellung wird Leaflet~\citep{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen, genutzt. Eine Kartendatenquelle, die diese Anwendung benutzt, ist OpenStreetMap\footnote{\url{https://www.openstreetmap.org}}.
+Für die Kartendarstellung wird Leaflet\cite{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen, genutzt. Eine Kartendatenquelle, die diese Anwendung benutzt, ist OpenStreetMap\footnote{\url{https://www.openstreetmap.org}}.
 Für die Webanwendung ist nur ein halbwegs aktueller Webbrowser notwendig, welcher in der Lage ist, Javascript Anwendungen ausführen zu können.
 Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer Javascript Datei sowie der Leaflet Bibliothek.
 \begin{lstlisting}
@@ -302,17 +292,13 @@ Die Kreise haben besitzen den gewichteten Mittelpunkt als Mittelpunkt.
 	...
 \end{lstlisting}
 Wenn man nun Marker wieder entfernen möchte Braucht man eine neue Funktion \textit{clear\_marker}, welche die gesetzen Marker wieder entfernt.
-\\\\Hier werden dann die technischen
- Details der Implementierung und gegebenenfalls der Algorithmen beschrieben.
-Verwendete Technologien, Lizenz, Systemvoraussetzungen und so weiter.;
-Aufpassen: Fehlerquelle sinus/cosinus Bogenmaß oder Gradmaß;
 \chapter{Ergebnis}
 Die Webanwendung zeigt, wie im nachfolgenden Bild zusehen ist, eine Karte mit den Bilddaten von OpenStreetMaps. Als Zentrum wurde die Stadt Leipzig ausgewählt.\\
-\includegraphics[height=8cm, width=14cm]{bell1_1.png}\\
+\includegraphics[height=6cm, width=10cm]{bell1_1.png}\\
 Auf dieser Karte können nun Orte angeklickt werden, woraufhin ein Marker an der entsprechenden Position gesetzt wird. Auch wird direkt ein Mittelpunkt berechnet der sich aus den Standartwerten der Marker berechnen lässt.\\
-\includegraphics[height=8cm, width=14cm]{bell2_1.png}\\
+\includegraphics[height=6cm, width=10cm]{bell2_1.png}\\
 Um die Priorität eines Markers zu ändern muss man diesen anklicken und dort die Priorität im Eingabefeld ändern. Auch kann man in dem Popup einen Knopf zum Entfernen des Markers drücken, falls man ihn nicht mehr braucht.\\
-\includegraphics[height=8cm, width=14cm]{bell3_1.png}\\
+\includegraphics[height=6cm, width=10cm]{bell3_1.png}\\
 \chapter{Diskussion}
 \section{Auswertung}
 Die Anwendung ist vor allem für Personen/Diensleister geeignet, die keine besonderen Ansprüche an den Standort haben. Da die Anwendung Wohnvorstellungen, wie das Wohnen auf dem Land außer Acht lässt. Auch ist diese Anwendung nicht geeignet für Personen, die bloß zu einem Standort pendeln, da dieser dann als optimaler Standort angegeben wird und man für diese Erkenntnis nicht extra eine Anwendung braucht.
@@ -321,17 +307,7 @@ Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt S
 Auch basiert die Berechnung bisher nur auf Linien in der Ebene, aber die Erde ist ein drei dimensionales Objekt und der Abstand zwischen zwei Punkten müsste durch einen Kreisbogen beschrieben werden.
 Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung(z.B. über die gebrauchte Zeit), ... .
 Die Integration von Mietpreisen könnte auch bei der Entscheidung über den Standort helfen.
-Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. Oder man entwickelt eine Anwendung für Smartphones, die die Standortdaten über einen gewissen Zeitraum sammelt und diese Daten dann verarbeitet \\\\
-Zeit, statt Distanz; nicht Luftlinie, sondern kürzesten Weg (z.B. über Google Maps API);global, statt Leipzig; Maximallänge für Wege
-- Erweiterung um Speicherung der gesetzten Punkte, Einlesen von vorgebebenen Daten(Cookies, LocalStorage, Get-Parameter, ...)\\
-
-Für ähnliche Anwendungsfälle
-Mehrere Kriterien für standortwahl
-- Verfügbarkeit von Arbeitskräften
-- Standortkosten
-- Prozessfluss
-- 
-
-\bibliographystyle{natdin}
+Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. Oder man entwickelt eine Anwendung für Smartphones, die die Standortdaten über einen gewissen Zeitraum sammelt und diese Daten dann verarbeitet.
+\bibliographystyle{unsrt}
 \bibliography{bell}
 \end{document}
