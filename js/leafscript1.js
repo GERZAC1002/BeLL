@@ -23,14 +23,12 @@ let kreis3;//Variable für Kreis 3
 //Funktion die beim Klick auf die Karte ausgeführt wird
 //setzt Marker an angeklickte Position
 function on_Map_Click(e){
-	//////////////////Stackoverflow: https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
 	let id;//Variable id wird initialisiert
 	if (markers.length < 1) {//Wenn markers feldlänge < 1 ist
 		id = 0; //ID bekommt den Wert 0
 	}else {//Wenn markers feldlänge nict <1 ist
 		id = markers[markers.length - 1]._id + 1; //ID = die ID vom voherigen markers Eintrag +1
 	}
-	////////////////////////////////
 	marker = new L.marker(e.latlng, {draggable:false}).addTo(mymap); //Neuer Marker an der angeklickten position
 	marker._id = id;//Marker wird eine ID zugewiesen
 	marker._prio = 5;//Marker wird eine Priorität zugewiesen
@@ -83,9 +81,6 @@ function center(){//Beginn der Funktion center()
 	}).addTo(mymap);//Zur Karte hizufügen
 }
 
-////////////////////////////////////////////////////////////////////////////////
-//https://stackoverflow.com/questions/45931963/leaflet-remove-specific-marker
-//Kommentarevon mir selber
 function clear_marker(id){//Funktion ckear_marker() mit Übergabewert id
 	const new_markers = [];//neues Markerfeld
 	markers.forEach(function(marker){//Mache für jeden Marker
@@ -98,8 +93,6 @@ function clear_marker(id){//Funktion ckear_marker() mit Übergabewert id
 	markers = new_markers;//Markers Feld übernimmt Werte aus new_markers feld
 	center();//Führe Funktion center() aus
 }
-//ENDE Stackoverflow
-////////////////////////////////////////////////////////////////////////////////
 
 function change_marker(id, prio){//Funktion change_marker() mit Übergabewerten ID, prio
 	const new_markers = [];//neues Markerfeld
