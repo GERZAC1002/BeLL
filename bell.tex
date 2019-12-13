@@ -68,7 +68,7 @@ Dieses Problem lässt sich durch eine Anwendung lösen, die aus der Häufigkeit 
 Diese Anwendung kann zum Beispiel auf Basis der Kartendienste von "Google Maps" oder "Open Street Map" realisiert werden.
 Dies lies sich am einfachsten durch eine Webanwendung lösen, da diese meistens plattformunabhängig sind.
 Somit ist keine Installation von zusätzlicher Software, außer einem aktuellen Webbrowser, nötig.
-Des weiteren habe ich mich für den freien Kartendienst von \emph{Open Street Map} entschieden, da dieser die meiste Freiheit bietet.
+Des weiteren wurde der freie Kartendienst von \emph{Open Street Map} gewählt, da dieser für nicht kommerzielle Zwecke kostenlos ist.
 Auch gibt es für Open Street Map eine größere Auswahl an Nutzerschnittstellen.
 Die Anwendung funktioniert sehr gut.%\todo{Fragebogen}
 Somit lässt sich auch der Treibstoffverbrauch reduzieren, was dem Geldbeutel und der Umwelt zu Gute kommt.
@@ -129,49 +129,57 @@ Zur Lösung der oben genannten Probleme soll eine Webanwendung erstellt werden, 
 \section{Existierende Lösungen}
 Die WIGeoGIS\footnote{\url{https://www.wigeogis.com} [02.04.2019 10:58]} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
 Auch bieten sie eine kostenpflichtige Erweiterung des OpenSource Programms QGIS an, um Kunden Daten zur Marktlage oder Bevölkerung zur Verfügung zu stellen.
-Das als Opensource verfügbare Programm QGIS ist für Laien recht unübersichtlich und überfordert durch zu großen Funktionsumfang. Bei der Anwendung handelt es sich auch nicht um eine Webanwendung, wodurch der Nutzer zusätzlich Software herunterladen muss.
-
+Das als Opensource verfügbare Programm QGIS ist für Laien recht unübersichtlich und hat einen großen Funktionsumfang.
+Bei der Anwendung handelt es sich auch nicht um eine Webanwendung, wodurch der Nutzer zusätzlich Software herunterladen muss.\\
+\includegraphics[height=6cm, width=10cm]{qgis_oberflaeche.png}\footnote{Screenshot von QGIS 3.10 mit geladener Openstreetmap Karte}
 \chapter{Grundlagen}
 \section{World Wide Web}
 In der heutigen Zeit gewinnt das World Wide Web (WWW) immer mehr an Bedeutung und ist fast schon nicht mehr wegzudenken.
-Das World Wide Web ist der Teil des Internets, in dem die Daten mithilfe des HTTP/HTTPS -Protokolls ausgetauscht werden, wobei ein Computer, der Server mit der entsprechenden Webseite, die Daten auf Anfrage des Clients zu diesem schickt.
+Das World Wide Web ist der Teil des Internets, in dem die Daten mithilfe des HTTP/HTTPS -Protokolls ausgetauscht werden. Dabei sendet ein Computer(Server), auf dem die entsprechenden Daten gespeichert sind, auf Anfrage(Request) durch einen anderen Computer(Client), diesem diese Daten schickt.
 Das WWW umfasst also fast alle öffentlich zugänglichen Webseiten.
 \section{HTML}
-Die Hyper Text Markup Language (HTML) ist die benutzte Sprache im WWW und beschreibt eine Textdatei, in welcher mit einer bestimmten Syntax geschrieben werden muss.
-Diese Textdatei wird dann von einem Browser analysiert und zeigt dem Endnutzer den Text mit entsprechender Formatierung.
-Reine HTML Webseiten besitzten keine dynamischen Elemente und bieten dem Nutzer wenig Interaktionsmöglichkeiten.
+Die Hyper Text Markup Language (HTML) ist die benutzte Sprache im WWW und beschreibt eine Textdatei oder ein Textstream der vom Server an den Client geschickt wird und zwischengespeichert wird.
+Diese Textdatei wird dann von einem Browser analysiert und zeigt dem Endnutzer die enthaltenen Informationen mit entsprechender Formatierung an.
+Reine HTML Webseiten besitzten wenig dynamischen Elemente und bieten dem Nutzer weniger Interaktionsmöglichkeiten als Seiten mit integrierten Skripten.
 \section{JavaScript}
-JavaScript ist eine Scriptsprache welche direkt in eine HTML Datei implementiert werden kann und auch vom Browser entsprechend verarbeitet wird und dynamische Webseiten erlaubt.
-JavaScript wird über das \verb+<script>...</script>+ -tag in die HTML Datei eingebunden.
+JavaScript ist eine Scriptsprache, welche direkt in eine HTML Datei über das \verb+<script>...</script>+ -tag eingebunden werden kann.
+Dieser Bereich wird meist von einem Unterprogramm des Browsers ausgeführt und lädt beispielsweise Bilder oder andere Daten nach.
+Da JavaScript eine Programmiersprache ist, können auch Berechnungen ausgeführt und die Webseite nachträglich verändert werden, ohne die Seite neu laden zu müssen.\cite{javascriptreferenz}
 %\section{Geographische Koordinaten}
 %Geographische Koordinaten werden in Längen- und Breitengrad angegeben. 
 %\section{Kartenprojektion}
 %Die Karte von OpenStreetMap nutzt die Merkatorprojektion
 \section{Google Maps}
-Google Maps\footnote{\url{https://www.google.com/maps/} [18.06.2019 11:18]} ist der bekannste Online Kartendienst und bietet viele Möglickeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
-Allerdings benötigt man zur Nutzung der Google Maps API\footnote{\url{https://cloud.google.com/maps-platform/} [18.06.2019 15:42} einen benutzerbezogenen Key, welchen man allerdings nur gegen Angabe von Kreditkarten Informationen erstellen kann.
-\section{Open Street Maps}
+Google Maps\footnote{\url{https://www.google.com/maps/} [18.06.2019 11:18]} ist der bekannste Online Kartendienst und bietet viele Möglichkeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
+Allerdings benötigt man zur Nutzung der Google Maps API\footnote{\url{https://cloud.google.com/maps-platform/} [18.06.2019 15:42]} einen benutzerbezogenen Key, welchen man nur gegen Angabe von Kreditkarten Informationen erstellen kann.
+\section{Open Street Map}
 Open Street Maps\footnote{\url{https://www.openstreetmap.org/about}  [02.04.2019 11:01]} spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
 Dafür bietet Open Street Maps freies Kartenmaterial an und es steht eine große Menge an freien APIs.
-In meinem Prototypen setze ich auf Leafelet\footnote{\url{https://leafletjs.com/} [18.06.2019 15:07]}, welches die Kartendaten über eine externe Webseite bezieht, welche das Kartenmaterial von Open Street Maps als .png zur Verfügung stellt.
+In meinem Prototypen setze ich auf Leafelet\footnote{\url{https://leafletjs.com/} [18.06.2019 15:07]}, welches die Kartendaten über eine externe Webseite bezieht.
+Die Anwendung nutzt einen Server von OpenStreetMap.
+Für intensive Nutzung sollte die Nutzung eines anderen Servers in Betracht gezogen werden, da die Server Spenden finanziert sind und nicht für übermäßige Nutzung ausgelegt sind.\footnote{\url{https://wiki.openstreetmap.org/wiki/DE:Tile_usage_policy} [13.12.2019 21:10]}
 %\section{Gegenüberstellung von Google Maps und Open Street Maps}
 
 \chapter{Algorithmus}
-Um den Mittelpunkt der Längen- und Breitengrade zu berechnen nutzte ich folgenende Gleichung zur Berechnung von Längengrad und Breitengrad:
+Der Mittelpunkt wird mit folgender Formel aus den auf der Karte gesetzten Markern berechnet:
 \begin{eqnarray}
-\displaystyle
-\lambda = \left(\sum_{i=1}^{n}\lambda_i \cdot w_i \right) \cdot \left(\sum_{i=1}^{n} w_i \right)^{-1}\\
-\varphi = \left(\sum_{i=1}^{n}\varphi_i \cdot w_i \right) \cdot \left(\sum_{i=1}^{n} w_i \right)^{-1}
+%\displaystyle
+\lambda = \left(\sum_{i=1}^{n}\lambda_i \cdot w_i \right) \cdot \left(\sum_{i=1}^{n} w_i \right)^{-1}
 \end{eqnarray}
-Die Anwendung berechnet einen gewichteten Mittelpunkt anhand der vom Nutzer angegebenen Priorität.
-Wärend des Setzens der Marker wird bereits ein Mittelpunkt berechnet.
-Durch einen Klick auf den Marker erscheint ein Popup in welchem man die Priorität ändern kann. 
-Danach wird die Position des Mittelpunktes erneut berechnet.
-Der Mittelpunkt wird durch drei Kreise dargestellt, einen inneren roten, einen mittleren gelben und durch einen grünen äußeren Kreis.
+Diese Formel wird jeweils für die x- und die y-Koordinate des Markers auf der Karte genutzt.
+Dabei wird $\lambda$ jeweils mit x und y substituiert.
+Dafür wird zuerst das Produkt aus der Koordinate $\lambda_i$ mit der Wichtung(Priorität) $w_i$ multipliziert.
+Dies wird für alle vorhandenen Marker, das heißt $n$-mal, durchgeführt und die Summe aus den ermittelten Werten wird gebildet.
+Die Koordinate für den gewichteten Mittelpunkt erhält man danach durch die Division mit der Summe aus allen Wichtungen, die ebenfalls $n$-mal vorhanden sind, da $n$ der Anzahl der Marker entspricht.
+
 \chapter{Implementierung}
-Für die Kartendarstellung wird Leaflet\cite{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen, genutzt. Eine Kartendatenquelle, die diese Anwendung benutzt, ist OpenStreetMaps.
-Für die Webanwendung ist nur ein halbwegs aktueller Webbrowser notwendig, welcher in der Lage ist, Javascript Anwendungen ausführen zu können.
-Die Webanwendung besteht im wesentlichen bloß aus einem HTML Dokument und einer Javascript Datei sowie der Leaflet Bibliothek.
+Für die Kartendarstellung wird Leaflet\cite{crickard2014leaflet}, eine OpenSource Bibliothek für die Darstellung von Kartenmaterial aus verschiedenen Quellen, genutzt.
+Eine Kartendatenquelle, die diese Anwendung benutzt, ist OpenStreetMap.
+Für die Webanwendung ist nur ein Webbrowser notwendig, der in der Lage ist, JavaScript Anwendungen ausführen zu können.
+Die Webanwendung besteht aus einem HTML Dokument und einer JavaScript Datei sowie der Leaflet Bibliothek.
+Die Bibliothek wird aus dem Ordner \textit{leaftlet} geladen.
+In diesem befinden sich auch die benötigten Grafikelemente für die Marker.
+Das Script \textit{leaflet1.js} befindet sich im Ordner \textit{js} und enthält die Funktionsaufrufe, welche zur Darstellung der Karte benötigt werden, sowie die Funktion zur Berechnung des optimierten Standortes.
 \begin{lstlisting}
 	...
 	<link rel="stylesheet" href="leaflet/leaflet.css" crossorigin=""/>
@@ -194,7 +202,8 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {
 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(mymap);
 \end{lstlisting}
-Als nächstes wird eine Varible für einen Marker initialisiert, sowie eine Konstante i und ein Feld für die gesetzten Marker. Auch werden Variablen für die Kreise, die den Mittelpunkt anzeigen, definiert.
+Als nächstes wird eine Variable für einen Marker initialisiert, sowie eine Konstante i und ein Feld für die gesetzten Marker.
+Desweiteren die Kreise, welche den Mittelpunkt anzeigen, definiert.
 \begin{lstlisting}
 let marker;
 const i=0;
@@ -203,9 +212,9 @@ let kreis1;
 let kreis2;
 let kreis3;
 \end{lstlisting}
-Damit der Nutzer Marker auf die Karte setzen kann wird einen neue Funktion \textit{on\_Map\_Click(e)} definiert, die, an der angeklickten Position, auf der Karte, einen Marker setzt.
+Damit der Nutzer Marker auf die Karte setzen kann wird einen neue Funktion \textit{on\_Map\_Click(e)} definiert, welche an der angeklickten Position einen Marker setzt.
 Jeder Marker bekommt eine ID zugewiesen, damit man ihn später wieder entfernen kann.
-Auch wird dem Marker standardmäßig eine Priorität mit dem Wert 5 zugewiesen.
+Diesem wird standardmäßig eine Priorität mit dem Wert 5 zugewiesen.
 Die ID wird aus der Länge des \textit{markers} Feld definiert.
 Dem Marker wird auch ein Popup zugewiesen.
 Dieses Popup zeigt die Marker ID, Priorität und einene Button zum entfernen des Markers.
@@ -244,8 +253,9 @@ function on_Map_Click(e){
 	center();
 }
 \end{lstlisting}
-Die nächste wichtige Funktion ist \textit{center()}, da diese für die Berechnung des Mittelpunktes zuständig ist. Der Mittelpunkt wird somit immer bei einer Änderung eines Markers neu berechnet.
-Zuerst wird geprüft ob bereits die Kreise eins (Grüner Kreis), zwei (Gelber Kreis) und drei (Roter Kreis) vorhanden sind und entfernt diese wenn sie bereits vorhanden sind.
+Die nächste wichtige Funktion ist \textit{center()}, da diese für die Berechnung des Mittelpunktes zuständig ist.
+Der Mittelpunkt wird somit immer bei einer Änderung eines Markers neu berechnet.
+Dabei wird auch geprüft, ob die drei Kreise um den Mittelpunkt bereits bestehen, und werden dann entsprechend entfernt.
 \begin{lstlisting}
 function center(){
 	if(kreis1&&kreis2&&kreis3){
@@ -293,7 +303,7 @@ Die Kreise haben besitzen den gewichteten Mittelpunkt als Mittelpunkt.
 \end{lstlisting}
 Wenn man nun Marker wieder entfernen möchte Braucht man eine neue Funktion \textit{clear\_marker}, welche die gesetzen Marker wieder entfernt.
 \chapter{Ergebnis}
-Die Webanwendung zeigt, wie im nachfolgenden Bild zusehen ist, eine Karte mit den Bilddaten von OpenStreetMaps. Als Zentrum wurde die Stadt Leipzig ausgewählt.\\
+Die Webanwendung zeigt, wie im nachfolgenden Bild zusehen ist, eine Karte mit den Bilddaten von OpenStreetMap. Als Zentrum wurde die Stadt Leipzig ausgewählt.\\
 \includegraphics[height=6cm, width=10cm]{bell1_1.png}\\
 Auf dieser Karte können nun Orte angeklickt werden, woraufhin ein Marker an der entsprechenden Position gesetzt wird. Auch wird direkt ein Mittelpunkt berechnet der sich aus den Standartwerten der Marker berechnen lässt.\\
 \includegraphics[height=6cm, width=10cm]{bell2_1.png}\\\\\\\\
@@ -304,7 +314,6 @@ Um die Priorität eines Markers zu ändern muss man diesen anklicken und dort di
 Die Anwendung ist vor allem für Personen/Diensleister geeignet, die keine besonderen Ansprüche an den Standort haben. Da die Anwendung Wohnvorstellungen, wie das Wohnen auf dem Land außer Acht lässt. Auch ist diese Anwendung nicht geeignet für Personen, die bloß zu einem Standort pendeln, da dieser dann als optimaler Standort angegeben wird und man für diese Erkenntnis nicht extra eine Anwendung braucht.
 \section{Ausblick}
 Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse, wie zum Beispiel Gewässer und Wälder, außer Acht.
-Auch basiert die Berechnung bisher nur auf Linien in der Ebene, aber die Erde ist ein drei dimensionales Objekt und der Abstand zwischen zwei Punkten müsste durch einen Kreisbogen beschrieben werden.
 Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung(beispielsweise über die gebrauchte Zeit, ...) .
 Die Integration von Mietpreisen könnte auch bei der Entscheidung über den Standort helfen.
 Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. Oder man entwickelt eine Anwendung für Smartphones, die die Standortdaten über einen gewissen Zeitraum sammelt und diese Daten dann verarbeitet.

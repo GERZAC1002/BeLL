@@ -36,7 +36,7 @@ function on_Map_Click(e){
 		+ marker._id
 		+'</b><br>'
     + 'Priorität:'
-		+ '<br><input type="number" value="'
+		+ '<br><input id="input" type="number" autofocus="autofocus" value="'
 		+ marker._prio
 		+ '" oninput="change_marker('
 		+ marker._id
@@ -102,7 +102,7 @@ function change_marker(id, prio){//Funktion change_marker() mit Übergabewerten 
 			marker._popup.setContent('<b>Marker '
 				+ marker._id +'</b><br>'
 				+ 'Priorität:'
-				+ '<br><input type="number" value="'
+				+ '<br><input type="number" id="input" value="'
 				+ marker._prio
 				+ '" oninput="change_marker('
 				+ marker._id
@@ -117,6 +117,8 @@ function change_marker(id, prio){//Funktion change_marker() mit Übergabewerten 
 	});
 	markers = new_markers;//Feld markers übernimmt Werte aus new_markers
 	center();//Führe Funktion center() aus
+	document.getElementById("input").click();
+	document.getElementById("input").focus();
 	//heatmap();
 }
 
