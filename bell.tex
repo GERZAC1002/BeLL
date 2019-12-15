@@ -99,20 +99,15 @@ WWW		&World Wide Web\\
 \subsection{Gegenstand}
 %\todo{Verdoppelung von "sich einen möglichst kurzen Weg". Stört mich nicht aber eventuell den Deutschlehrer.}
 %\todo{Ich bin immer vorsichtig mit "viele X" und "immer mehr X" wenn man dazu keine Belege hat.}
-\begin{itemize}
-\item Viele Versandhändler suchen sich einen möglichst kurzen Weg zum Kunden oder zur Produktionsstätte.
-\item Normalverbraucher wünschen sich einen möglichst kurzen Weg zu ihrer Arbeit, zum Kindergarten, Arzt, $\ldots{}$
-\end{itemize}
+Versandhändler suchen eine möglichts kurze Strecke zum Kunden und zur Produktionsstätte.
+Auch Normalverbraucher wünschen sich einen möglichst kurzen Weg zu ihrer Arbeit, zum Kindergarten, Arzt, oder zu ihrem (Sport-)Verein und sucht deshalb eine Wohnung von der Er diese Orte auf dem kürzesten Weg erreicht.
 \subsection{Problematik}
-\begin{itemize}
-\item Durch lange Fahrtwege erhöht sich die Dauer der Fahrt bis zum Ziel und somit der Energieverbrauch sowie die Schadstoffbelastung.
-\item Auch die Kosten erhöhen sich bei langen Fahrten, da der Fahrer und/oder der Treibstoff bezahlt werden muss.
-\end{itemize}
+Durch lange Fahrtwege erhöht sich die Dauer der Fahrt bis zum Ziel und somit der Energieverbrauch sowie die Schadstoffbelastung.
+Auch die Kosten erhöhen sich bei langen Fahrten, da der Fahrer und/oder der Treibstoff bezahlt werden muss.
+Die Kraftfahrer werden durch längere Strecken stärker belastet und das Risiko für Unfälle aufgrund von Übermüdung steigt.\cite{hoffmann1966belastung}
 \section{Motivation}
-\begin{itemize}
-\item Durch die Reduktion der Distanz zum Ziel wird der Energieverbrauch und die Zeit verringert.
-\item Aufgrund der Reduktion der Fahrtwege wird Geld gespart und die Umwelt geschont.
-\end{itemize}
+Durch die Reduktion der Distanz zum Ziel wird der Energieverbrauch und die Zeit verringert, dadurch kann Geld gespart und die Umwelt geschont werden.
+Auch wird der Fahrer durch eine geringere Fahrzeit weniger stark belastet.
 \section{Problemstellung}
 Der Online Versandhandel ist ein zurzeit stark wachsender Sektor der Wirtschaft.\cite{Stepper2016}
 Deshalb verwundert es auch nicht das es heutzutage
@@ -179,34 +174,37 @@ Für die Webanwendung ist nur ein Webbrowser notwendig, der in der Lage ist, Jav
 Die Webanwendung besteht aus einem HTML Dokument und einer JavaScript Datei sowie der Leaflet Bibliothek.
 Die Bibliothek wird aus dem Ordner \textit{leaftlet} geladen.
 In diesem befinden sich auch die benötigten Grafikelemente für die Marker.
-Das Script \textit{leaflet1.js} befindet sich im Ordner \textit{js} und enthält die Funktionsaufrufe, welche zur Darstellung der Karte benötigt werden, sowie die Funktion zur Berechnung des optimierten Standortes.
+Das Script \textit{leafscript1.js} befindet sich im Ordner \textit{js} und enthält die Funktionsaufrufe, welche zur Darstellung der Karte benötigt werden, sowie die Funktion zur Berechnung des optimierten Standortes.
+Die Karte wird dann im \textit{<div>} Block dargestellt.
+Die Seite enthält auch ein Eingabefeld für den Kartenmaterialserver, bei dessen Wertänderung die Funktion \textit{changelayer()} aus \textit{leafscript1.js} ausgeführt wird.
 \begin{lstlisting}
 	...
 	<link rel="stylesheet" href="leaflet/leaflet.css" crossorigin=""/>
 	<script src="leaflet/leaflet.js"></script>
 	...
+	<select id="tilequelle" onload="changelayer()" onchange="changelayer()">
+	...
 	<div id="map"></div>
 	<script src="js/leafscript1.js" type = "text/javascript"></script>
 	...
 \end{lstlisting}
-Das Script \textit{leaflet1.js} erstellt eine neue Variable \textit{mymap}, die dann als Objekt für die Kartendaten dient.
+Das Script \textit{leafscript1.js} erstellt eine neue Variable \textit{mymap}, die dann als Objekt für die Kartendaten dient.
 Die Karte wird dabei erstellt und hat als Mittelpunkt die Stadt Leipzig (Längengrad: \si{51{,}339}{\textdegree}  Nord, Breitengrad: \si{12{,}381}{\textdegree}  Ost). Die Ansicht ist standardmäßig auf eine Zoomstufe von 12 eingestellt, da man so die gesamte Stadt und das Umland sehen kann.
 Als nächstes wird dann zur Karte eine neue Ebene hinzugefügt, welche die Bildinformationen von einem OpenStreetMap Server abfragt und darstellt.
 Außerdem wird festgelegt wie weit man in die Karte hinein- und hinauszoomen kann.
 \lstset{language=Java}
 \begin{lstlisting}
 const mymap = L.map('map').setView([51.33918, 12.38105], 12);
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {
+let tilelayer = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {
 	maxZoom: 20,
 	minZoom: 5,
 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(mymap);
 \end{lstlisting}
-Als nächstes wird eine Variable für einen Marker initialisiert, sowie eine Konstante i und ein Feld für die gesetzten Marker.
+Als nächstes wird eine Variable für einen Marker sowie ein Feld für die gesetzten Marker initialisiert.
 Desweiteren die Kreise, welche den Mittelpunkt anzeigen, definiert.
 \begin{lstlisting}
 let marker;
-const i=0;
 let markers = [];
 let kreis1;
 let kreis2;
@@ -311,12 +309,15 @@ Um die Priorität eines Markers zu ändern muss man diesen anklicken und dort di
 \includegraphics[height=6cm, width=10cm]{bell3_1.png}\\
 \chapter{Diskussion}
 \section{Auswertung}
-Die Anwendung ist vor allem für Personen/Diensleister geeignet, die keine besonderen Ansprüche an den Standort haben. Da die Anwendung Wohnvorstellungen, wie das Wohnen auf dem Land außer Acht lässt. Auch ist diese Anwendung nicht geeignet für Personen, die bloß zu einem Standort pendeln, da dieser dann als optimaler Standort angegeben wird und man für diese Erkenntnis nicht extra eine Anwendung braucht.
+Die Anwendung ist vor allem für Personen/Dienstleister geeignet, die keine besonderen Ansprüche an den Standort haben.
+Vorallem Wohnvorlieben wie das Leben auf dem Land oder in der Nähe der Familie werden nicht beachtet, da dies sich nicht mit kurzen Fahrtwegen deckt.
+Auch für Pendler ist diese Anwendung uninteressant, da bei diesen ihr Arbeitsort als neuer Wohnsitz vorgeschlagen wird.
+Interessanter ist die Anwendung für Personen die noch bei ihren Eltern oder in einer WG wohnen, die einen Umzug planen und bereits eine feste Arbeitsstelle haben. 
 \section{Ausblick}
 Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse, wie zum Beispiel Gewässer und Wälder, außer Acht.
-Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung(beispielsweise über die gebrauchte Zeit, ...) .
+Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung(beispielsweise über die gebrauchte Zeit, ...).
 Die Integration von Mietpreisen könnte auch bei der Entscheidung über den Standort helfen.
 Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. Oder man entwickelt eine Anwendung für Smartphones, die die Standortdaten über einen gewissen Zeitraum sammelt und diese Daten dann verarbeitet.
-\bibliographystyle{unsrt}
+\bibliographystyle{abbrvdin}
 \bibliography{bell}
 \end{document}

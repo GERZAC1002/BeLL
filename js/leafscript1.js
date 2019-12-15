@@ -14,14 +14,13 @@ let tilelayer = new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=d
 }).addTo(mymap);//Layer wird Karte 'mymap' hinzugefuegt
 
 let marker;//neue Variable wird hinzugefügt
-const i=0;//Konstante i mit Wert 0 wird hinzugefügt
 let markers = [];//Neues Feld markers wird erstellt
 let kreis1;//Variable für Kreis 1
 let kreis2;//Variable für Kreis 2
 let kreis3;//Variable für Kreis 3
 
 //Funktion zum Wechseln des Kartenmaterials
-function wechsellayer(){
+function changelayer(){
 	const layer = document.getElementById("tilequelle").value;//Select Feld auslesen
 	try{
 		mymap.removeLayer(tilelayer);//Entfernt vorhergehenden Layer bevor neuer gesetzt wird
