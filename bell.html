@@ -1,34 +1,48 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
-<head>
-	<title>Bell Projekt</title>
-	<style>
-		#map {
-			height: 80%;  /* Die Höhe beträgt 90% der Größe */
-			width: 100%;  /* Breite der Karte ist 100% */
-		}
-		textarea {
-			resize: none;
-		}
-		h1 {
-			color: #ff0000;
-		}
-		article {
-			background-color: white;
-			height: 20%;
-		}
-	</style>
-	<meta charset="utf-8" />
-	<link rel="stylesheet" href="leaflet/leaflet.css" crossorigin=""/>
-	<script src="leaflet/leaflet.js"></script>
-	<script src="leaflet/leaflet-heat.js"></script>
-</head>
-<body style="background-color: black;" >
-	<noscript>
-		<h1>Zur Nutzung der Seite aktivieren Sie bitte JavaScript in ihrem Browser</h1>
-	</noscript>
-	<article><b>Gewichtete Standortbestimmung</b><br>Die Anwendung berechnet den gewichteten Mittelpunkt aus gegebenen Orten und deren Priorität. Orte werden durch einen Klick auf die Karte platziert und deren Priorität kann über ein Popupmenü geändert werden. Die Priorität kann beliebig interpretiert werden, z.B. als Fahrten pro Woche zum gegebenen Ort oder die Anzahl der Kunden.</article>
-	<div id="map"></div>
-	<script src="js/leafscript1.js" type = "text/javascript"></script>
-</body>
+	<head>
+		<title>Bell Projekt</title>
+		<style>
+			#map {
+				height: 80vh;  /* Die Höhe beträgt 90% der Größe */
+			}
+			textarea {
+				resize: none;
+			}
+			h1 {
+				color: #ff0000;
+			}
+			article {
+				background-color: white;
+				height: 20%;
+			}
+		</style>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="leaflet/leaflet.css" crossorigin=""/>
+		<script src="leaflet/leaflet.js"></script>
+	</head>
+	<body style="background-color: black;" >
+		<noscript>
+			<h1>Zur Nutzung der Seite aktivieren Sie bitte JavaScript in ihrem Browser</h1>
+		</noscript>
+		<article>
+			<b>Gewichtete Standortbestimmung</b>
+			<br>Die Anwendung berechnet den gewichteten Mittelpunkt aus gegebenen Orten und deren Priorität. Orte werden durch einen Klick auf die Karte platziert und deren Priorität kann über ein Popupmenü geändert werden. Die Priorität kann beliebig interpretiert werden, z.B. als Fahrten pro Woche zum gegebenen Ort oder die Anzahl der Kunden.
+			<br>
+			Auswahl der Kartenquelle:
+			<select id="tilequelle" onload="wechsellayer()" onchange="wechsellayer()">
+				<option value="osm.org" selected="selected">
+					osm.org
+				</option>
+				<option value="lokal4umaps">
+					Lokal: 4uMaps
+				</option>
+				<option value="lokalosmtransport">
+					Lokal: OSM Transport
+				</option>
+			</select>
+		</article>
+		<div id="map"></div>
+		<script src="js/leafscript1.js" type = "text/javascript"></script>
+	</body>
 </html>

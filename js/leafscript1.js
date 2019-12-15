@@ -7,7 +7,7 @@ function check_es6(){
 }
 const mymap = L.map('map').setView([51.33918, 12.38105], 12);
 //Karte erstellen mit Mittelpunkt 51.33918N und 12.38105O und Zoomstufe 12
-L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {//Festlegen des Anbieters des Kartenmaterials
+let tilelayer = new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {//Festlegen des Anbieters des Kartenmaterials
 	maxZoom: 20,//maximaler zoom nach unten
 	minZoom: 5,//maximaler zoom nach oben
 	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',//Anzeigen des Copyrights von OpenStreetMap
@@ -20,6 +20,34 @@ let kreis1;//Variable für Kreis 1
 let kreis2;//Variable für Kreis 2
 let kreis3;//Variable für Kreis 3
 
+//Funktion zum Wechseln des Kartenmaterials
+function wechsellayer(){
+	const layer = document.getElementById("tilequelle").value;//Select Feld auslesen
+	try{
+		mymap.removeLayer(tilelayer);//Entfernt vorhergehenden Layer bevor neuer gesetzt wird
+	}catch(e){}
+	switch(layer){
+		case "osm.org":
+			tilelayer = new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {//Festlegen des Anbieters des Kartenmaterials
+				maxZoom: 20,//maximaler zoom nach unten
+				minZoom: 5,//maximaler zoom nach oben
+				attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',//Anzeigen des Copyrights von OpenStreetMap
+			}).addTo(mymap);//Layer wird Karte 'mymap' hinzugefuegt
+			break;
+		case "lokal4umaps":
+			tilelayer = new L.tileLayer('http://127.0.0.1/4uMaps/{z}/{x}/{y}.jpg.tile', {//Festlegen des Anbieters des Kartenmaterials
+				maxZoom: 15,//maximaler zoom nach unten
+				minZoom: 5,//maximaler zoom nach oben
+			}).addTo(mymap);//Layer wird Karte 'mymap' hinzugefuegt
+			break;
+		case "lokalosmtransport":
+			tilelayer = new L.tileLayer('http://127.0.0.1/OSMPublicTransport/{z}/{x}/{y}.jpg.tile', {//Festlegen des Anbieters des Kartenmaterials
+				maxZoom: 16,//maximaler zoom nach unten
+				minZoom: 5,//maximaler zoom nach oben
+			}).addTo(mymap);//Layer wird Karte 'mymap' hinzugefuegt
+			break;
+	}
+}
 //Funktion die beim Klick auf die Karte ausgeführt wird
 //setzt Marker an angeklickte Position
 function on_Map_Click(e){
@@ -35,7 +63,7 @@ function on_Map_Click(e){
 	marker.bindPopup('<b>Marker '
 		+ marker._id
 		+'</b><br>'
-    + 'Priorität:'
+		+ 'Priorität:'
 		+ '<br><input id="input" type="number" autofocus="autofocus" value="'
 		+ marker._prio
 		+ '" oninput="change_marker('
@@ -91,7 +119,13 @@ function clear_marker(id){//Funktion ckear_marker() mit Übergabewert id
 		}
 	});
 	markers = new_markers;//Markers Feld übernimmt Werte aus new_markers feld
-	center();//Führe Funktion center() aus
+	if(markers.length > 0){
+		center();//Aufruf der Center Funktion
+	}else{
+		mymap.removeLayer(kreis1);//Entferne Kreis 1
+		mymap.removeLayer(kreis2);//Entferne Kreis 2
+		mymap.removeLayer(kreis3);//Entferne Kreis 3
+	}
 }
 
 function change_marker(id, prio){//Funktion change_marker() mit Übergabewerten ID, prio
