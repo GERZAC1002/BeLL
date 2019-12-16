@@ -1,6 +1,6 @@
-\documentclass[a4paper, twoside, 12pt]{scrreprt}
+\documentclass[a4paper, 12pt]{scrreprt}
 %\documentclass[headsepline,titlepage,twoside,12pt]{report}
-\linespread{1.25}
+\linespread{1.5}
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -18,6 +18,8 @@
 \usepackage{tabularx}
 \usepackage{setspace}
 \usepackage{booktabs}
+\usepackage{float}
+\usepackage{mwe}
 \usepackage[locale=DE]{siunitx}
 %\sisetup{output-decimal-marker = {,}}
 \sisetup{decimalsymbol=comma}
@@ -121,12 +123,17 @@ Das Ziel ist es eine Anwendung zu kreieren, welche aus der Häufigkeit des Anste
 \section{Aufgabenstellung}
 Zur Lösung der oben genannten Probleme soll eine Webanwendung erstellt werden, welche eine Karte anzeigt, auf der der Nutzer/-in Standorte auswählt, die er mit einer bestimmten Häufigkeit, die er/sie/es selbst angibt, aufsucht.
 %\section{Aufbau der Arbeit}
+\newpage
 \section{Existierende Lösungen}
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{qgis_oberflaeche.png}
+\caption{Screenshot von QGIS 3.10 mit geladener Openstreetmap Karte}
+\end{figure}
 Die WIGeoGIS\footnote{\url{https://www.wigeogis.com} [02.04.2019 10:58]} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
 Auch bieten sie eine kostenpflichtige Erweiterung des OpenSource Programms QGIS an, um Kunden Daten zur Marktlage oder Bevölkerung zur Verfügung zu stellen.
 Das als Opensource verfügbare Programm QGIS ist für Laien recht unübersichtlich und hat einen großen Funktionsumfang.
 Bei der Anwendung handelt es sich auch nicht um eine Webanwendung, wodurch der Nutzer zusätzlich Software herunterladen muss.\\
-\includegraphics[height=6cm, width=10cm]{qgis_oberflaeche.png}\footnote{Screenshot von QGIS 3.10 mit geladener Openstreetmap Karte}
+
 \chapter{Grundlagen}
 \section{World Wide Web}
 In der heutigen Zeit gewinnt das World Wide Web (WWW) immer mehr an Bedeutung und ist fast schon nicht mehr wegzudenken.
@@ -302,11 +309,20 @@ Die Kreise haben besitzen den gewichteten Mittelpunkt als Mittelpunkt.
 Wenn man nun Marker wieder entfernen möchte Braucht man eine neue Funktion \textit{clear\_marker}, welche die gesetzen Marker wieder entfernt.
 \chapter{Ergebnis}
 Die Webanwendung zeigt, wie im nachfolgenden Bild zusehen ist, eine Karte mit den Bilddaten von OpenStreetMap. Als Zentrum wurde die Stadt Leipzig ausgewählt.\\
-\includegraphics[height=6cm, width=10cm]{bell1_1.png}\\
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{bell1_1.png}
+\caption{Screenshot von der Anwendung}
+\end{figure}\\
 Auf dieser Karte können nun Orte angeklickt werden, woraufhin ein Marker an der entsprechenden Position gesetzt wird. Auch wird direkt ein Mittelpunkt berechnet der sich aus den Standartwerten der Marker berechnen lässt.\\
-\includegraphics[height=6cm, width=10cm]{bell2_1.png}\\\\\\\\
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{bell2_1.png}
+\caption{Screenshot der Anwendung mit gesetzten Markern}
+\end{figure}
+\\\\\\\\
 Um die Priorität eines Markers zu ändern muss man diesen anklicken und dort die Priorität im Eingabefeld ändern. Auch kann man in dem Popup einen Knopf zum Entfernen des Markers drücken, falls man ihn nicht mehr braucht.\\
-\includegraphics[height=6cm, width=10cm]{bell3_1.png}\\
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{bell3_1.png}\caption{Screenshot von Anwendung mit Marker Popup}
+\end{figure}
 \chapter{Diskussion}
 \section{Auswertung}
 Die Anwendung ist vor allem für Personen/Dienstleister geeignet, die keine besonderen Ansprüche an den Standort haben.
@@ -320,4 +336,5 @@ Die Integration von Mietpreisen könnte auch bei der Entscheidung über den Stan
 Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. Oder man entwickelt eine Anwendung für Smartphones, die die Standortdaten über einen gewissen Zeitraum sammelt und diese Daten dann verarbeitet.
 \bibliographystyle{abbrvdin}
 \bibliography{bell}
+\listoffigures
 \end{document}
