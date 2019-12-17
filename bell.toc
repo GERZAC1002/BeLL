@@ -13,12 +13,12 @@
 \contentsline {chapter}{\numberline {2}Grundlagen}{7}{chapter.2}% 
 \contentsline {section}{\numberline {2.1}World Wide Web}{7}{section.2.1}% 
 \contentsline {section}{\numberline {2.2}HTML}{7}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}JavaScript}{8}{section.2.3}% 
+\contentsline {section}{\numberline {2.3}JavaScript}{7}{section.2.3}% 
 \contentsline {section}{\numberline {2.4}Google Maps}{8}{section.2.4}% 
 \contentsline {section}{\numberline {2.5}Open Street Map}{8}{section.2.5}% 
 \contentsline {chapter}{\numberline {3}Algorithmus}{9}{chapter.3}% 
 \contentsline {chapter}{\numberline {4}Implementierung}{10}{chapter.4}% 
-\contentsline {chapter}{\numberline {5}Ergebnis}{16}{chapter.5}% 
-\contentsline {chapter}{\numberline {6}Diskussion}{19}{chapter.6}% 
-\contentsline {section}{\numberline {6.1}Auswertung}{19}{section.6.1}% 
-\contentsline {section}{\numberline {6.2}Ausblick}{19}{section.6.2}% 
+\contentsline {chapter}{\numberline {5}Ergebnis}{17}{chapter.5}% 
+\contentsline {chapter}{\numberline {6}Diskussion}{20}{chapter.6}% 
+\contentsline {section}{\numberline {6.1}Auswertung}{20}{section.6.1}% 
+\contentsline {section}{\numberline {6.2}Ausblick}{20}{section.6.2}% 
