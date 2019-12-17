@@ -61,11 +61,8 @@
 %\listoftodos
 \maketitle
 \cleardoublepage
-\tableofcontents
-%\chapter* {Inhaltsverzeichnis}
-\setcounter{page}{1}
-\chapter*{Zusammenfassung}
-\addcontentsline{toc}{chapter}{Zusammenfassung}
+\chapter*{Abstrakt}
+%\addcontentsline{toc}{chapter}{Zusammenfassung}
 Durch den aufstrebenden Online-Versandhandel, wie zum Beispiel durch Online-Versandapotheken, entstehen neue Probleme.
 Die Versandhändler benötigen Lagerhäuser für ihre Waren und die Fahrtwege vom Lager zum Kunden sollten möglichst minimal gehalten werden, um Zeit und Geld zu sparen.
 Durch die Verkürzung der Fahrwege wird auch die Gesundheit und die Natur weniger belastet.
@@ -80,6 +77,9 @@ Die Anwendung funktioniert sehr gut.%\todo{Fragebogen}
 Somit lässt sich auch der Treibstoffverbrauch reduzieren, was dem Geldbeutel und der Umwelt zu Gute kommt.
 Es gab auch positives Feedback von anderen Personen, die das Programm getestet haben.
 Allerdings bietet die Anwendung auch noch viel Spielraum für individuelle Erweiterungen, Verbesserungen und Änderungen.
+\setcounter{page}{1}
+\tableofcontents
+%\chapter* {Inhaltsverzeichnis}
 \chapter*{Abkürzungsverzeichnis}
 \addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
 \begin{tabularx}{\textwidth}{lX}
@@ -122,10 +122,14 @@ Dies ist vor allem für bewegungseingeschränkte Personen interessant, da diese 
 Auch ermöglicht es Personen die nicht in der Nähe einer Apotheke wohnen, sich die benötigten Medikamente zu besorgen.
 Für die Anbieter dieser Versandapotheken ist es nun interessant herauszufinden, wie man Zeit und Geld beim Versand einsparen kann.
 Dazu kann man zum Beispiel die Warenlager dort plazieren, wo die Nachfrage am größten ist.
+Ein anderes Beispiel ist eine Person die noch bei ihren Eltern wohnt, aber beschließt umzuziehen.
+Diese Person ist aber bereits bei einer Firma angestellt und will die Stelle nicht wechseln.
+Deshalb sucht die Person nun eine Wohnung von der sie möglichst kurze Fahrwege zur Arbeit hat.
 \section{Zielsetzung}
 Das Ziel ist es eine Anwendung zu kreieren, welche aus der Häufigkeit des Ansteuerns von bestimmten Orten, einen Ort bestimmt, von welchem aus die Gesamtdistanz,in Abhängigkeit von der Häufigkeit, zu den gegebenen Orten, möglichst klein ist.
 \section{Aufgabenstellung}
-Zur Lösung der oben genannten Probleme soll eine Webanwendung erstellt werden, welche eine Karte anzeigt, auf der der Nutzer/-in Standorte auswählt, die er mit einer bestimmten Häufigkeit, die er/sie/es selbst angibt, aufsucht.
+Zur Lösung der oben genannten Probleme soll eine Webanwendung erstellt werden, die eine Karte anzeigt.
+Auf dieser kann dann der Nutzer Orte uswählen und angeben, wie oft er diese ansteuert.
 %\section{Aufbau der Arbeit}
 \newpage
 \section{Existierende Lösungen}
@@ -364,9 +368,11 @@ Falls man eine andere Quelle für das Kartenmaterial auswählt, wird die alte Ka
 \chapter{Diskussion}
 \section{Auswertung}
 Die Anwendung ist vor allem für Personen/Dienstleister geeignet, die keine besonderen Ansprüche an den Standort haben.
-Vorallem Wohnvorlieben wie das Leben auf dem Land oder in der Nähe der Familie werden nicht beachtet, da dies sich nicht mit kurzen Fahrtwegen deckt.
+Vorallem Wohnvorlieben wie das Leben auf dem Land oder in der Nähe der Familie werden nicht beachtet, da dies sich meist nicht mit kurzen Fahrtwegen deckt.
 Auch für Pendler ist diese Anwendung uninteressant, da bei diesen ihr Arbeitsort als neuer Wohnsitz vorgeschlagen wird.
-Interessanter ist die Anwendung für Personen die noch bei ihren Eltern oder in einer WG wohnen, die einen Umzug planen und bereits eine feste Arbeitsstelle haben. 
+Interessanter ist die Anwendung für Personen die noch bei ihren Eltern oder in einer WG wohnen, die einen Umzug planen und bereits eine feste Arbeitsstelle haben.
+Mit der Anwendung können auch Standorte für Lagerhäuser errechnet werden, in dem man aus Umfragen die Anzahl der Leute ermittelt die in einer bestimmten Region Bedarf haben.
+Dabei wählt man beispielsweise drei Städte aus, in denen Umfragen zum Bedarf durchgeführt werden und errechnet aus dem Bedarf pro Stadt einen Standort für Warenhäuser aus.
 \section{Ausblick}
 Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt Straßen und natürliche Hindernisse, wie zum Beispiel Gewässer und Wälder, außer Acht.
 Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung(beispielsweise über die gebrauchte Zeit, ...).
@@ -374,7 +380,18 @@ Die Integration von Mietpreisen könnte auch bei der Entscheidung über den Stan
 Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. Oder man entwickelt eine Anwendung für Smartphones, die die Standortdaten über einen gewissen Zeitraum sammelt und diese Daten dann verarbeitet.
 \bibliographystyle{abbrvdin}
 \bibliography{bell}
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
 \listoffigures
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\chapter*{Danksagung}
+Zum Schluss möchte ich mich bei allen bedanken, die mir bei der Erstellung dieser Arbeit geholfen haben.
+Besonders möchte ich mich bei meinem externen Betreuer Konrad Höffner bedanken, für die Hospitation, all die Zeit, die er sich für mich genommen hat, die Einführung in das Thema, sowie die Beantwortung all meiner Fragen.   
+Des Weiteren möchte ich mich auch herzlich bei meinem internen Betreuer Herrn Rai Ming Knospe bedanken, für die Beantwortung formeller Fragen und für die Verbesserungsvorschläge für diese Arbeit.
+\chapter*{Selbständigkeitserklärung}
+Hiermit versichere ich, dass ich die Dokumentation dieser Besonderen Lernleistung selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Die Stellen meiner Arbeit, die dem Wortlaut oder dem Sinne nach anderen Werken und Quellen, einschließlich Quellen aus dem Internet, entnommen sind, habe ich in jedem Fall unter Angabe der Quelle deutlich als Entlehnung kenntlich gemacht. Dasselbe gilt sinngemäß für Tabellen, Karten und Abbildungen. 
+
+Ort: 					Unterschrift:
+Datum: 		
 \chapter*{Anhang}
 Das HTML Dokument:
 \begin{lstlisting}[inputencoding={utf8},extendedchars=false]
