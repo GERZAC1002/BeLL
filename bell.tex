@@ -58,6 +58,7 @@
 \author{Gernot Zacharias}
 \subtitle{Webanwendung zum Finden eines optimalen Standortes durch Distanzminimierung mithilfe von Online-Kartendiensten}
 \begin{document}
+\pagenumbering{gobble}
 %\listoftodos
 \maketitle
 \cleardoublepage
@@ -77,30 +78,12 @@ Die Anwendung funktioniert sehr gut.%\todo{Fragebogen}
 Somit lässt sich auch der Treibstoffverbrauch reduzieren, was dem Geldbeutel und der Umwelt zu Gute kommt.
 Es gab auch positives Feedback von anderen Personen, die das Programm getestet haben.
 Allerdings bietet die Anwendung auch noch viel Spielraum für individuelle Erweiterungen, Verbesserungen und Änderungen.
-\setcounter{page}{1}
 \tableofcontents
 %\chapter* {Inhaltsverzeichnis}
-\chapter*{Abkürzungsverzeichnis}
-\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
-\begin{tabularx}{\textwidth}{lX}
-\toprule
-\textrm{Begriff}                &\textrm{Erklärung des Begriffs}\\
-\midrule
-API		&Application Programming Interface\\
-CSS		&Cascading Style Sheets\\
-GIS		&Geographic Information System \\
-HTML	&Hypertext Markup Language\\
-HTTP	&Hypertext Transfer Protocol\\
-HTTPS	&Hypertext Transfer Protocol Secure\\
-JS		&JavaScript\\
-PNG		&Portable Network Graphic\\
-%WGS84	&52\\
-WWW		&World Wide Web\\
-
-\bottomrule
-\end{tabularx}
 
 \chapter{Einleitung}
+\setcounter{page}{1}
+\pagenumbering{arabic}
 \section{Gegenstand und Motivation}
 \subsection{Gegenstand}
 %\todo{Verdoppelung von "sich einen möglichst kurzen Weg". Stört mich nicht aber eventuell den Deutschlehrer.}
@@ -137,8 +120,8 @@ Auf dieser kann dann der Nutzer Orte uswählen und angeben, wie oft er diese ans
 \includegraphics[width=\linewidth]{qgis_oberflaeche.png}
 \caption{Screenshot von QGIS 3.10 mit geladener Openstreetmap Karte}
 \end{figure}
-Die WIGeoGIS\footnote{\url{https://www.wigeogis.com} [02.04.2019 10:58]} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
-Auch bieten sie eine kostenpflichtige Erweiterung des OpenSource Programms QGIS an, um Kunden Daten zur Marktlage oder Bevölkerung zur Verfügung zu stellen.
+Die WIGeoGIS\cite{wigeogis} Softwareerstellungs- und Handelsgesellschaft m.b.H. bietet verschiedene Services für Kunden aus dem Industriesektor an, unter anderem WebGIS zur Datenanalyse, die über verschiedene Schnittstellen eingebunden werden können, auf digitalen Landkarten. 
+Auch bieten sie eine kostenpflichtige Erweiterung des OpenSource Programms QGIS(Abb. 1.1) an, um Kunden Daten zur Marktlage oder Bevölkerung zur Verfügung zu stellen.
 Das als Opensource verfügbare Programm QGIS ist für Laien recht unübersichtlich und hat einen großen Funktionsumfang.
 Bei der Anwendung handelt es sich auch nicht um eine Webanwendung, wodurch der Nutzer zusätzlich Software herunterladen muss.\\
 
@@ -147,9 +130,11 @@ Bei der Anwendung handelt es sich auch nicht um eine Webanwendung, wodurch der N
 Das WWW oder World Wide Web\cite{berners1992world} durch die Vereinigung von Hypertext, Informationsabrufen und dem WAN(Wide Area Network).
 Das Internet ist das größte öffentlich zugägnliche WAN und wird oft mit dem WWW gleichgesetzt.
 \section{HTML}
-Die Hyper Text Markup Language (HTML) ist die benutzte Sprache im WWW und beschreibt eine Textdatei oder ein Textstream der vom Server an den Client geschickt wird und zwischengespeichert wird.
-Diese Textdatei wird dann von einem Browser analysiert und zeigt dem Endnutzer die enthaltenen Informationen mit entsprechender Formatierung an.
-Reine HTML Webseiten besitzten wenig dynamischen Elemente und bieten dem Nutzer weniger Interaktionsmöglichkeiten als Seiten mit integrierten Skripten.
+Die Hyper Text Markup Language (HTML) ist die benutzte Sprache im WWW.
+HTML wurde zur Gliederung und Formattierung für wissenschaftliche Dokumente entwickelt.
+Die Anpassungsmöglichkeit von HTML führte zu Verwendung für andere Dokumente bishin zu Programmen.
+Ein HTML Dokument besteht aus Elementen, die "Tags" gennant werden und aus Text.
+Diese Tags können Attribute besitzen, die festlegen wie sich das Element verhält.\cite{htmlspec}
 \section{JavaScript}
 JavaScript ist eine Scriptsprache, welche direkt in eine HTML Datei über das \verb+<script>...</script>+ -tag eingebunden werden kann.
 Dieser Bereich wird meist von einem Unterprogramm des Browsers ausgeführt und lädt beispielsweise Bilder oder andere Daten nach.
@@ -159,14 +144,14 @@ Da JavaScript eine Programmiersprache ist, können auch Berechnungen ausgeführt
 %\section{Kartenprojektion}
 %Die Karte von OpenStreetMap nutzt die Merkatorprojektion
 \section{Google Maps}
-Google Maps\footnote{\url{https://www.google.com/maps/} [18.06.2019 11:18]} ist der bekannste Online Kartendienst und bietet viele Möglichkeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
-Allerdings benötigt man zur Nutzung der Google Maps API\footnote{\url{https://cloud.google.com/maps-platform/} [18.06.2019 15:42]} einen benutzerbezogenen Key, welchen man nur gegen Angabe von Kreditkarten Informationen erstellen kann.
+Google Maps\cite{gmaps} ist der bekannste Online Kartendienst und bietet viele Möglichkeiten zum erstellen von dynamischen Kartendarstellungen auf der eigenen Webseite.
+Allerdings benötigt man zur Nutzung der Google Maps API\cite{gmapsapi} einen benutzerbezogenen Key, welchen man nur gegen Angabe von Kreditkarten Informationen erstellen kann.
 \section{Open Street Map}
-Open Street Maps\footnote{\url{https://www.openstreetmap.org/about}  [02.04.2019 11:01]} spielt im Vergleich mit Google Maps eine untergeordnete Rolle.
+Open Street Maps\cite{osm2}
 Dafür bietet Open Street Maps freies Kartenmaterial an und es steht eine große Menge an freien APIs.
-In meinem Prototypen setze ich auf Leafelet\footnote{\url{https://leafletjs.com/} [18.06.2019 15:07]}, welches die Kartendaten über eine externe Webseite bezieht.
+In meinem Prototypen setze ich auf Leaflet\cite{leaflet}, welches die Kartendaten über eine externe Webseite bezieht.
 Die Anwendung nutzt einen Server von OpenStreetMap.
-Für intensive Nutzung sollte die Nutzung eines anderen Servers in Betracht gezogen werden, da die Server Spenden finanziert sind und nicht für übermäßige Nutzung ausgelegt sind.\footnote{\url{https://wiki.openstreetmap.org/wiki/DE:Tile_usage_policy} [13.12.2019 21:10]}
+Für intensive Nutzung sollte die Nutzung eines anderen Servers in Betracht gezogen werden, da die Server Spenden finanziert sind und nicht für übermäßige Nutzung ausgelegt sind.\cite{osm}
 %\section{Gegenüberstellung von Google Maps und Open Street Maps}
 
 \chapter{Algorithmus}
@@ -350,23 +335,24 @@ Die Webanwendung zeigt, wie im nachfolgenden Bild zusehen ist, eine Karte mit de
 \includegraphics[width=\linewidth]{bell1_1.png}
 \caption{Screenshot von der Anwendung}
 \end{figure}\\
-Auf dieser Karte können nun Orte angeklickt werden, woraufhin ein Marker an der entsprechenden Position gesetzt wird. Auch wird direkt ein Mittelpunkt berechnet der sich aus den Standartwerten der Marker berechnen lässt.\\
+Auf dieser Karte können nun Orte angeklickt werden, woraufhin ein Marker an der entsprechenden Position gesetzt wird. Auch wird direkt ein Mittelpunkt berechnet der sich aus den Standartwerten der Marker berechnen lässt.(Abb. 5.2)\\
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{bell2_1.png}
 \caption{Screenshot von der Anwendung mit gesetzten Markern}
 \end{figure}
-\\\\\\\\
-Um die Priorität eines Markers zu ändern muss man diesen anklicken und dort die Priorität im Eingabefeld ändern. Auch kann man in dem Popup einen Knopf zum Entfernen des Markers drücken, falls man ihn nicht mehr braucht.\\
+\\
+Um die Priorität eines Markers zu ändern muss man diesen anklicken und dort die Priorität im Eingabefeld ändern. Auch kann man in dem Popup einen Knopf zum Entfernen des Markers drücken, falls man ihn nicht mehr braucht.(Abb. 5.3)\\
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{bell3_1.png}\caption{Screenshot von der Anwendung mit Marker Popup}
 \end{figure}
-Falls man eine andere Quelle für das Kartenmaterial auswählt, wird die alte Karte durch die neue ersetzt.
+Falls man eine andere Quelle für das Kartenmaterial auswählt, wird die alte Karte durch die Neue ersetzt. (Abb. 5.4)
 \begin{figure}
 \includegraphics[width=\linewidth]{bell4_1.png}
 \caption{Screenshot von der Anwendung mit anderer Quelle}
 \end{figure}
 \chapter{Diskussion}
 \section{Auswertung}
+Durch die Anwendung lassen sich die Wege zu den Orten die man häufig besucht verkürzt.
 Die Anwendung ist vor allem für Personen/Dienstleister geeignet, die keine besonderen Ansprüche an den Standort haben.
 Vorallem Wohnvorlieben wie das Leben auf dem Land oder in der Nähe der Familie werden nicht beachtet, da dies sich meist nicht mit kurzen Fahrtwegen deckt.
 Auch für Pendler ist diese Anwendung uninteressant, da bei diesen ihr Arbeitsort als neuer Wohnsitz vorgeschlagen wird.
@@ -378,6 +364,26 @@ Momentan berechnet die Anwendung die Entfernungen nur per Luftlinie und lässt S
 Somit besteht noch viel Spielraum für die Erweiterung der Anwendung, zum Beispiel Integration von einem Wegfindealgorithmus, einer veränderten Distanzrechnung(beispielsweise über die gebrauchte Zeit, ...).
 Die Integration von Mietpreisen könnte auch bei der Entscheidung über den Standort helfen.
 Auch die Speicherung der durch den Nutzer eingegebenen Daten in Cookies oder auf dem Server würde die Nutzerfreundlichkeit erhöhen. Oder man entwickelt eine Anwendung für Smartphones, die die Standortdaten über einen gewissen Zeitraum sammelt und diese Daten dann verarbeitet.
+\chapter*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textrm{Begriff}                &\textrm{Erklärung des Begriffs}\\
+\midrule
+API		&Application Programming Interface\\
+Abb		&Abbildung\\
+CSS		&Cascading Style Sheets\\
+GIS		&Geographic Information System \\
+HTML	&Hypertext Markup Language\\
+HTTP	&Hypertext Transfer Protocol\\
+HTTPS	&Hypertext Transfer Protocol Secure\\
+JS		&JavaScript\\
+PNG		&Portable Network Graphic\\
+%WGS84	&52\\
+WWW		&World Wide Web\\
+
+\bottomrule
+\end{tabularx}
 \bibliographystyle{abbrvdin}
 \bibliography{bell}
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
@@ -395,213 +401,4 @@ Dasselbe gilt sinngemäß für Tabellen, Karten und Abbildungen.\\\\
 Ort: & Unterschrift:\\
 Datum:\\
 \end{tabularx}
-\chapter*{Anhang}
-Das HTML Dokument:
-\begin{lstlisting}[inputencoding={utf8},extendedchars=false]
-<!DOCTYPE html>
-<html lang="de">
-	<head>
-		<title>Bell Projekt</title>
-		<style>
-			#map {
-				height: 80vh;
-			}
-			textarea {
-				resize: none;
-			}
-			h1 {
-				color: #ff0000;
-			}
-			article {
-				background-color: white;
-				height: 20%;
-			}
-		</style>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="leaflet/leaflet.css" crossorigin=""/>
-		<script src="leaflet/leaflet.js"></script>
-	</head>
-	<body style="background-color: black;" >
-		<noscript>
-			<h1>Zur Nutzung der Seite aktivieren Sie bitte JavaScript in ihrem Browser</h1>
-		</noscript>
-		<article>
-			<b>Gewichtete Standortbestimmung</b>
-			<br>Die Anwendung berechnet den gewichteten Mittelpunkt aus gegebenen Orten und deren Priorität. Orte werden durch einen Klick auf die Karte platziert und deren Priorität kann uber ein Popupmenü geändert werden. Die Priorität kann beliebig interpretiert werden, z.B. als Fahrten pro Woche zum gegebenen Ort oder die Anzahl der Kunden.
-			<br>
-			Auswahl der Kartenquelle:
-			<select id="tilequelle" onload="changelayer()" onchange="changelayer()">
-				<option value="osm.org" selected="selected">
-					osm.org
-				</option>
-				<option value="lokal4umaps">
-					Lokal: 4uMaps
-				</option>
-				<option value="lokalosmtransport">
-					Lokal: OSM Transport
-				</option>
-			</select>
-		</article>
-		<div id="map"></div>
-		<script src="js/leafscript1.js" type = "text/javascript"></script>
-	</body>
-</html>
-\end{lstlisting}
-leafscript1.js
-\begin{lstlisting}
-function check_es6(){
-	try{
-		const nul = 0;
-	}catch(e){
-		throw new Error('Fehler: Browser unterstützt kein ES6');
-	}
-}
-const mymap = L.map('map').setView([51.33918, 12.38105], 12);
-let tilelayer = new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {
-	maxZoom: 20,
-	minZoom: 5,
-	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(mymap);
-
-let marker;
-let markers = [];
-let kreis1;
-let kreis2;
-let kreis3;
-
-function changelayer(){
-	const layer = document.getElementById("tilequelle").value;
-	try{
-		mymap.removeLayer(tilelayer);
-	}catch(e){}
-	switch(layer){
-		case "osm.org":
-			tilelayer = new L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png?lang=de', {
-				maxZoom: 20,
-				minZoom: 5,
-				attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-			}).addTo(mymap);
-			break;
-		case "lokal4umaps":
-			tilelayer = new L.tileLayer('http://127.0.0.1/4uMaps/{z}/{x}/{y}.jpg.tile', {
-				maxZoom: 15,
-				minZoom: 5,
-			}).addTo(mymap);
-			break;
-		case "lokalosmtransport":
-			tilelayer = new L.tileLayer('http://127.0.0.1/OSMPublicTransport/{z}/{x}/{y}.jpg.tile', {
-				maxZoom: 16,
-				minZoom: 5,
-			}).addTo(mymap);
-			break;
-	}
-}
-
-function on_Map_Click(e){
-	let id;
-	if (markers.length < 1) {
-		id = 0;
-	}else {
-		id = markers[markers.length - 1]._id + 1;
-	}
-	marker = new L.marker(e.latlng, {draggable:false}).addTo(mymap);
-	marker._id = id;
-	marker._prio = 5;
-	marker.bindPopup('<b>Marker '
-		+ marker._id
-		+'</b><br>'
-		+ 'Priorität:'
-		+ '<br><input id="input" type="number" autofocus="autofocus" value="'
-		+ marker._prio
-		+ '" oninput="change_marker('
-		+ marker._id
-		+', this.value)" placeholder="Priorität" min="0" max="1000" />'
-		+ '<br>==========================<br>'
-		+ '<input type="button" value="Entferne Marker" onclick="clear_marker('
-		+ marker._id
-		+ ')" />'
-	);//Marker bekommt ein Popup zugewiesen
-	mymap.addLayer(marker);//Marker wird Karte hizugefügt
-	markers.push(marker);
-	center();
-}
-
-function center(){
-	if(kreis1&&kreis2&&kreis3){
-		mymap.removeLayer(kreis1);//Entferne Kreis 1
-		mymap.removeLayer(kreis2);//Entferne Kreis 2
-		mymap.removeLayer(kreis3);//Entferne Kreis 3
-	}
-	const add = (a,b)=>a+b;
-	const prioSum = markers.map(m => m._prio).reduce(add,0);
-	const lat = markers.map(m => m._latlng.lat * m._prio).reduce(add,0)/prioSum;
-	const lng = markers.map(m => m._latlng.lng * m._prio).reduce(add,0)/prioSum;
-	kreis1 = L.circle([lat, lng], {
-		color: 'green',
-		fillColor: '#00ff00',
-		fillOpacity: 0.2,
-		radius: 1000,
-	}).addTo(mymap);
-	kreis2 = L.circle([lat, lng], {
-		color: 'yellow',
-		fillColor: '#ffff00',
-		fillOpacity: 0.3,
-		radius: 500,
-	}).addTo(mymap);
-	kreis3 = L.circle([lat, lng], {
-		color: 'red',
-		fillColor: '#f03',
-		fillOpacity: 0.5,
-		radius: 100,
-	}).addTo(mymap);
-}
-
-function clear_marker(id){
-	const new_markers = [];
-	markers.forEach(function(marker){
-		if (marker._id === id) {
-			mymap.removeLayer(marker);
-		}else {
-			new_markers.push(marker);
-		}
-	});
-	markers = new_markers;
-	if(markers.length > 0){
-		center();
-	}else{
-		mymap.removeLayer(kreis1);
-		mymap.removeLayer(kreis2);
-		mymap.removeLayer(kreis3);
-	}
-}
-
-function change_marker(id, prio){
-	const new_markers = [];
-	markers.forEach(function(marker){
-		if(marker._id === id){
-			marker._prio = parseInt(prio);
-			marker._popup.setContent('<b>Marker '
-				+ marker._id +'</b><br>'
-				+ 'Priorität:'
-				+ '<br><input type="number" id="input" value="'
-				+ marker._prio
-				+ '" oninput="change_marker('
-				+ marker._id
-				+', this.value)" placeholder="Priorität" min="0" max="1000" />'
-				+ '<br>==========================<br>'
-				+ '<input type="button" value="Entferne Marker" onclick="clear_marker('
-				+ marker._id
-				+')" />'
-			);
-		}
-		new_markers.push(marker);
-	});
-	markers = new_markers;
-	center();//Führe Funktion center() aus
-	document.getElementById("input").click();
-	document.getElementById("input").focus();
-}
-
-mymap.on('click', on_Map_Click);
-\end{lstlisting}
 \end{document}
